@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { SellerData } from '@/lib/sellerDataExtractor';
@@ -17,6 +17,8 @@ export default function NavBar({ data }: { data: SellerData }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const { scrollY } = useScroll();
+  const navBg = useTransform(scrollY, [0, 100], [0, 1]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,94 +43,108 @@ export default function NavBar({ data }: { data: SellerData }) {
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg' : 'bg-transparent'
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      style={{ opacity: useTransform(navBg, [0, 1], [0.95, 1]) }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-background/80 backdrop-blur-2xl shadow-[0_4px_30px_-10px_hsl(var(--brand-warm)/0.15)] border-b border-border/50'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-im-blue to-im-green flex items-center justify-center">
-              <span className="text-white font-bold text-sm">IM</span>
-            </div>
-            <span className={`font-bold text-lg hidden sm:block ${scrolled ? 'text-foreground' : 'text-white'}`}>
-              IndiaMART
+          <a href="#hero" className="flex items-center gap-2.5 shrink-0 group">
+            <motion.div
+              whileHover={{ rotate: 10, scale: 1.1 }}
+              className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
+            >
+              <span className="text-primary-foreground font-bold text-sm">JI</span>
+            </motion.div>
+            <span className={`font-bold text-lg hidden sm:block transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}>
+              {data.sellerName.split(' ')[0]}
             </span>
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 bg-background/40 backdrop-blur-lg rounded-full p-1 border border-border/30">
             {NAV_LINKS.map(link => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeSection === link.href.slice(1)
-                    ? 'bg-im-green text-white shadow-md'
+                    ? 'text-primary-foreground'
                     : scrolled
-                    ? 'text-foreground hover:bg-muted'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                    ? 'text-foreground/70 hover:text-foreground'
+                    : 'text-white/70 hover:text-white'
                 }`}
               >
-                {link.label}
+                {activeSection === link.href.slice(1) && (
+                  <motion.div
+                    layoutId="navPill"
+                    className="absolute inset-0 rounded-full bg-primary shadow-lg"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{link.label}</span>
               </a>
             ))}
           </div>
 
-          {/* CTAs */}
           <div className="hidden md:flex items-center gap-2">
             <Button variant="outline" size="sm" asChild
-              className={`rounded-full ${!scrolled ? 'border-white/30 text-white hover:bg-white/10' : ''}`}>
+              className={`rounded-full transition-all duration-300 ${!scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'hover:border-primary hover:text-primary'}`}>
               <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
             </Button>
-            <Button size="sm" asChild className="rounded-full bg-im-green hover:bg-im-green/90 text-white glow-green">
+            <Button size="sm" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground glow-warm">
               <a href={quoteHref}><MessageSquare className="w-4 h-4 mr-1" /> Get Quote</a>
             </Button>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 rounded-lg"
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            className="md:hidden p-2 rounded-xl"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen
               ? <X className={`w-6 h-6 ${scrolled ? 'text-foreground' : 'text-white'}`} />
               : <Menu className={`w-6 h-6 ${scrolled ? 'text-foreground' : 'text-white'}`} />
             }
-          </button>
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border"
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background/95 backdrop-blur-2xl border-t border-border/50"
           >
             <div className="px-4 py-3 space-y-1">
-              {NAV_LINKS.map(link => (
-                <a
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     activeSection === link.href.slice(1)
-                      ? 'bg-im-green text-white'
+                      ? 'bg-primary text-primary-foreground'
                       : 'text-foreground hover:bg-muted'
                   }`}
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
-              <div className="flex gap-2 pt-2">
+              <div className="flex gap-2 pt-3">
                 <Button variant="outline" size="sm" asChild className="flex-1 rounded-full">
                   <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
                 </Button>
-                <Button size="sm" asChild className="flex-1 rounded-full bg-im-green text-white">
+                <Button size="sm" asChild className="flex-1 rounded-full bg-primary text-primary-foreground">
                   <a href={quoteHref}><MessageSquare className="w-4 h-4 mr-1" /> Quote</a>
                 </Button>
               </div>

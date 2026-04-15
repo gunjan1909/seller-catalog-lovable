@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Instagram, Youtube, Heart, MessageCircle, Play, ExternalLink, X } from 'lucide-react';
+import { Instagram, Youtube, Heart, MessageCircle, Play, X, Zap } from 'lucide-react';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
 type Platform = 'instagram' | 'youtube';
@@ -9,6 +9,9 @@ type Platform = 'instagram' | 'youtube';
 export default function SocialPosts({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
   const [videoModal, setVideoModal] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   const hasIg = data.igPosts.length > 0;
   const hasYt = data.allYtVideos.length > 0;
@@ -30,39 +33,45 @@ export default function SocialPosts({ data }: { data: SellerData }) {
   };
 
   return (
-    <section id="social" ref={ref} className="py-16 sm:py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-            <Instagram className="w-7 h-7 text-im-blue" />
-            Latest Updates
-          </h2>
+    <section id="social" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+      <motion.div style={{ y: parallaxY }} className="absolute left-0 bottom-0 w-[400px] h-[400px] rounded-full opacity-[0.04] pointer-events-none">
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-brand-rose to-primary" />
+      </motion.div>
 
-          {/* Platform toggle */}
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="flex items-center gap-3 mb-10">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-rose/10 to-primary/10 flex items-center justify-center">
+              <Zap className="w-5 h-5 text-brand-rose" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Latest Updates</h2>
+          </div>
+
           {platforms.length > 1 && (
             <div className="flex gap-2 mb-8">
               {platforms.map(p => (
-                <button
+                <motion.button
                   key={p}
                   onClick={() => setActivePlatform(p)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
                     ${activePlatform === p
-                      ? 'bg-im-blue text-white shadow-lg'
-                      : 'bg-card border border-border text-foreground hover:bg-muted'
+                      ? 'bg-primary text-primary-foreground shadow-lg'
+                      : 'bg-card border border-border/50 text-foreground hover:border-primary/30'
                     }`}
                 >
                   {p === 'instagram' ? <Instagram className="w-4 h-4" /> : <Youtube className="w-4 h-4" />}
                   {p === 'instagram' ? 'Instagram' : 'YouTube'}
-                </button>
+                </motion.button>
               ))}
             </div>
           )}
 
-          {/* Instagram Posts */}
           {activePlatform === 'instagram' && (
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -72,10 +81,11 @@ export default function SocialPosts({ data }: { data: SellerData }) {
                     href={post.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: i * 0.08 }}
-                    className="card-3d group rounded-2xl overflow-hidden border border-border bg-card"
+                    transition={{ delay: i * 0.08, duration: 0.5 }}
+                    whileHover={{ y: -5 }}
+                    className="group rounded-2xl overflow-hidden border border-border/50 bg-card hover:shadow-xl transition-all duration-300"
                   >
                     {post.displayUrl && (
                       <div className="aspect-square relative overflow-hidden">
@@ -83,21 +93,24 @@ export default function SocialPosts({ data }: { data: SellerData }) {
                           src={post.displayUrl}
                           alt={post.caption?.slice(0, 50)}
                           loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}
                         />
                         {post.type === 'Video' && (
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center">
-                              <Play className="w-5 h-5 text-im-blue fill-im-blue ml-0.5" />
+                            <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                              <Play className="w-5 h-5 text-primary fill-primary ml-0.5" />
                             </div>
                           </div>
                         )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                     )}
                     <div className="p-4">
                       <div className="flex items-center gap-3 mb-2">
-                        <Instagram className="w-4 h-4 text-pink-500" />
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                          <Instagram className="w-3 h-3 text-white" />
+                        </div>
                         <span className="text-xs text-muted-foreground">{formatDate(post.timestamp)}</span>
                       </div>
                       <p className="text-sm text-foreground line-clamp-3">{post.caption?.slice(0, 120)}{post.caption && post.caption.length > 120 ? '...' : ''}</p>
@@ -110,45 +123,55 @@ export default function SocialPosts({ data }: { data: SellerData }) {
                 ))}
               </div>
               {data.secondaryIG && (
-                <p className="text-sm text-muted-foreground mt-6 text-center">
-                  Also follow us on Instagram:{' '}
-                  <a href={data.secondaryIG.url} target="_blank" rel="noopener noreferrer" className="text-im-blue hover:underline">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.5 }}
+                  className="text-sm text-muted-foreground mt-6 text-center"
+                >
+                  Also follow us:{' '}
+                  <a href={data.secondaryIG.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
                     @{data.secondaryIG.username}
                   </a>
-                </p>
+                </motion.p>
               )}
             </div>
           )}
 
-          {/* YouTube Videos */}
           {activePlatform === 'youtube' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {data.allYtVideos.map((vid, i) => (
                 <motion.div
                   key={vid.videoId}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: i * 0.1 }}
-                  className="card-3d group rounded-2xl overflow-hidden border border-border bg-card cursor-pointer"
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -5 }}
+                  className="group rounded-2xl overflow-hidden border border-border/50 bg-card cursor-pointer hover:shadow-xl transition-all duration-300"
                   onClick={() => setVideoModal(vid.videoId)}
                 >
-                  <div className="aspect-video relative">
+                  <div className="aspect-video relative overflow-hidden">
                     <img
                       src={vid.thumbnailUrl}
                       alt={vid.title}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       onError={(e) => { (e.target as HTMLImageElement).src = `https://i.ytimg.com/vi/${vid.videoId}/hqdefault.jpg`; }}
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 text-red-600 fill-red-600 ml-1" />
-                      </div>
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-xl backdrop-blur-sm"
+                      >
+                        <Play className="w-6 h-6 text-primary-foreground fill-primary-foreground ml-0.5" />
+                      </motion.div>
                     </div>
                   </div>
                   <div className="p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <Youtube className="w-4 h-4 text-red-500" />
+                      <div className="w-6 h-6 rounded-md bg-red-600 flex items-center justify-center">
+                        <Youtube className="w-3.5 h-3.5 text-white" />
+                      </div>
                       <span className="text-xs text-muted-foreground">{formatDate(vid.date)}</span>
                     </div>
                     {vid.title && <p className="text-sm font-medium text-foreground line-clamp-2">{vid.title}</p>}
@@ -161,20 +184,30 @@ export default function SocialPosts({ data }: { data: SellerData }) {
       </div>
 
       {videoModal && (
-        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onClick={() => setVideoModal(null)}>
-          <button className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded-full" onClick={() => setVideoModal(null)}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={() => setVideoModal(null)}
+        >
+          <button className="absolute top-4 right-4 text-white p-2.5 hover:bg-white/10 rounded-full" onClick={() => setVideoModal(null)}>
             <X className="w-6 h-6" />
           </button>
-          <div className="w-full max-w-3xl aspect-video" onClick={e => e.stopPropagation()}>
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            className="w-full max-w-3xl aspect-video"
+            onClick={e => e.stopPropagation()}
+          >
             <iframe
               src={`https://www.youtube.com/embed/${videoModal}?autoplay=1`}
               title="Video"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              className="w-full h-full rounded-xl"
+              className="w-full h-full rounded-2xl"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </section>
   );
