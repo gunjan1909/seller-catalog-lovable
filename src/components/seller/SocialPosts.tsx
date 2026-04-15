@@ -12,13 +12,14 @@ export default function SocialPosts({ data }: { data: SellerData }) {
 
   const hasIg = data.igPosts.length > 0;
   const hasYt = data.allYtVideos.length > 0;
-  if (!hasIg && !hasYt) return null;
 
   const platforms: Platform[] = [];
   if (hasIg) platforms.push('instagram');
   if (hasYt) platforms.push('youtube');
 
-  const [activePlatform, setActivePlatform] = useState<Platform>(platforms[0]);
+  const [activePlatform, setActivePlatform] = useState<Platform>(hasIg ? 'instagram' : 'youtube');
+
+  if (!hasIg && !hasYt) return null;
 
   const formatDate = (ts: string) => {
     if (!ts) return '';
