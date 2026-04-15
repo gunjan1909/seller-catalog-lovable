@@ -11,7 +11,11 @@ function getPrimaryInstagram() {
   if (!igNodes.length) return null;
   return igNodes.reduce((best: any, n: any) => {
     const fc = n.raw_scrape_payload?.followerscount || 0;
-    return fc > (best?.raw_scrape_payload?.followerscount || 0) ? n : best;
+    const bestFc = best?.raw_scrape_payload?.followerscount || 0;
+    if (fc !== bestFc) return fc > bestFc ? n : best;
+    const posts = n.raw_scrape_payload?.latestposts?.length || 0;
+    const bestPosts = best?.raw_scrape_payload?.latestposts?.length || 0;
+    return posts > bestPosts ? n : best;
   }, igNodes[0]);
 }
 
@@ -32,6 +36,14 @@ export function extractSellerData() {
   const fbNodes = getNodesByPlatform('facebook');
   const ytNodes = getNodesByPlatform('youtube');
   const fb = fbNodes[0]?.raw_scrape_payload || {};
+  const parseSocialCount = (value: unknown) => {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'string') {
+      const cleaned = value.replace(/,/g, '').match(/[\d.]+/g)?.join('') || '';
+      return cleaned ? Number(cleaned) : 0;
+    }
+    return 0;
+  };
 
   // Identity
   const sellerName = ref.business_name || sc.business_names?.[0]?.value || ri.businessName || 'Seller';
@@ -92,14 +104,14 @@ export function extractSellerData() {
 
   // Instagram posts (primary account only)
   const igPosts = (primaryIG?.raw_scrape_payload?.latestposts || [])
-    .sort((a: any, b: any) => (b.timestamp || '').localeCompare(a.timestamp || ''))
+    .sort((a: any, b: any) => new Date(b.timestamp || 0).getTime() - new Date(a.timestamp || 0).getTime())
     .slice(0, 12)
     .map((p: any) => ({
       id: p.id,
       type: p.type,
       caption: p.caption || '',
       url: p.url,
-      displayUrl: p.displayurl || '',
+      displayUrl: p.displayurl || p.images?.[0] || '',
       images: p.images || [],
       videoUrl: p.videourl || '',
       likesCount: p.likescount || 0,
@@ -190,6 +202,9 @@ export function extractSellerData() {
   const indiamartRating = ri.rating ? parseFloat(ri.rating) : null;
   const fbRating = fb.ratingoverall ? parseFloat(fb.ratingoverall) : null;
   const fbRatingCount = fb.ratingcount || 0;
+  const facebookFollowers = parseSocialCount(fb.followers);
+  const facebookLikes = parseSocialCount(fb.likes);
+  const instagramFollowers = parseSocialCount(primaryIG?.raw_scrape_payload?.followerscount);
 
   // Trust badges
   const trustBadges: { label: string; icon: string; url?: string; scrollTo?: string }[] = [];
@@ -262,6 +277,9 @@ export function extractSellerData() {
     indiamartRating,
     fbRating,
     fbRatingCount,
+    facebookFollowers,
+    facebookLikes,
+    instagramFollowers,
     trustBadges,
     certifications,
     linktreeUrl: socialLinks.linktree,

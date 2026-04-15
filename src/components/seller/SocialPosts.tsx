@@ -6,6 +6,42 @@ import type { SellerData } from '@/lib/sellerDataExtractor';
 
 type Platform = 'instagram' | 'youtube';
 
+function InstagramVisual({ src, alt, isVideo }: { src?: string; alt: string; isVideo: boolean }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return (
+      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--accent)/0.2),transparent_45%)]" />
+        <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 px-6 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-border/70 bg-card/80 text-primary">
+            <Instagram className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="text-sm font-medium text-foreground">Instagram post</p>
+            <p className="mt-1 text-xs text-muted-foreground">Preview unavailable, details still visible below</p>
+          </div>
+        </div>
+        {isVideo && <div className="absolute right-4 top-4 rounded-full bg-background/75 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground backdrop-blur-sm">Reel</div>}
+      </div>
+    );
+  }
+
+  return (
+    <div className="aspect-square relative overflow-hidden">
+      <img src={src} alt={alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={() => setFailed(true)} />
+      {isVideo && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm shadow-lg">
+            <Play className="h-5 w-5 text-primary fill-primary ml-0.5" />
+          </div>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+    </div>
+  );
+}
+
 export default function SocialPosts({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
   const [videoModal, setVideoModal] = useState<string | null>(null);
@@ -85,31 +121,13 @@ export default function SocialPosts({ data }: { data: SellerData }) {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: i * 0.08, duration: 0.5 }}
                     whileHover={{ y: -5 }}
-                    className="group rounded-2xl overflow-hidden border border-border/50 bg-card hover:shadow-xl transition-all duration-300"
+                    className="group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card/80 backdrop-blur-xl hover:shadow-[0_26px_80px_-40px_hsl(var(--brand-midnight)/0.9)] transition-all duration-300"
                   >
-                    {post.displayUrl && (
-                      <div className="aspect-square relative overflow-hidden">
-                        <img
-                          src={post.displayUrl}
-                          alt={post.caption?.slice(0, 50)}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}
-                        />
-                        {post.type === 'Video' && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                              <Play className="w-5 h-5 text-primary fill-primary ml-0.5" />
-                            </div>
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    )}
+                    <InstagramVisual src={post.displayUrl || post.images?.[0]} alt={post.caption?.slice(0, 50) || 'Instagram post'} isVideo={post.type === 'Video'} />
                     <div className="p-4">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                          <Instagram className="w-3 h-3 text-white" />
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+                          <Instagram className="h-3 w-3" />
                         </div>
                         <span className="text-xs text-muted-foreground">{formatDate(post.timestamp)}</span>
                       </div>
@@ -118,6 +136,7 @@ export default function SocialPosts({ data }: { data: SellerData }) {
                         <span className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {post.likesCount}</span>
                         <span className="flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" /> {post.commentsCount}</span>
                       </div>
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/45 px-3 py-1.5 text-xs font-medium text-foreground">View post on Instagram</div>
                     </div>
                   </motion.a>
                 ))}
