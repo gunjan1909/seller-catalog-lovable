@@ -1,16 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useMemo } from 'react';
+import NavBar from '@/components/seller/NavBar';
+import HeroSection from '@/components/seller/HeroSection';
+import AboutSection from '@/components/seller/AboutSection';
+import CategoryGrid from '@/components/seller/CategoryGrid';
+import MediaGallery from '@/components/seller/MediaGallery';
+import SocialPosts from '@/components/seller/SocialPosts';
+import ReviewsSection from '@/components/seller/ReviewsSection';
+import ContactSidebar from '@/components/seller/ContactSidebar';
+import Footer from '@/components/seller/Footer';
+import MobileCTA from '@/components/seller/MobileCTA';
+import { extractSellerData } from '@/lib/sellerDataExtractor';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const data = useMemo(() => extractSellerData(), []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <NavBar data={data} />
+      <HeroSection data={data} />
+      <AboutSection data={data} />
+      <CategoryGrid data={data} />
+      <MediaGallery data={data} />
+      <SocialPosts data={data} />
+      <ReviewsSection data={data} />
+      <ContactSidebar data={data} />
+      <Footer data={data} />
+      <MobileCTA data={data} />
+      {/* Spacer for mobile CTA */}
+      <div className="h-16 md:hidden" />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
