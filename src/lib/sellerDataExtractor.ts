@@ -23,10 +23,10 @@ function getSecondaryInstagram() {
 }
 
 export function extractSellerData() {
-  const ref = rawData._agent?.reference_profile || {};
-  const ri = rawData._agent?.raw_indiamart || {} as any;
-  const rg = rawData._agent?.raw_gst || {} as any;
-  const sc = rawData.seller_catalog || {} as any;
+  const ref = (rawData._agent?.reference_profile || {}) as any;
+  const ri = (rawData._agent as any)?.raw_indiamart || {} as any;
+  const rg = (rawData._agent as any)?.raw_gst || {} as any;
+  const sc = (rawData.seller_catalog || {}) as any;
   const primaryIG = getPrimaryInstagram();
   const secondaryIG = getSecondaryInstagram();
   const fbNodes = getNodesByPlatform('facebook');
