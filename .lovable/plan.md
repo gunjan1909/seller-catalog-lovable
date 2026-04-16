@@ -1,102 +1,80 @@
-# IndiaMART Seller Dynamic Catalog Page — JHAS Industries
 
-## Overview
 
-Build a fully dynamic, modern, catchy, responsive, single-page seller profile/catalog page for JHAS Industries using the provided JSON data. The page will be data-driven with no hardcoded seller info, following the complete spec from the uploaded document.
+# Full Page Revamp — Light Theme, forwardRef Fixes, and Updated Spec Compliance
 
-## Data Processing
+## Summary
+The updated doc mandates a **light theme** (white/off-white backgrounds, dark text), Instagram blockquote embeds instead of CDN images, improved reviews visibility, a revamped category section, and fixes for React.forwardRef deprecation errors. This is a comprehensive revamp touching every component and the CSS theme.
 
-- Copy the JSON file into the project as a static data source
-- Build a data extraction utility (`src/lib/sellerDataExtractor.ts`) that parses the JSON and normalizes all fields: seller identity, contacts, categories, social posts, images, videos, trust badges, reviews, certifications
-- Filter categories to exclude business-type labels (Manufacturer, Exporter, LEADER, etc.)
-- Select primary Instagram account by highest follower count (jhas_industries with 40 followers)
-- Sort social posts by timestamp descending, limit 5 per platform
+## Key Changes from Updated Doc
 
-## Page Sections (all conditionally rendered)
+### 1. Light Theme Overhaul (CRITICAL)
+The doc explicitly states: "The base background must be white, off-white, or a very light neutral (#FAFAFA, #F5F5F0). Never dark backgrounds on any primary section."
 
-### 1. Sticky Navigation Bar
+- **`src/index.css`**: Replace all dark CSS variables with a light palette. Background `#FAFAFA`, card `#FFFFFF`, text `#111111`, muted `#6B7280`. Section alternating backgrounds using `#F7F6F3`, `#F4F2FF`.
+- **`tailwind.config.ts`**: Update brand tokens to match: Primary accent `#1A1A1A` or `#2563EB`, secondary `#10B981`, highlight `#6366F1`, card border `#E5E7EB`, card shadow layered soft.
+- **`src/components/ui/button.tsx`**: Ensure all button variants have high-contrast text. No white-on-white.
+- **Font**: Switch headings from Space Grotosk to `Inter` + `DM Sans` as doc specifies.
 
-- IndiaMART logo left, scroll-spy anchor links (Overview | Categories | Gallery | Social | Reviews | Contact)
-- "Contact Seller" + "Get Quote" CTAs on right
-- Mobile hamburger menu, smooth scroll, active state highlighting
+### 2. Fix React.forwardRef Errors
+- **`MobileCTA.tsx`**: Remove `forwardRef` wrapper — use a regular component with a plain div. Framer Motion in React 18 handles refs via `motion.div` directly.
+- Check all components for similar patterns.
 
-### 2. Hero Section
+### 3. Instagram Posts — Blockquote Embeds
+The doc insists: "Do NOT use displayurl as src. Use blockquote embed with post permalink and load embed.js via IntersectionObserver."
 
-- Banner: Seller(Jhas Industries) banner from Youtube or facebook or instagram or linkedin, or if not there IndiaMART branded gradient fallback (#1A3A6E → #2B5197) with dark overlay
-- Circular avatar from Instagram `profilepicurlhd` (jhas_industries account)
-- Business name, tagline from Instagram biography, hero CTAs
-- Trust badge strip: IndiaMART Verified, Est. 1949, GSTIN, ISO 9001:2015, Manufacturer, City (Aligarh), product category count — all clickable with proper redirects
-- Owner info (Alok Jha), contact details
+- **`SocialPosts.tsx`**: Replace `<img src={displayUrl}>` cards with Instagram blockquote embeds (`<blockquote class="instagram-media" data-instgrm-permalink="{post.url}">`) and lazy-load `embed.js`. Show styled placeholder card while loading (caption, likes, timestamp, IG logo). If embed.js fails after 5s, keep placeholder.
 
-### 3. About / Business Summary
+### 4. Reviews Section — Visibility Fix
+- **`ReviewsSection.tsx`**: Show star ratings as visible colored stars (amber `#F59E0B`) against the light background. Display IndiaMART rating prominently with individual rating card. Show Facebook rating/followers/likes as separate cards with source badges. Ensure stars are SVG-filled and clearly visible.
 
-- Company description from IndiaMART raw data (HTML sanitized)
-- Business type chips (Manufacturer, Exporter)
-- Year of establishment (1949), certifications (ISO, GSTIN, D&B, SSI)
-- Website links, Linktree link
+### 5. Category Section Revamp
+Doc says: "Use asymmetric masonry, bento-box, or feature-card-plus-grid combos. Each tile should have 3D tilt, glow border, glassmorphism."
 
-### 4. Contact & CTA Section
+- **`CategoryGrid.tsx`**: Keep the editorial left panel + bento grid right layout but enhance with:
+  - White card backgrounds with subtle shadows (Linear/Framer style)
+  - Proper responsive grid: 4 cols at 1280px+, 3 cols at 1024-1279px, 2 cols at 768-1023px, 1 col below
+  - Remove emoji icons (doc says "no emoji, no SVG placeholders" for categories without images)
+  - Better hover: CSS perspective 3D tilt + glow border + scale
 
-- Sticky sidebar on desktop, fixed bottom bar on mobile
-- WhatsApp + Call CTAs (phone: 8505579174 — most sources)
-- Email: [security@jhas.in](mailto:security@jhas.in)
-- Address with Google Maps embed (lat: 27.87137, lng: 78.07276)
-- Social media icon row (Instagram, Facebook, YouTube, X/Twitter, LinkedIn)
-- Directory links (IndiaMART, JustDial)
+### 6. Hero Section Updates
+- Dark overlay gradient on banner: `linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.6) 100%)`
+- Ken Burns slow zoom animation on background
+- Trust badge marquee if badges overflow one line
+- All badges must be clickable with validated URLs
 
-### 5. Product Categories
+### 7. Splash Screen Polish
+- Use seller initials dynamically (not hardcoded "JI")
+- Minimum 1.2s, max 3s display
 
-- IndiaMART categories: Bag Seals, Bolt Seals, Cable Seals, Container Seals, etc. (14 product categories)
-- Other source categories: Security Seals, Sealing Solutions, Industrial Company
-- 3D hover effect cards with glassmorphism, responsive grid (4/3/2/1 cols)
-- "View All on IndiaMART" CTA linking to seller's IndiaMART profile
+### 8. All Components — Light Theme Adaptation
+Every component needs text/background color updates:
+- **NavBar**: White bg when scrolled, dark text; transparent with white text at top (over hero)
+- **AboutSection**: White/light background, dark text
+- **ContactSidebar**: Light cards, visible button text
+- **MediaGallery**: Light background, white cards
+- **Footer**: Can remain dark as contrast section
+- **MobileCTA**: Light-themed bottom bar
 
-### 6. Media Gallery
+### 9. Responsive Grid Fixes
+- Enforce `display: grid` with explicit `grid-template-columns` for categories and gallery
+- Categories: `repeat(4, 1fr)` at 1280px+, `repeat(3, 1fr)` at 1024px, `repeat(2, 1fr)` at 768px, `1fr` below
+- Gallery: `repeat(3, 1fr)` at 1024px+, `repeat(2, 1fr)` at 768px, `1fr` below
 
-- Images tab: Instagram post images, facebook post images, youtube videos/shorts thumbnails from all accounts, deduplicated
-- Videos tab: YouTube shorts (3 videos with iframe embeds), Instagram video/reel posts
-- Lightbox modal for full-size viewing, source badges on each card
-- Broken image handling via onerror → hide card
+## Files to Edit
+1. `src/index.css` — Complete light theme variables and utilities
+2. `tailwind.config.ts` — Brand tokens, animations
+3. `src/components/ui/button.tsx` — Contrast-safe variants
+4. `src/components/seller/MobileCTA.tsx` — Remove forwardRef
+5. `src/components/seller/SplashScreen.tsx` — Dynamic initials
+6. `src/components/seller/NavBar.tsx` — Light theme colors
+7. `src/components/seller/HeroSection.tsx` — Overlay gradient, Ken Burns
+8. `src/components/seller/TrustBadges.tsx` — Light theme pill styling
+9. `src/components/seller/AboutSection.tsx` — Light backgrounds
+10. `src/components/seller/CategoryGrid.tsx` — Revamp layout, remove emojis, white cards
+11. `src/components/seller/MediaGallery.tsx` — Light theme, grid fixes
+12. `src/components/seller/SocialPosts.tsx` — Instagram blockquote embeds
+13. `src/components/seller/ReviewsSection.tsx` — Visible stars, individual cards
+14. `src/components/seller/ContactSidebar.tsx` — Light cards
+15. `src/components/seller/Footer.tsx` — Minor polish
+16. `src/pages/Index.tsx` — Remove forwardRef usage on MobileCTA
 
-### 7. Social Posts Section
-
-- Platform toggle: Instagram (primary: jhas_industries, 5 most recent posts) + YouTube (3 shorts)
-- Instagram posts rendered as cards with displayurl image, caption (120 char truncated), likes, timestamp
-- YouTube videos as thumbnail cards with play button overlay → modal iframe embed
-- Secondary Instagram handle shown as "Also follow us" link
-
-### 8. Reviews Section
-
-- IndiaMART rating: 4.52 stars displayed with IndiaMART branding
-- Other sources shown separately if available (Facebook rating)
-- Collect ratings/reviews and display in cards with good modern UI, separate for IndiaMART reviews and any other sources.
-- No blended averages
-
-### 9. Footer
-
-- 3-column layout: Logo + business name, quick links, social icons
-- Mobile sticky CTA bar (WhatsApp + Call, full width)
-- "Powered by IndiaMART" branding
-
-## Design & UI
-
-- Color palette: Choose best modern practice or else use IndiaMART Green (#2EAB5B), Deep Blue (#1A3A6E), Amber (#F5A623) for ratings
-- Font: Inter + Segoe UI fallback stack
-- Glassmorphism cards, gradient buttons, hover animations (scale, glow, border effects)
-- CSS animations for scroll reveals and section transitions
-- Framer Motion for smooth entry animations
-- Responsive breakpoints: 7 levels from <360px to ≥1280px
-- Skeleton/shimmer loaders for pending sections
-
-## Libraries to Install
-
-- `framer-motion` — scroll animations, page transitions
-- `lucide-react` — icons (already available)
-- `react-intersection-observer` — scroll-spy and lazy loading
-
-## File Structure
-
-- `src/data/sellerData.json` — raw JSON data
-- `src/lib/sellerDataExtractor.ts` — data parsing/normalization
-- `src/pages/Index.tsx` — main page orchestrator
-- `src/components/seller/` — NavBar, HeroSection, AboutSection, ContactSidebar, CategoryGrid, MediaGallery, SocialPosts, ReviewsSection, Footer, MobileCTA, TrustBadges, LightboxModal, VideoModal
