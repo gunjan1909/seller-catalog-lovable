@@ -1,39 +1,33 @@
-import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle } from 'lucide-react';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
-const MobileCTA = forwardRef<HTMLDivElement, { data: SellerData }>(({ data }, ref) => {
+export default function MobileCTA({ data }: { data: SellerData }) {
   const whatsappUrl = `https://wa.me/91${data.primaryPhone.replace(/\D/g, '')}`;
 
   return (
     <motion.div
-      ref={ref}
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ delay: 1, type: 'spring', stiffness: 200, damping: 25 }}
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card/85 backdrop-blur-2xl border-t border-border/70 p-2.5"
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card/95 backdrop-blur-2xl border-t border-border p-2.5 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.1)]"
     >
       <div className="flex gap-2">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-secondary to-primary text-primary-foreground font-semibold text-sm shadow-[0_18px_40px_-20px_hsl(var(--secondary)/0.85)] active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold text-sm shadow-md active:scale-95 transition-transform"
         >
           <MessageCircle className="w-5 h-5" /> WhatsApp
         </a>
         <a
           href={`tel:${data.primaryPhone}`}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-[0_18px_40px_-20px_hsl(var(--primary)/0.85)] active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 transition-transform"
         >
           <Phone className="w-5 h-5" /> Call
         </a>
       </div>
     </motion.div>
   );
-});
-
-MobileCTA.displayName = 'MobileCTA';
-
-export default MobileCTA;
+}

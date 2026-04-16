@@ -23,7 +23,7 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
   const whatsappUrl = `https://wa.me/91${data.primaryPhone.replace(/\D/g, '')}?text=Hi, I found your profile and I'm interested in your products.`;
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 section-alt relative overflow-hidden">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -31,7 +31,7 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary/10 to-primary/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
               <Phone className="w-5 h-5 text-secondary" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Get in Touch</h2>
@@ -44,16 +44,15 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="space-y-5"
             >
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg"
-                  className="flex-1 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white h-14 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
+                  className="flex-1 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
                   </a>
                 </Button>
                 <Button asChild size="lg"
-                  className="flex-1 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
+                  className="flex-1 rounded-2xl h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all">
                   <a href={`tel:${data.primaryPhone}`}>
                     <Phone className="w-5 h-5 mr-2" /> Call Now
                   </a>
@@ -62,11 +61,11 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
 
               <motion.div
                 whileHover={{ y: -2 }}
-                className="rounded-2xl p-6 bg-card border border-border/50 space-y-4"
+                className="rounded-2xl p-6 bg-card border border-border shadow-sm space-y-4"
               >
                 {data.primaryPhone && (
                   <a href={`tel:${data.primaryPhone}`} className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group">
-                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                       <Phone className="w-4 h-4 text-primary" />
                     </div>
                     <span className="text-sm font-medium">+91 {data.primaryPhone}</span>
@@ -74,7 +73,7 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
                 )}
                 {data.email && (
                   <a href={`mailto:${data.email}`} className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group">
-                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                       <Mail className="w-4 h-4 text-primary" />
                     </div>
                     <span className="text-sm font-medium">{data.email}</span>
@@ -90,7 +89,7 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
                 )}
                 {data.website && (
                   <a href={data.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group">
-                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                       <Globe className="w-4 h-4 text-primary" />
                     </div>
                     <span className="text-sm font-medium">{data.website.replace(/https?:\/\//, '').replace(/\/$/, '')}</span>
@@ -98,7 +97,6 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
                 )}
               </motion.div>
 
-              {/* Social icons */}
               <div className="flex flex-wrap gap-2">
                 {Object.entries(data.socialLinks).map(([platform, url]) => {
                   if (!url) return null;
@@ -126,19 +124,18 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 3 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-border/50 hover:border-primary/30 hover:text-primary transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-border hover:border-primary/30 hover:text-primary transition-all"
               >
                 <ExternalLink className="w-3.5 h-3.5" /> IndiaMART Profile
               </motion.a>
             </motion.div>
 
-            {/* Map */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
               style={{ y: mapY }}
-              className="rounded-2xl overflow-hidden border border-border/50 h-80 md:h-auto min-h-[350px] shadow-lg"
+              className="rounded-2xl overflow-hidden border border-border h-80 md:h-auto min-h-[350px] shadow-sm"
             >
               <iframe
                 src={`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d${data.lng}!3d${data.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin`}

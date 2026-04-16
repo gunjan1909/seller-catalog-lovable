@@ -65,6 +65,7 @@ export default {
           sand: "hsl(var(--brand-sand))",
           rose: "hsl(var(--brand-rose))",
           midnight: "hsl(var(--brand-midnight))",
+          indigo: "hsl(var(--brand-indigo))",
         },
       },
       borderRadius: {
@@ -95,17 +96,22 @@ export default {
           "66%": { transform: "translateY(-6px) rotate(-1deg)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--brand-warm) / 0.2)" },
-          "50%": { boxShadow: "0 0 40px hsl(var(--brand-warm) / 0.4), 0 0 80px hsl(var(--brand-gold) / 0.1)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.15)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.25), 0 0 80px hsl(var(--accent) / 0.08)" },
         },
         "gradient-shift": {
           "0%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
-        "marquee": {
+        marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        "ken-burns": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.08) translate(-1%, -1%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
         },
       },
       animation: {
@@ -113,11 +119,12 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.7s ease-out forwards",
         "slide-in-right": "slide-in-right 0.3s ease-out",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
         "float-slow": "float 8s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "gradient-shift": "gradient-shift 8s ease infinite",
-        "marquee": "marquee 20s linear infinite",
+        marquee: "marquee 20s linear infinite",
+        "ken-burns": "ken-burns 20s ease-in-out infinite",
       },
     },
   },

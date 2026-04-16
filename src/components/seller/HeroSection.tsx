@@ -13,45 +13,21 @@ export default function HeroSection({ data }: { data: SellerData }) {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden grain">
-      {/* Parallax background */}
-      <motion.div className="absolute inset-0" style={{ y: bgY, scale }}>
+    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
+      {/* Ken Burns background */}
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
         {data.bannerUrl ? (
           <img
             src={data.bannerUrl}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover animate-ken-burns"
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-midnight via-brand-charcoal to-brand-midnight" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/60" />
       </motion.div>
-
-      {/* Animated decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ x: [0, 30, -20, 0], y: [0, -20, 10, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 right-10 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, hsl(var(--brand-warm) / 0.4), transparent 70%)' }}
-        />
-        <motion.div
-          animate={{ x: [0, -30, 20, 0], y: [0, 20, -10, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full opacity-15"
-          style={{ background: 'radial-gradient(circle, hsl(var(--brand-teal) / 0.4), transparent 70%)' }}
-        />
-        <motion.div
-          animate={{ x: [0, 15, -15, 0], y: [0, -30, 15, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, hsl(var(--brand-gold) / 0.5), transparent 70%)' }}
-        />
-      </div>
 
       <motion.div
         className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32"
@@ -66,8 +42,8 @@ export default function HeroSection({ data }: { data: SellerData }) {
             className="shrink-0"
           >
             <div className="relative">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary via-accent to-secondary opacity-60 blur-lg animate-pulse-glow" />
-              <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white/20 overflow-hidden shadow-2xl bg-brand-charcoal flex items-center justify-center">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary to-secondary opacity-40 blur-lg animate-pulse-glow" />
+              <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl bg-primary/20 backdrop-blur-sm flex items-center justify-center">
                 {data.avatarUrl ? (
                   <img
                     src={data.avatarUrl}
@@ -94,7 +70,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
             className="flex-1"
           >
             <motion.h1
-              className="text-white font-extrabold leading-tight"
+              className="text-white font-extrabold leading-tight drop-shadow-lg"
               style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)' }}
             >
               {data.sellerName}
@@ -104,7 +80,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
-                className="text-white/70 mt-3 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed line-clamp-3"
+                className="text-white/80 mt-3 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed line-clamp-3"
               >
                 {data.tagline}
               </motion.p>
@@ -114,9 +90,9 @@ export default function HeroSection({ data }: { data: SellerData }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
-                className="text-white/50 mt-2 text-sm"
+                className="text-white/60 mt-2 text-sm"
               >
-                Founded by <span className="text-white/70 font-medium">{data.ownerName}</span>
+                Founded by <span className="text-white/80 font-medium">{data.ownerName}</span>
               </motion.p>
             )}
             <motion.div
@@ -125,13 +101,13 @@ export default function HeroSection({ data }: { data: SellerData }) {
               transition={{ delay: 0.9 }}
               className="flex flex-wrap gap-3 mt-6"
             >
-              <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground glow-warm px-6 h-11">
+              <Button asChild className="rounded-full px-6 h-11 bg-white text-foreground hover:bg-white/90 shadow-lg font-semibold">
                 <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" /> View Profile
                 </a>
               </Button>
               {data.website && (
-                <Button variant="outline" asChild className="rounded-full border-white/20 text-white hover:bg-white/10 px-6 h-11 backdrop-blur-sm">
+                <Button variant="outline" asChild className="rounded-full border-white/30 text-white hover:bg-white/10 px-6 h-11 backdrop-blur-sm">
                   <a href={data.website} target="_blank" rel="noopener noreferrer">
                     <Globe className="w-4 h-4 mr-2" /> Website
                   </a>
@@ -161,7 +137,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-white/30"
+            className="text-white/40"
           >
             <ArrowDown className="w-5 h-5" />
           </motion.div>

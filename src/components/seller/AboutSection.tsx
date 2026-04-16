@@ -27,14 +27,12 @@ export default function AboutSection({ data }: { data: SellerData }) {
   };
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
-      {/* Decorative background */}
+    <section id="about" ref={sectionRef} className="py-20 sm:py-28 bg-background relative overflow-hidden">
       <motion.div
         style={{ y }}
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.03] pointer-events-none"
-        // Using inline style for gradient
       >
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-accent" />
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary" />
       </motion.div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -44,7 +42,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
           animate={inView ? 'visible' : 'hidden'}
         >
           <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-10 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
               <Building2 className="w-5 h-5 text-primary" />
             </div>
             About {data.sellerName}
@@ -60,9 +58,9 @@ export default function AboutSection({ data }: { data: SellerData }) {
               )}
               {businessTypes.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-6">
-                  {businessTypes.map((t, i) => (
+                  {businessTypes.map((t) => (
                     <motion.div key={t} whileHover={{ scale: 1.05 }}>
-                      <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium border border-border bg-muted/50">
+                      <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium">
                         {t}
                       </Badge>
                     </motion.div>
@@ -75,7 +73,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
               {data.foundedIn && (
                 <motion.div
                   whileHover={{ y: -3 }}
-                  className="rounded-2xl p-5 bg-gradient-to-br from-primary/5 to-accent/5 border border-border/50"
+                  className="rounded-2xl p-5 bg-card border border-border shadow-sm"
                 >
                   <p className="text-sm text-muted-foreground">Established</p>
                   <p className="text-3xl font-bold text-foreground mt-1">{data.foundedIn}</p>
@@ -86,7 +84,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
               {data.certifications.length > 0 && (
                 <motion.div
                   whileHover={{ y: -3 }}
-                  className="rounded-2xl p-5 bg-card border border-border/50"
+                  className="rounded-2xl p-5 bg-card border border-border shadow-sm"
                 >
                   <p className="text-sm text-muted-foreground mb-3 flex items-center gap-2">
                     <Award className="w-4 h-4 text-accent" /> Certifications
@@ -94,7 +92,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
                   <div className="space-y-2.5">
                     {data.certifications.map(cert => (
                       <div key={cert} className="flex items-center gap-2.5 text-sm text-foreground">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent" />
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
                         {cert}
                       </div>
                     ))}
@@ -104,7 +102,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
 
               <motion.div
                 whileHover={{ y: -3 }}
-                className="rounded-2xl p-5 bg-card border border-border/50 space-y-3"
+                className="rounded-2xl p-5 bg-card border border-border shadow-sm space-y-3"
               >
                 {data.website && (
                   <a href={data.website} target="_blank" rel="noopener noreferrer"
