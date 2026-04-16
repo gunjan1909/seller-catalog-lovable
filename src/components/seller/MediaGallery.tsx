@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, Suspense, lazy } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Image as ImageIcon, Video, X, Play, ZoomIn } from 'lucide-react';
@@ -24,8 +24,6 @@ function LazyImage({ src, alt, className, onError, onClick }: {
 export default function MediaGallery({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
   const [videoModal, setVideoModal] = useState<string | null>(null);
@@ -40,11 +38,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
   if (!visibleImages.length && !data.allYtVideos.length) return null;
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-20 sm:py-28 bg-muted/20 relative overflow-hidden">
-      <motion.div style={{ y: parallaxY }} className="absolute right-0 top-0 w-[500px] h-[500px] rounded-full opacity-[0.03] pointer-events-none">
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-accent to-primary" />
-      </motion.div>
-
+    <section id="gallery" ref={sectionRef} className="py-20 sm:py-28 bg-background relative overflow-hidden">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -52,14 +46,14 @@ export default function MediaGallery({ data }: { data: SellerData }) {
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
               <ImageIcon className="w-5 h-5 text-accent" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Media Gallery</h2>
           </div>
 
           <Tabs defaultValue={visibleImages.length ? 'images' : 'videos'}>
-            <TabsList className="rounded-full mb-8 bg-muted/50">
+            <TabsList className="rounded-full mb-8 bg-muted">
               {visibleImages.length > 0 && (
                 <TabsTrigger value="images" className="rounded-full px-6 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                   <ImageIcon className="w-4 h-4 mr-2" /> Images ({visibleImages.length})
@@ -73,7 +67,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
             </TabsList>
 
             <TabsContent value="images">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
                 {visibleImages.map((img, i) => (
                   <motion.div
                     key={img.url}
@@ -81,7 +75,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: Math.min(i * 0.03, 0.5), duration: 0.4 }}
                     whileHover={{ scale: 1.03 }}
-                    className="relative group aspect-square rounded-2xl overflow-hidden cursor-pointer border border-border/50 bg-muted/30"
+                    className="relative group aspect-square rounded-2xl overflow-hidden cursor-pointer border border-border bg-muted/30 shadow-sm"
                     onClick={() => setLightboxUrl(img.url)}
                   >
                     <LazyImage
@@ -90,13 +84,13 @@ export default function MediaGallery({ data }: { data: SellerData }) {
                       className="w-full h-full"
                       onError={() => hideImage(img.url)}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center backdrop-blur-sm">
+                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-md">
                         <ZoomIn className="w-4 h-4 text-foreground" />
                       </div>
                     </div>
-                    <span className="absolute top-2 right-2 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/40 text-white/80 backdrop-blur-sm">
+                    <span className="absolute top-2 right-2 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/40 text-white backdrop-blur-sm">
                       {img.source}
                     </span>
                   </motion.div>
@@ -105,7 +99,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
             </TabsContent>
 
             <TabsContent value="videos">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {data.allYtVideos.map((vid, i) => (
                   <motion.div
                     key={vid.videoId}
@@ -113,7 +107,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: i * 0.1, duration: 0.5 }}
                     whileHover={{ y: -5 }}
-                    className="group rounded-2xl overflow-hidden cursor-pointer border border-border/50 bg-card hover:shadow-xl transition-shadow duration-300"
+                    className="group rounded-2xl overflow-hidden cursor-pointer border border-border bg-card hover:shadow-lg transition-shadow duration-300"
                     onClick={() => setVideoModal(vid.videoId)}
                   >
                     <div className="aspect-video relative overflow-hidden">
@@ -127,7 +121,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                         <motion.div
                           whileHover={{ scale: 1.2 }}
-                          className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-xl backdrop-blur-sm"
+                          className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-xl"
                         >
                           <Play className="w-6 h-6 text-primary-foreground fill-primary-foreground ml-0.5" />
                         </motion.div>
@@ -158,17 +152,15 @@ export default function MediaGallery({ data }: { data: SellerData }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setLightboxUrl(null)}
         >
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+          <button
             className="absolute top-4 right-4 text-white p-2.5 hover:bg-white/10 rounded-full transition-colors"
             onClick={() => setLightboxUrl(null)}
           >
             <X className="w-6 h-6" />
-          </motion.button>
+          </button>
           <motion.img
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -183,7 +175,7 @@ export default function MediaGallery({ data }: { data: SellerData }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setVideoModal(null)}
         >
           <button className="absolute top-4 right-4 text-white p-2.5 hover:bg-white/10 rounded-full" onClick={() => setVideoModal(null)}>

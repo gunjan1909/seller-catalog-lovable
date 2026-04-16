@@ -17,8 +17,7 @@ export default function NavBar({ data }: { data: SellerData }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const { scrollY } = useScroll();
-  const navBg = useTransform(scrollY, [0, 100], [0, 1]);
+  const initials = data.sellerName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,10 +43,9 @@ export default function NavBar({ data }: { data: SellerData }) {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      style={{ opacity: useTransform(navBg, [0, 1], [0.95, 1]) }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-background/80 backdrop-blur-2xl shadow-[0_4px_30px_-10px_hsl(var(--brand-warm)/0.15)] border-b border-border/50'
+          ? 'bg-card/95 backdrop-blur-2xl shadow-[0_1px_12px_-4px_rgba(0,0,0,0.08)] border-b border-border'
           : 'bg-transparent'
       }`}
     >
@@ -56,16 +54,16 @@ export default function NavBar({ data }: { data: SellerData }) {
           <a href="#hero" className="flex items-center gap-2.5 shrink-0 group">
             <motion.div
               whileHover={{ rotate: 10, scale: 1.1 }}
-              className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
+              className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md"
             >
-              <span className="text-primary-foreground font-bold text-sm">JI</span>
+              <span className="text-primary-foreground font-bold text-sm">{initials}</span>
             </motion.div>
             <span className={`font-bold text-lg hidden sm:block transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}>
               {data.sellerName.split(' ')[0]}
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-1 bg-background/40 backdrop-blur-lg rounded-full p-1 border border-border/30">
+          <div className="hidden md:flex items-center gap-1 bg-card/60 backdrop-blur-lg rounded-full p-1 border border-border/60 shadow-sm">
             {NAV_LINKS.map(link => (
               <a
                 key={link.href}
@@ -75,13 +73,13 @@ export default function NavBar({ data }: { data: SellerData }) {
                     ? 'text-primary-foreground'
                     : scrolled
                     ? 'text-foreground/70 hover:text-foreground'
-                    : 'text-white/70 hover:text-white'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 {activeSection === link.href.slice(1) && (
                   <motion.div
                     layoutId="navPill"
-                    className="absolute inset-0 rounded-full bg-primary shadow-lg"
+                    className="absolute inset-0 rounded-full bg-primary shadow-md"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -92,10 +90,10 @@ export default function NavBar({ data }: { data: SellerData }) {
 
           <div className="hidden md:flex items-center gap-2">
             <Button variant="outline" size="sm" asChild
-              className={`rounded-full transition-all duration-300 ${!scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'hover:border-primary hover:text-primary'}`}>
+              className={`rounded-full transition-all duration-300 ${!scrolled ? 'border-white/30 text-white hover:bg-white/10' : ''}`}>
               <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
             </Button>
-            <Button size="sm" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground glow-warm">
+            <Button size="sm" asChild className="rounded-full">
               <a href={quoteHref}><MessageSquare className="w-4 h-4 mr-1" /> Get Quote</a>
             </Button>
           </div>
@@ -120,7 +118,7 @@ export default function NavBar({ data }: { data: SellerData }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background/95 backdrop-blur-2xl border-t border-border/50"
+            className="md:hidden bg-card/98 backdrop-blur-2xl border-t border-border"
           >
             <div className="px-4 py-3 space-y-1">
               {NAV_LINKS.map((link, i) => (
@@ -144,7 +142,7 @@ export default function NavBar({ data }: { data: SellerData }) {
                 <Button variant="outline" size="sm" asChild className="flex-1 rounded-full">
                   <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
                 </Button>
-                <Button size="sm" asChild className="flex-1 rounded-full bg-primary text-primary-foreground">
+                <Button size="sm" asChild className="flex-1 rounded-full">
                   <a href={quoteHref}><MessageSquare className="w-4 h-4 mr-1" /> Quote</a>
                 </Button>
               </div>

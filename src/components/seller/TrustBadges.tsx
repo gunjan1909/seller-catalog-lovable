@@ -41,9 +41,9 @@ export default function TrustBadges({ badges }: { badges: Badge[] }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 + i * 0.06 }}
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium
-              bg-white/5 backdrop-blur-xl border border-white/10 text-white/90
-              hover:bg-white/15 hover:border-primary/40
-              transition-colors duration-300 cursor-pointer"
+              bg-white/15 backdrop-blur-xl border border-white/20 text-white/95
+              hover:bg-white/25 hover:border-white/40
+              transition-colors duration-300 cursor-pointer shadow-sm"
           >
             <Icon className="w-3.5 h-3.5 text-accent" />
             <span className="whitespace-nowrap">{badge.label}</span>
