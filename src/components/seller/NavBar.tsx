@@ -38,6 +38,18 @@ export default function NavBar({ data }: { data: SellerData }) {
   const contactHref = `tel:${data.primaryPhone}`;
   const quoteHref = data.email ? `mailto:${data.email}?subject=Quote Request` : `https://wa.me/91${data.primaryPhone}`;
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActiveSection(id);
+    }
+    setMobileOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
