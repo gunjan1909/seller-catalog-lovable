@@ -26,7 +26,8 @@ export default function HeroSection({ data }: { data: SellerData }) {
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/60" />
+        {/* Softer overlay so banner remains visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/55" />
       </motion.div>
 
       <motion.div
@@ -101,13 +102,13 @@ export default function HeroSection({ data }: { data: SellerData }) {
               transition={{ delay: 0.9 }}
               className="flex flex-wrap gap-3 mt-6"
             >
-              <Button asChild className="rounded-full px-6 h-11 bg-white text-foreground hover:bg-white/90 shadow-lg font-semibold">
+              <Button asChild variant="glass" className="rounded-full px-6 h-12">
                 <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" /> View Profile
                 </a>
               </Button>
               {data.website && (
-                <Button variant="outline" asChild className="rounded-full border-white/30 text-white hover:bg-white/10 px-6 h-11 backdrop-blur-sm">
+                <Button asChild className="rounded-full px-6 h-12 bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_8px_24px_-6px_hsl(var(--accent)/0.55)] hover:shadow-[0_14px_36px_-8px_hsl(var(--accent)/0.65)] hover:-translate-y-0.5 transition-all duration-300">
                   <a href={data.website} target="_blank" rel="noopener noreferrer">
                     <Globe className="w-4 h-4 mr-2" /> Website
                   </a>
