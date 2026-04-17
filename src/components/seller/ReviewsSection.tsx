@@ -63,12 +63,12 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                 animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ delay: 0.12, duration: 0.65 }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative overflow-hidden rounded-[2rem] p-7 sm:p-8 bg-card border border-border shadow-sm"
-                style={{ y: cardY }}
+                className="relative overflow-hidden rounded-[2rem] p-7 sm:p-8 bg-card border border-border shadow-sm flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-transparent" />
-                <div className="relative">
-                  <div className="mb-8 flex items-center justify-between gap-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-transparent to-primary/5" />
+                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-amber-200/30 blur-3xl" />
+                <div className="relative flex flex-col h-full">
+                  <div className="mb-6 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                         <span className="font-bold text-sm">IM</span>
@@ -78,17 +78,36 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                         <p className="text-xs text-muted-foreground">Marketplace rating</p>
                       </div>
                     </div>
-                    <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary">
+                    <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground transition-colors hover:border-primary/40 hover:text-primary">
                       View source <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   </div>
-                  <div className="flex flex-wrap items-end gap-4">
-                    <span className="text-6xl font-black tracking-tight text-foreground">{data.indiamartRating.toFixed(2)}</span>
-                    <span className="pb-2 text-lg text-muted-foreground">/ 5 verified rating</span>
+
+                  <div className="flex-1 flex flex-col justify-center">
+                    <div className="flex flex-wrap items-end gap-4">
+                      <span className="text-7xl sm:text-8xl font-black tracking-tight text-foreground leading-none">{data.indiamartRating.toFixed(2)}</span>
+                      <div className="pb-2">
+                        <StarRating rating={data.indiamartRating} size="lg" />
+                        <p className="mt-1 text-sm text-muted-foreground">out of 5.0</p>
+                      </div>
+                    </div>
+                    <p className="mt-5 text-sm leading-6 text-muted-foreground max-w-md">Public score captured from seller listing — reflects buyer satisfaction across orders.</p>
                   </div>
-                  <div className="mt-4 flex items-center gap-4">
-                    <StarRating rating={data.indiamartRating} size="lg" />
-                    <span className="text-sm text-muted-foreground">Public score captured from seller listing</span>
+
+                  {/* Bottom rating breakdown to fill space */}
+                  <div className="mt-6 grid grid-cols-3 gap-3 pt-6 border-t border-border">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Verified</p>
+                      <p className="mt-1 text-sm font-bold text-foreground">Yes</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Source</p>
+                      <p className="mt-1 text-sm font-bold text-foreground">IndiaMART</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Type</p>
+                      <p className="mt-1 text-sm font-bold text-foreground">Public</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
