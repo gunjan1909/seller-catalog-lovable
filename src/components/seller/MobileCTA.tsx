@@ -17,13 +17,13 @@ export default function MobileCTA({ data }: { data: SellerData }) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold text-sm shadow-md active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
         >
           <MessageCircle className="w-5 h-5" /> WhatsApp
         </a>
         <a
           href={`tel:${data.primaryPhone}`}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
         >
           <Phone className="w-5 h-5" /> Call
         </a>

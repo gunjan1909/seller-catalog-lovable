@@ -38,6 +38,18 @@ export default function NavBar({ data }: { data: SellerData }) {
   const contactHref = `tel:${data.primaryPhone}`;
   const quoteHref = data.email ? `mailto:${data.email}?subject=Quote Request` : `https://wa.me/91${data.primaryPhone}`;
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActiveSection(id);
+    }
+    setMobileOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -68,6 +80,7 @@ export default function NavBar({ data }: { data: SellerData }) {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeSection === link.href.slice(1)
                     ? 'text-primary-foreground'
@@ -90,7 +103,7 @@ export default function NavBar({ data }: { data: SellerData }) {
 
           <div className="hidden md:flex items-center gap-2">
             <Button variant="outline" size="sm" asChild
-              className={`rounded-full transition-all duration-300 ${!scrolled ? 'border-white/30 text-white hover:bg-white/10' : ''}`}>
+              className={`rounded-full transition-all duration-300 ${!scrolled ? 'border-white/40 text-white bg-white/10 hover:bg-white/20 hover:text-white backdrop-blur-sm' : ''}`}>
               <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
             </Button>
             <Button size="sm" asChild className="rounded-full">
@@ -125,13 +138,13 @@ export default function NavBar({ data }: { data: SellerData }) {
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  className={`block px-4 py-3.5 rounded-xl text-base font-semibold transition-all active:scale-[0.98] ${
                     activeSection === link.href.slice(1)
-                      ? 'bg-primary text-primary-foreground'
+                      ? 'bg-primary text-primary-foreground shadow-md'
                       : 'text-foreground hover:bg-muted'
                   }`}
                 >
@@ -139,10 +152,10 @@ export default function NavBar({ data }: { data: SellerData }) {
                 </motion.a>
               ))}
               <div className="flex gap-2 pt-3">
-                <Button variant="outline" size="sm" asChild className="flex-1 rounded-full">
+                <Button variant="outline" size="sm" asChild className="flex-1 rounded-full h-11">
                   <a href={contactHref}><Phone className="w-4 h-4 mr-1" /> Contact</a>
                 </Button>
-                <Button size="sm" asChild className="flex-1 rounded-full">
+                <Button size="sm" asChild className="flex-1 rounded-full h-11">
                   <a href={quoteHref}><MessageSquare className="w-4 h-4 mr-1" /> Quote</a>
                 </Button>
               </div>

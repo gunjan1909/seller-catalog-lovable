@@ -46,7 +46,7 @@ function InstagramEmbed({ post }: { post: any }) {
   };
 
   return (
-    <div ref={embedRef} className="overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-sm hover:shadow-lg transition-shadow">
+    <div ref={embedRef} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
       {/* Instagram blockquote embed */}
       <blockquote
         className="instagram-media"
@@ -55,7 +55,7 @@ function InstagramEmbed({ post }: { post: any }) {
         style={{
           background: 'hsl(var(--card))',
           border: 0,
-          borderRadius: '1.75rem',
+          borderRadius: '1rem',
           margin: 0,
           maxWidth: '100%',
           minWidth: '100%',
@@ -66,19 +66,21 @@ function InstagramEmbed({ post }: { post: any }) {
 
       {/* Fallback placeholder visible until embed loads */}
       {!loaded && (
-        <div className="p-4">
+        <div className="flex flex-col h-full p-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400">
               <Instagram className="h-4 w-4 text-white" />
             </div>
-            <span className="text-xs text-muted-foreground">{formatDate(post.timestamp)}</span>
+            <span className="text-xs text-muted-foreground truncate">{formatDate(post.timestamp)}</span>
           </div>
-          <p className="text-sm text-foreground line-clamp-3">{post.caption?.slice(0, 120)}{post.caption && post.caption.length > 120 ? '…' : ''}</p>
+          <p className="text-sm text-foreground line-clamp-3 leading-relaxed flex-1 break-words">
+            {post.caption?.slice(0, 140)}{post.caption && post.caption.length > 140 ? '…' : ''}
+          </p>
           <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {post.likesCount}</span>
             <span className="flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" /> {post.commentsCount}</span>
           </div>
-          <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-primary hover:bg-muted transition-colors">
+          <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-xs font-semibold text-primary hover:bg-muted hover:border-primary/40 transition-colors">
             View on Instagram
           </a>
         </div>
@@ -149,13 +151,14 @@ export default function SocialPosts({ data }: { data: SellerData }) {
 
           {activePlatform === 'instagram' && (
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
                 {data.igPosts.slice(0, 6).map((post, i) => (
                   <motion.div
                     key={post.id}
                     initial={{ opacity: 0, y: 30 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: i * 0.08, duration: 0.5 }}
+                    className="h-full"
                   >
                     <InstagramEmbed post={post} />
                   </motion.div>
