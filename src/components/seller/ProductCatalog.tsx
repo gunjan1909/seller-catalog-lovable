@@ -12,12 +12,12 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
   const [activeCat, setActiveCat] = useState<string>('All');
   const [selected, setSelected] = useState<CatalogProduct | null>(null);
 
-  if (!data.products.length) return null;
-
   const filtered = useMemo(() => {
     if (activeCat === 'All') return data.products;
     return data.products.filter(p => p.category === activeCat);
   }, [activeCat, data.products]);
+
+  if (!data.products.length) return null;
 
   const enquireBase = data.whatsappUrl
     ? `${data.whatsappUrl}${data.whatsappUrl.includes('?') ? '&' : '?'}text=`

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import NavBar from '@/components/seller/NavBar';
 import HeroSection from '@/components/seller/HeroSection';
 import AboutSection from '@/components/seller/AboutSection';
+import ProductCatalog from '@/components/seller/ProductCatalog';
 import CategoryGrid from '@/components/seller/CategoryGrid';
 import MediaGallery from '@/components/seller/MediaGallery';
 import SocialPosts from '@/components/seller/SocialPosts';
@@ -18,7 +19,8 @@ const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => setShowSplash(false), window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 350 : 1800);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const timeout = window.setTimeout(() => setShowSplash(false), reduced ? 600 : 1500);
     return () => window.clearTimeout(timeout);
   }, []);
 
@@ -40,6 +42,7 @@ const Index = () => {
             <NavBar data={data} />
             <HeroSection data={data} />
             <AboutSection data={data} />
+            <ProductCatalog data={data} />
             <CategoryGrid data={data} />
             <MediaGallery data={data} />
             <SocialPosts data={data} />

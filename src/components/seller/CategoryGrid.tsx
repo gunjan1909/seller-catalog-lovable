@@ -1,30 +1,35 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowUpRight, Layers3, Package, ShieldCheck, Tag, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Layers3, Package, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
 const CARD_COLORS = [
   'from-primary/8 to-primary/3',
   'from-secondary/8 to-secondary/3',
-  'from-brand-indigo/8 to-brand-indigo/3',
-  'from-brand-rose/8 to-brand-rose/3',
-  'from-accent/10 to-accent/4',
-  'from-primary/6 to-secondary/4',
-  'from-secondary/6 to-brand-indigo/4',
-  'from-brand-rose/6 to-primary/4',
+  'from-amber-200/30 to-transparent',
+  'from-rose-200/25 to-transparent',
+  'from-indigo-200/30 to-transparent',
+  'from-emerald-200/30 to-transparent',
 ];
 
 export default function CategoryGrid({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
   const sectionRef = useRef<HTMLElement>(null);
 
-  if (!data.indiamartCategories.length && !data.otherCategories.length) return null;
+  if (!data.categories.length) return null;
 
-  const featuredCategory = data.indiamartCategories[0];
-  const remainingCategories = data.indiamartCategories.slice(1);
-  const categoryCount = data.indiamartCategories.length + data.otherCategories.length;
+  const featured = data.categories[0];
+  const remaining = data.categories.slice(1);
+
+  const scrollToProducts = () => {
+    const el = document.getElementById('products');
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="categories" ref={sectionRef} className="relative overflow-hidden py-20 sm:py-28 section-alt">
@@ -34,133 +39,104 @@ export default function CategoryGrid({ data }: { data: SellerData }) {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          {/* Header */}
           <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <div className="mb-3 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                   <Layers3 className="h-5 w-5 text-primary" />
                 </div>
-                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.28em] text-muted-foreground">Product Universe</span>
+                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.28em] text-muted-foreground">Browse by category</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">Product Categories</h2>
-              <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">Explore our complete range of industrial sealing solutions and security products.</p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <div className="rounded-2xl px-4 py-3 bg-card border border-border shadow-sm">
-                <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Catalog count</p>
-                <p className="mt-1 text-2xl font-bold text-foreground">{categoryCount}</p>
-              </div>
-              <div className="rounded-2xl px-4 py-3 bg-card border border-border shadow-sm">
-                <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Standout line</p>
-                <p className="mt-1 text-sm font-semibold text-foreground line-clamp-1 max-w-[10rem]">{featuredCategory?.name || 'Security seals'}</p>
-              </div>
+              <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">{data.categories.length} categories spanning {data.products.length} products. Tap to filter the catalog.</p>
             </div>
           </div>
 
-          {/* Featured banner — full width, no empty space */}
-          <motion.div
+          {/* Featured */}
+          <motion.button
+            type="button"
+            onClick={scrollToProducts}
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.08, duration: 0.65 }}
-            className="relative overflow-hidden rounded-[2rem] bg-card border border-border shadow-[0_8px_32px_-12px_rgba(0,0,0,0.08)] mb-6"
+            whileHover={{ y: -4 }}
+            className="block w-full text-left relative overflow-hidden rounded-[2rem] bg-card border border-border shadow-sm hover:shadow-lg transition-all mb-6 group"
           >
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
             <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
 
             <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-8 p-6 sm:p-8 lg:p-10">
-              {/* Left: Featured info */}
               <div className="flex flex-col justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Sparkles className="h-4 w-4 text-accent" />
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">Featured collection</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">Top category</p>
                   </div>
-                  <h3 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-[2.5rem]">{featuredCategory?.name || 'Industrial sealing systems'}</h3>
-                  <p className="mt-4 max-w-md text-sm leading-7 text-muted-foreground sm:text-base">A curated product showcase featuring our top industrial solutions with premium quality and competitive pricing.</p>
+                  <h3 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-[2.5rem]">{featured.name}</h3>
+                  <p className="mt-4 max-w-md text-sm leading-7 text-muted-foreground sm:text-base">
+                    {featured.count} product{featured.count > 1 ? 's' : ''} in this category. Filter the catalog instantly.
+                  </p>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div>
                   <Button asChild size="lg" className="rounded-full px-7">
-                    <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer">Explore full catalog <ArrowUpRight className="h-4 w-4" /></a>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full px-7">
-                    <a href="#contact">Request guidance</a>
+                    <a onClick={(e) => { e.preventDefault(); scrollToProducts(); }} href="#products">
+                      Browse catalog <ArrowUpRight className="h-4 w-4" />
+                    </a>
                   </Button>
                 </div>
               </div>
 
-              {/* Right: Stats grid filling the empty space */}
               <div className="grid grid-cols-2 gap-3 content-start">
                 <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-transparent p-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-3">
-                    <ShieldCheck className="h-5 w-5" />
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">IndiaMART listed</p>
-                  <p className="mt-1 text-3xl font-bold text-foreground">{data.indiamartCategories.length}</p>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Total products</p>
+                  <p className="mt-1 text-3xl font-bold text-foreground">{data.products.length}</p>
                 </div>
                 <div className="rounded-2xl border border-border bg-gradient-to-br from-secondary/5 to-transparent p-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10 text-secondary mb-3">
-                    <Layers3 className="h-5 w-5" />
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Extended</p>
-                  <p className="mt-1 text-3xl font-bold text-foreground">{data.otherCategories.length}</p>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Categories</p>
+                  <p className="mt-1 text-3xl font-bold text-foreground">{data.categories.length}</p>
                 </div>
-                {data.otherCategories.length > 0 && (
-                  <div className="col-span-2 rounded-2xl border border-border bg-muted/40 p-5">
-                    <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
-                      <Tag className="h-4 w-4 text-secondary" /> Also seen under
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {data.otherCategories.slice(0, 6).map((cat) => (
-                        <span key={cat.name} className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground">{cat.name}</span>
-                      ))}
-                    </div>
+                <div className="col-span-2 rounded-2xl border border-border bg-muted/40 p-5">
+                  <p className="text-xs uppercase tracking-wider font-semibold text-muted-foreground mb-3">All categories</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {data.categories.map((c) => (
+                      <span key={c.name} className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground font-medium">
+                        {c.name} <span className="text-muted-foreground">({c.count})</span>
+                      </span>
+                    ))}
                   </div>
-                )}
+                </div>
               </div>
             </div>
-          </motion.div>
+          </motion.button>
 
-          {/* Bento grid — full width, balanced */}
-          {remainingCategories.length > 0 && (
+          {remaining.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {remainingCategories.map((cat, i) => (
-                <motion.a
+              {remaining.map((cat, i) => (
+                <motion.button
                   key={cat.name}
-                  href={data.indiamartUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  type="button"
+                  onClick={scrollToProducts}
                   initial={{ opacity: 0, y: 25, scale: 0.96 }}
                   animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                  transition={{ delay: Math.min(i * 0.05, 0.35), duration: 0.52, ease: [0.25, 0.1, 0.25, 1] }}
+                  transition={{ delay: Math.min(i * 0.05, 0.35), duration: 0.5 }}
                   whileHover={{ y: -6 }}
-                  className="group card-3d relative overflow-hidden rounded-[1.5rem] p-5 sm:p-6 bg-card border border-border shadow-sm hover:shadow-lg transition-shadow flex flex-col h-full min-h-[180px]"
+                  className="card-3d relative overflow-hidden rounded-2xl p-5 sm:p-6 bg-card border border-border shadow-sm hover:shadow-lg transition-all flex flex-col gap-4 min-h-[170px] text-left"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${CARD_COLORS[i % CARD_COLORS.length]}`} />
-                  <div className="relative flex h-full flex-col justify-between gap-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                        <Package className="h-5 w-5" />
-                      </div>
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">0{i + 2}</span>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${CARD_COLORS[i % CARD_COLORS.length]} opacity-60`} />
+                  <div className="relative flex items-start justify-between gap-3">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Package className="h-5 w-5" />
                     </div>
-
-                    <div>
-                      <h4 className="font-semibold text-foreground text-base sm:text-lg leading-snug line-clamp-2">{cat.name}</h4>
-                      <p className="mt-1.5 text-xs text-muted-foreground">Tap for product details</p>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-1">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/70 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
-                        Supplier listing
-                      </span>
-                      <ArrowUpRight className="h-4 w-4 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">0{i + 2}</span>
+                  </div>
+                  <div className="relative mt-auto">
+                    <h4 className="font-bold text-foreground text-base sm:text-lg leading-snug line-clamp-2">{cat.name}</h4>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground font-semibold">{cat.count} product{cat.count > 1 ? 's' : ''}</span>
+                      <ArrowUpRight className="h-4 w-4 text-primary transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           )}

@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { BadgeCheck, Calendar, FileCheck, Award, Factory, MapPin, Package } from 'lucide-react';
+import { BadgeCheck, Award, FileCheck, Factory, MapPin, Package, Globe } from 'lucide-react';
 
 const ICON_MAP: Record<string, any> = {
   verified: BadgeCheck,
-  calendar: Calendar,
-  'file-check': FileCheck,
   award: Award,
+  'file-check': FileCheck,
   factory: Factory,
   'map-pin': MapPin,
   package: Package,
+  globe: Globe,
 };
 
 interface Badge {
@@ -23,7 +23,11 @@ export default function TrustBadges({ badges }: { badges: Badge[] }) {
     if (badge.url) {
       window.open(badge.url, '_blank', 'noopener,noreferrer');
     } else if (badge.scrollTo) {
-      document.getElementById(badge.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById(badge.scrollTo);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     }
   };
 
@@ -33,19 +37,19 @@ export default function TrustBadges({ badges }: { badges: Badge[] }) {
         const Icon = ICON_MAP[badge.icon] || BadgeCheck;
         return (
           <motion.button
-            key={i}
+            key={badge.label + i}
             onClick={() => handleClick(badge)}
-            whileHover={{ scale: 1.08, y: -2 }}
+            whileHover={{ scale: 1.06, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 + i * 0.06 }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium
-              bg-white/15 backdrop-blur-xl border border-white/20 text-white/95
-              hover:bg-white/25 hover:border-white/40
+            transition={{ delay: 1.2 + i * 0.05 }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold
+              bg-white/15 backdrop-blur-xl border border-white/30 text-white
+              hover:bg-white/25 hover:border-white/50
               transition-colors duration-300 cursor-pointer shadow-sm"
           >
-            <Icon className="w-3.5 h-3.5 text-accent" />
+            <Icon className="w-3.5 h-3.5 text-amber-300" />
             <span className="whitespace-nowrap">{badge.label}</span>
           </motion.button>
         );
