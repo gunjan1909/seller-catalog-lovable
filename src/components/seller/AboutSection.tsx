@@ -1,9 +1,19 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Building2, Award, Globe, ExternalLink } from 'lucide-react';
+import { Building2, Globe, MapPin, Instagram, Facebook, Youtube, Linkedin, Twitter, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import type { SellerData } from '@/lib/sellerDataExtractor';
+import type { SellerData, SocialPlatform } from '@/lib/sellerDataExtractor';
+import { formatCount } from '@/lib/sellerDataExtractor';
+
+const PLATFORM_META: Record<SocialPlatform, { icon: any; label: string; gradient: string }> = {
+  instagram: { icon: Instagram, label: 'Instagram', gradient: 'from-purple-500 via-pink-500 to-orange-400' },
+  facebook: { icon: Facebook, label: 'Facebook', gradient: 'from-blue-600 to-blue-500' },
+  youtube: { icon: Youtube, label: 'YouTube', gradient: 'from-red-600 to-red-500' },
+  twitter: { icon: Twitter, label: 'X / Twitter', gradient: 'from-gray-800 to-gray-700' },
+  linkedin: { icon: Linkedin, label: 'LinkedIn', gradient: 'from-blue-700 to-blue-600' },
+  whatsapp: { icon: ExternalLink, label: 'WhatsApp', gradient: 'from-green-500 to-emerald-400' },
+};
 
 export default function AboutSection({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -11,15 +21,14 @@ export default function AboutSection({ data }: { data: SellerData }) {
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
-  if (!data.companyDescription && !data.foundedIn && !data.certifications.length) return null;
+  const description = data.description || data.tagline || '';
+  const sortedSocial = [...data.socialProfiles].sort((a, b) => b.followers - a.followers);
 
-  const businessTypes = data.businessType
-    ? data.businessType.split(',').map(t => t.trim()).filter((t, i, arr) => arr.indexOf(t) === i && t)
-    : [];
+  if (!description && !data.businessType && sortedSocial.length === 0) return null;
 
   const containerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } },
+    visible: { transition: { staggerChildren: 0.08 } },
   };
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -30,7 +39,7 @@ export default function AboutSection({ data }: { data: SellerData }) {
     <section id="about" ref={sectionRef} className="py-20 sm:py-28 bg-background relative overflow-hidden">
       <motion.div
         style={{ y }}
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.03] pointer-events-none"
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.04] pointer-events-none"
       >
         <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary" />
       </motion.div>
@@ -48,75 +57,119 @@ export default function AboutSection({ data }: { data: SellerData }) {
             About {data.sellerName}
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            <motion.div variants={itemVariants} className="md:col-span-2">
-              {data.companyDescription && (
-                <div
-                  className="prose prose-sm sm:prose-base max-w-none text-muted-foreground leading-relaxed [&_b]:text-foreground [&_b]:font-semibold"
-                  dangerouslySetInnerHTML={{ __html: data.companyDescription }}
-                />
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
+            {/* Left: description + map */}
+            <motion.div variants={itemVariants} className="lg:col-span-2 space-y-6">
+              {description && (
+                <div className="prose prose-sm sm:prose-base max-w-none text-muted-foreground leading-relaxed">
+                  <p>{description}</p>
+                </div>
               )}
-              {businessTypes.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-6">
-                  {businessTypes.map((t) => (
-                    <motion.div key={t} whileHover={{ scale: 1.05 }}>
-                      <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium">
-                        {t}
-                      </Badge>
-                    </motion.div>
-                  ))}
+
+              <div className="flex flex-wrap gap-2">
+                {data.businessType && (
+                  <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium">
+                    {data.businessType}
+                  </Badge>
+                )}
+                {data.products.length > 0 && (
+                  <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium">
+                    {data.products.length} Products
+                  </Badge>
+                )}
+                {data.categories.length > 0 && (
+                  <Badge variant="secondary" className="rounded-full px-4 py-1.5 font-medium">
+                    {data.categories.length} Categories
+                  </Badge>
+                )}
+              </div>
+
+              {/* Map */}
+              {data.fullAddress && (
+                <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-sm">
+                  <div className="p-4 flex items-start gap-3 border-b border-border">
+                    <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-foreground">Headquarters</p>
+                      <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{data.fullAddress}</p>
+                    </div>
+                    {data.googleLocation && (
+                      <a href={data.googleLocation} target="_blank" rel="noopener noreferrer" className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline">
+                        Map <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                  <div className="aspect-video bg-muted">
+                    <iframe
+                      title="Location"
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(data.fullAddress)}&output=embed`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 </div>
               )}
             </motion.div>
 
-            <motion.div variants={itemVariants} className="space-y-4">
-              {data.foundedIn && (
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="rounded-2xl p-5 bg-card border border-border shadow-sm"
-                >
-                  <p className="text-sm text-muted-foreground">Established</p>
-                  <p className="text-3xl font-bold text-foreground mt-1">{data.foundedIn}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{new Date().getFullYear() - Number(data.foundedIn)}+ years of excellence</p>
-                </motion.div>
-              )}
-
-              {data.certifications.length > 0 && (
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="rounded-2xl p-5 bg-card border border-border shadow-sm"
-                >
-                  <p className="text-sm text-muted-foreground mb-3 flex items-center gap-2">
-                    <Award className="w-4 h-4 text-accent" /> Certifications
-                  </p>
-                  <div className="space-y-2.5">
-                    {data.certifications.map(cert => (
-                      <div key={cert} className="flex items-center gap-2.5 text-sm text-foreground">
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                        {cert}
+            {/* Right: social cards */}
+            <motion.div variants={itemVariants} className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground font-semibold">Social presence</p>
+              {sortedSocial.map((p) => {
+                const meta = PLATFORM_META[p.platform];
+                if (!meta) return null;
+                const Icon = meta.icon;
+                return (
+                  <motion.a
+                    key={p.platform}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -3, scale: 1.01 }}
+                    className="block rounded-2xl p-4 bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shrink-0`}>
+                        <Icon className="w-5 h-5 text-white" />
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="font-bold text-foreground text-sm">{meta.label}</p>
+                          {p.followers > 0 && (
+                            <span className="text-xs font-semibold text-primary">{formatCount(p.followers)}</span>
+                          )}
+                        </div>
+                        {p.bio && <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{p.bio}</p>}
+                        <p className="mt-2 text-[11px] uppercase tracking-wider font-semibold text-primary inline-flex items-center gap-1">
+                          Follow <ExternalLink className="w-3 h-3" />
+                        </p>
+                      </div>
+                    </div>
+                  </motion.a>
+                );
+              })}
 
-              <motion.div
-                whileHover={{ y: -3 }}
-                className="rounded-2xl p-5 bg-card border border-border shadow-sm space-y-3"
-              >
-                {data.website && (
-                  <a href={data.website} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors">
-                    <Globe className="w-4 h-4" /> Website
-                  </a>
-                )}
-                {data.linktreeUrl && (
-                  <a href={data.linktreeUrl} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors">
-                    <ExternalLink className="w-4 h-4" /> Linktree
-                  </a>
-                )}
-              </motion.div>
+              {data.website && (
+                <motion.a
+                  href={data.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -3 }}
+                  className="block rounded-2xl p-4 bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <Globe className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-bold text-foreground text-sm">Official Website</p>
+                      <p className="text-xs text-muted-foreground truncate">{data.website.replace(/https?:\/\//, '')}</p>
+                    </div>
+                  </div>
+                </motion.a>
+              )}
             </motion.div>
           </div>
         </motion.div>

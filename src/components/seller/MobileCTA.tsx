@@ -3,7 +3,10 @@ import { Phone, MessageCircle } from 'lucide-react';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
 export default function MobileCTA({ data }: { data: SellerData }) {
-  const whatsappUrl = `https://wa.me/91${data.primaryPhone.replace(/\D/g, '')}`;
+  if (!data.primaryPhone && !data.whatsappUrl) return null;
+
+  const whatsappUrl = data.whatsappUrl
+    || `https://wa.me/91${data.primaryPhone.replace(/\D/g, '')}`;
 
   return (
     <motion.div
@@ -21,12 +24,14 @@ export default function MobileCTA({ data }: { data: SellerData }) {
         >
           <MessageCircle className="w-5 h-5" /> WhatsApp
         </a>
-        <a
-          href={`tel:${data.primaryPhone}`}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
-        >
-          <Phone className="w-5 h-5" /> Call
-        </a>
+        {data.primaryPhone && (
+          <a
+            href={`tel:${data.primaryPhone}`}
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
+          >
+            <Phone className="w-5 h-5" /> Call
+          </a>
+        )}
       </div>
     </motion.div>
   );
