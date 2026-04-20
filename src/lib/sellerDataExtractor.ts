@@ -237,17 +237,22 @@ export function extractSellerData() {
     date: r.date || r.posted_at || '',
   }));
 
-  // IndiaMART URL (constructed from seller_id)
-  const indiamartUrl = sellerId
-    ? `https://www.indiamart.com/seller/${sellerId}/`
-    : `https://www.indiamart.com/`;
+  // Product counts (showcased vs total)
+  const totalProducts = ((rawData as any).products?.length) || products.length;
+  const showcasedItems = products.length;
 
   // Highest follower count across platforms
   const topFollowers = socialProfiles.reduce((max, p) => Math.max(max, p.followers || 0), 0);
+  const topFollowerProfile = socialProfiles.reduce<SocialProfile | null>(
+    (best, p) => (p.followers > (best?.followers || 0) ? p : best),
+    null
+  );
+  const topPlatformLabel = topFollowerProfile
+    ? topFollowerProfile.platform.charAt(0).toUpperCase() + topFollowerProfile.platform.slice(1)
+    : '';
 
-  // Trust badges per spec
-  const trustBadges: { label: string; icon: string; url?: string; scrollTo?: string }[] = [];
-  trustBadges.push({ label: 'IndiaMART Verified', icon: 'verified', url: indiamartUrl });
+  // Trust badges per spec (no marketplace affiliation)
+  const trustBadges: { label: string; icon: string; url?: string; scrollTo?: string; tooltip?: string }[] = [];
   if (ratingValue && reviewsSummary.noOfRatings > 0) {
     trustBadges.push({ label: `${ratingValue.toFixed(1)}★ Rated`, icon: 'award', scrollTo: 'reviews' });
     trustBadges.push({ label: `${reviewsSummary.noOfRatings} Reviews`, icon: 'file-check', scrollTo: 'reviews' });
@@ -258,14 +263,29 @@ export function extractSellerData() {
   if (businessType) {
     trustBadges.push({ label: businessType, icon: 'factory', scrollTo: 'about' });
   }
-  if (products.length > 0) {
-    trustBadges.push({ label: `${products.length} Products`, icon: 'package', scrollTo: 'products' });
+  if (showcasedItems > 0) {
+    const productLabel = showcasedItems < totalProducts
+      ? `Showing ${showcasedItems} of ${totalProducts} Products`
+      : `${showcasedItems} Products`;
+    trustBadges.push({
+      label: productLabel,
+      icon: 'package',
+      scrollTo: 'products',
+      tooltip: showcasedItems < totalProducts
+        ? `Showcasing ${showcasedItems} curated items from a catalog of ${totalProducts}.`
+        : `${showcasedItems} products available in the catalog.`,
+    });
   }
-  if (topFollowers > 0) {
-    trustBadges.push({ label: `${formatCount(topFollowers)} Followers`, icon: 'verified', scrollTo: 'social' });
+  if (topFollowers > 0 && topPlatformLabel) {
+    trustBadges.push({
+      label: `${formatCount(topFollowers)} ${topPlatformLabel} Followers`,
+      icon: 'verified',
+      scrollTo: 'social',
+      url: topFollowerProfile?.url,
+    });
   }
   if (website) {
-    trustBadges.push({ label: 'Website', icon: 'globe', url: website });
+    trustBadges.push({ label: 'Visit Website', icon: 'globe', url: website });
   }
 
   return {
@@ -286,16 +306,18 @@ export function extractSellerData() {
     ratingCount,
     avatarUrl,
     bannerUrl,
-    indiamartUrl,
     whatsappUrl,
     socialProfiles,
     products,
+    totalProducts,
+    showcasedItems,
     categories,
     galleryImages,
     reviewsSummary,
     individualReviews,
     trustBadges,
     topFollowers,
+    topPlatformLabel,
   };
 }
 

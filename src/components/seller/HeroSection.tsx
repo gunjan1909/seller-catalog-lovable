@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Globe, ArrowDown, Phone, Mail, MapPin, Star } from 'lucide-react';
+import { MessageCircle, Globe, ArrowDown, Phone, Mail, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TrustBadges from './TrustBadges';
 import type { SellerData } from '@/lib/sellerDataExtractor';
@@ -27,7 +27,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary via-primary/80 to-secondary" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/30 to-black/85" />
       </motion.div>
 
       <motion.div
@@ -123,13 +123,22 @@ export default function HeroSection({ data }: { data: SellerData }) {
               transition={{ delay: 0.9 }}
               className="flex flex-wrap gap-3 mt-6"
             >
-              <Button asChild variant="glass" className="rounded-full px-6 h-12">
-                <a href={data.indiamartUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4 mr-2" /> View on IndiaMART
-                </a>
-              </Button>
+              {(() => {
+                const contactHref = data.whatsappUrl
+                  || (data.primaryPhone ? `https://wa.me/91${data.primaryPhone}?text=${encodeURIComponent(`Hi ${data.sellerName}, I'm interested in your products.`)}` : '')
+                  || (data.primaryPhone ? `tel:${data.primaryPhone}` : '')
+                  || (data.email ? `mailto:${data.email}` : '');
+                if (!contactHref) return null;
+                return (
+                  <Button asChild className="rounded-full px-6 h-12 bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_8px_24px_-6px_hsl(var(--accent)/0.55)] hover:shadow-[0_14px_36px_-8px_hsl(var(--accent)/0.65)] hover:-translate-y-0.5 transition-all duration-300">
+                    <a href={contactHref} target={contactHref.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                      <MessageCircle className="w-4 h-4 mr-2" /> Contact Seller
+                    </a>
+                  </Button>
+                );
+              })()}
               {data.website && (
-                <Button asChild className="rounded-full px-6 h-12 bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_8px_24px_-6px_hsl(var(--accent)/0.55)] hover:shadow-[0_14px_36px_-8px_hsl(var(--accent)/0.65)] hover:-translate-y-0.5 transition-all duration-300">
+                <Button asChild variant="glass" className="rounded-full px-6 h-12">
                   <a href={data.website} target="_blank" rel="noopener noreferrer">
                     <Globe className="w-4 h-4 mr-2" /> Visit Website
                   </a>

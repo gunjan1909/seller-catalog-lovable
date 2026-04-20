@@ -77,9 +77,11 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                         <p className="text-xs text-muted-foreground">From verified buyers</p>
                       </div>
                     </div>
-                    <a href={data.googleLocation || data.indiamartUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary/40 hover:text-primary transition-colors">
-                      View source <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
+                    {data.googleLocation && (
+                      <a href={data.googleLocation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                        View on Google <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap items-end gap-4">
@@ -142,9 +144,11 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                   </div>
                   <p className="font-semibold text-foreground">Individual reviews not available</p>
                   <p className="text-sm text-muted-foreground mt-2 max-w-xs">Only the aggregate rating has been shared publicly. Visit the source page to read reviews.</p>
-                  <a href={data.googleLocation || data.indiamartUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all">
-                    Read on source <ExternalLink className="w-3 h-3" />
-                  </a>
+                  {data.googleLocation && (
+                    <a href={data.googleLocation} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200">
+                      Read on Google <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               )}
             </motion.div>

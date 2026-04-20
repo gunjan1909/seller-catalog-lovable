@@ -16,6 +16,7 @@ interface Badge {
   icon: string;
   url?: string;
   scrollTo?: string;
+  tooltip?: string;
 }
 
 export default function TrustBadges({ badges }: { badges: Badge[] }) {
@@ -39,6 +40,7 @@ export default function TrustBadges({ badges }: { badges: Badge[] }) {
           <motion.button
             key={badge.label + i}
             onClick={() => handleClick(badge)}
+            title={badge.tooltip || badge.label}
             whileHover={{ scale: 1.06, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 10 }}
@@ -47,7 +49,7 @@ export default function TrustBadges({ badges }: { badges: Badge[] }) {
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold
               bg-white/15 backdrop-blur-xl border border-white/30 text-white
               hover:bg-white/25 hover:border-white/50
-              transition-colors duration-300 cursor-pointer shadow-sm"
+              transition-all duration-200 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           >
             <Icon className="w-3.5 h-3.5 text-amber-300" />
             <span className="whitespace-nowrap">{badge.label}</span>

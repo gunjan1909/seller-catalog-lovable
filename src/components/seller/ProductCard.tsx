@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ImageIcon, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { type CatalogProduct, formatPrice } from '@/lib/sellerDataExtractor';
@@ -9,6 +10,9 @@ interface Props {
 }
 
 export default function ProductCard({ product, onOpen, enquireHref }: Props) {
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -21,22 +25,23 @@ export default function ProductCard({ product, onOpen, enquireHref }: Props) {
     >
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden bg-muted/40">
-        {product.primaryPhoto ? (
-          <img
-            src={product.primaryPhoto}
-            alt={product.name}
-            loading="lazy"
-            className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-            onError={(e) => {
-              const t = e.target as HTMLImageElement;
-              t.style.display = 'none';
-              t.parentElement?.querySelector('.fallback')?.classList.remove('hidden');
-            }}
-          />
-        ) : null}
-        <div className={`fallback absolute inset-0 flex items-center justify-center text-muted-foreground ${product.primaryPhoto ? 'hidden' : ''}`}>
-          <ImageIcon className="w-10 h-10" />
-        </div>
+        {product.primaryPhoto && !imgError ? (
+          <>
+            {!imgLoaded && <div className="absolute inset-0 shimmer" />}
+            <img
+              src={product.primaryPhoto}
+              alt={product.name}
+              loading="lazy"
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgError(true)}
+              className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imgLoaded ? 'img-fade-in opacity-100' : 'opacity-0'}`}
+            />
+          </>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+            <ImageIcon className="w-10 h-10" />
+          </div>
+        )}
 
         {/* Stock badge */}
         {product.inStock && (
