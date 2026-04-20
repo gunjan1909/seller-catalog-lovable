@@ -1,132 +1,56 @@
 
 
-# Crompton Greaves Catalog — Product-First Revamp
+# v7-updated-2: Remove IndiaMART, Swap to GPX Data, Polish
 
-## Summary
-The new doc + JSON shifts the page from a generic seller profile to a **product-first catalog** for **Crompton Greaves** (50+ products in `catalog_items[]`). The current code is hard-tuned to the old JHAS JSON shape (`indiamart_normalized`, `instagram_accounts[]`, etc.) and lacks any Product Catalog section. This is a substantial rebuild of the data extractor and section list, while keeping the existing light theme, splash screen, framer-motion animations, and component scaffolding.
+## Scope
+The doc's central rule: **"NOT affiliated with any marketplace... All links/CTAs come exclusively from the Catalog JSON — no platform URLs are constructed or assumed."** Plus refinements from Pages 41-43 and a new product-count badge spec. Also swap data file to GPX Diamonds (`122074094_Catalog_2.json`) which was uploaded previously but never replaced in the project.
 
-## What changes vs current build
+## Changes
 
-### 1. Data layer — full rewrite of `sellerDataExtractor.ts`
-The new JSON shape is completely different:
-- Top-level: `seller_id`, `company_profile{}`, `catalog_items[]`, `products[]`, `media_assets[]`, `social_profiles[]`, `reviews[]`, `reviews_summary{}`, `social_urls[]`
-- `social_profiles[]` is an **array** of `{platform, url, profile_pic_url, banner_url, bio, followers_count, posts[]}` — replaces the old per-platform inline keys
-- Each post now has `{type, post_url, thumbnail_url, caption, likes, comments, views, posted_at}`
+### 1. Remove ALL IndiaMART references (doc-mandated standalone)
+- **`sellerDataExtractor.ts`**: delete `indiamartUrl` field + the constructed `https://www.indiamart.com/seller/...` URL. Remove `IndiaMART Verified` trust badge entirely.
+- **`HeroSection.tsx`**: Replace "View on IndiaMART" CTA with **"Contact Seller"** (WhatsApp → tel → email). Keep "Visit Website" if `website` exists.
+- **`ProductCatalog.tsx`**: Remove "View on IndiaMART" secondary CTA. Keep only "Enquire About All Products" (WhatsApp / mailto fallback). Update `enquireFor()` fallback chain to drop IndiaMART URL — fall back to phone tel: link if no email.
+- **`ContactSidebar.tsx`**: Remove "IndiaMART Profile" link entirely.
+- **`ReviewsSection.tsx`**: Replace `data.indiamartUrl` fallbacks with `data.googleLocation` only; if neither, hide the "View source" / "Read on source" links.
+- **`SellerData` type**: drop `indiamartUrl` field across all consumers.
 
-Replace `sellerData.json` with `Catalog_4_json.json` and rewrite `extractSellerData()` to normalize:
-- `sellerName` ← `company_profile.name`
-- `phones`, `emails`, `address`, `city`, `website`, `businessType`, `googleLocation`, `ratingValue`, `ratingCount`
-- `socialProfiles[]` ← normalized array, with helper lookups by platform
-- `bannerUrl` ← YouTube banner → Facebook banner → null (CSS gradient)
-- `avatarUrl` ← Instagram pic → YouTube pic → Facebook pic → initials
-- `products[]` ← from `catalog_items[]` (preferred) or `products[]`, with normalized price formatting helper
-- `categories[]` ← unique `product_category` values with counts (filtered to remove business-type labels)
-- `galleryImages[]` ← deduped from `media_assets[]` + `catalog_items[].photo_urls[]` + `primary_photo_url`
-- `instagramPosts[]`, `youtubePosts[]` ← sorted by `posted_at` desc, top 5
-- `reviewsSummary` ← `{total_rating, no_of_ratings, rating_comments[]}`
-- IndiaMART seller URL constructed from `seller_id`
+### 2. Swap data to GPX Diamonds
+- Replace `src/data/sellerData.json` contents with the previously uploaded `122074094_Catalog_2.json` (GPX Diamonds — 18 products, 4 social platforms, 45 ratings, rich YouTube banner + bio).
 
-### 2. NEW: Product Catalog Section (primary section)
-New components:
-- `ProductCatalog.tsx` — section orchestrator, holds category filter state
-- `CategoryFilterBar.tsx` — horizontal pill scroller, "All" + each unique `product_category`
-- `ProductCard.tsx` — image, name (clamp 2 lines), category chip, sub-type chip, price (handles `price_on_request` / `is_price_range` / `price_single` + currency + `price_unit`), in-stock badge, 100-char description, first 3 tags, Enquire CTA. Click opens detail modal.
-- `ProductDetailModal.tsx` — full name, image carousel from `photo_urls[]` (Glide-like behavior via framer or simple carousel), full description, specifications table (excluding nulls), B2B attributes (HSN, GST%, country, brand, MOQ), full tags, buyer persona "Ideal for..." callout, source URL link if present
-- Section CTAs: "Enquire About All Products" → wa.me link; "View on IndiaMART" → constructed URL
-- Responsive grid via explicit `grid-template-columns`: 4/3/2/1 cols at 1280/1024/768/<768
+### 3. New product-count trust badge logic
+- **`sellerDataExtractor.ts`**: compute `totalProducts = json.products?.length || 0` and `showcasedItems = json.catalog_items?.length || totalProducts`. 
+- **`TrustBadges.tsx`**: badge label = `"Showing X of Y Products"` when showcased < total, else `"Y Products"`. Add tooltip via `title` attribute. Click → scroll to `#products`.
+- Also update Followers badge label to include platform name (e.g. `"732 YouTube Followers"`).
 
-### 3. Updates to existing components
+### 4. Refinements (Pages 42-43)
+- **Hero overlay**: confirm dark gradient max opacity ≤ 0.85.
+- **Buttons**: standardize all variants in `button.tsx` with 0.2-0.25s transitions, scale 1.02, `translateY(-2px)`, soft shadow, focus ring.
+- **Product grid (`index.css`)**: ensure `repeat(4, minmax(0,1fr))` ≥1280px; `repeat(3, minmax(0,1fr))` 1024-1279px; `repeat(2, ...)` 640-1023px; `1fr` <640px. Prevents 1920px stretching.
+- **ProductCard images**: `object-fit: cover`, fixed `aspect-ratio: 4/3`, skeleton shimmer placeholder, fade-in on load, `onerror` collapses image area.
+- **Social tabs**: confirm tab bar only renders platforms with `posts.length > 0` and is horizontally scrollable. IG cards: `max-height` + `overflow:hidden`, padding 8-12px, border-radius 8-12px. YT cards: `aspect-ratio: 16/9` thumbnail.
+- **Rating card**: rebalanced large-numeric layout (already done in prior pass — verify no empty zones for GPX 5.0 / 45 ratings).
+- **Hamburger menu**: verify all 7 anchors smooth-scroll with 80px offset, ≥44px tap targets.
 
-**HeroSection.tsx**
-- Banner priority: YT banner → FB banner → CSS gradient (currently uses different priority)
-- Avatar priority: IG → YT → FB → initials
-- Hero CTAs: "View on IndiaMART" + "Visit Website" (only if `website` present)
-- Inline contact pills: phone, email, address
-- Rating display: `rating_value` ★ + `(rating_count)`
-
-**TrustBadges.tsx** — rebuild to spec
-- IndiaMART Verified (always) → seller IndiaMART URL
-- Rating: N★ → scrolls to #reviews
-- N Reviews → #reviews
-- City → Google Maps location URL
-- Business Type → #about
-- N Products → #products
-- N Followers (highest across `social_profiles[]`) → #social
-- Visit Website → website URL
-- Hide any badge with no data; never render broken links
-
-**NavBar.tsx** — add "Products" anchor between Overview and Categories; update scroll-spy section list
-
-**AboutSection.tsx**
-- Description: `company_profile.description` → fallback to YT/IG/FB bio
-- Business type chip
-- Google Maps embed via iframe using `google_location` URL (or fall back to address text)
-- Social platform cards (one per `social_profiles[]` with non-null url): icon, followers count, truncated bio, Follow button. Order by `followers_count` desc.
-
-**ContactSidebar.tsx**
-- WhatsApp / Call / Email CTAs from `phones[0]` / `emails[0]`
-- Maps embed
-- Social icon row sourced from `social_profiles[].url` (drop legacy `social_urls[]` parsing)
-
-**MediaGallery.tsx**
-- Image priority per spec; 3/2/1 col grid; lightbox unchanged
-- Videos tab from `social_profiles[youtube].posts[]` thumbnails + iframe modal
-
-**SocialPosts.tsx**
-- Tabs only for platforms with `posts.length > 0` (here: Instagram + YouTube)
-- Instagram: blockquote embed via `embed.js` lazy-loaded with IntersectionObserver; placeholder uses `thumbnail_url` + caption + likes/comments/views/`posted_at`. Already partially in place — wire to new data shape.
-- YouTube: thumbnail card → modal iframe via `extractYouTubeId()` (handle `watch?v=`, `/shorts/`, `youtu.be/`)
-- Profile header per platform (avatar + bio + followers + Follow button)
-
-**ReviewsSection.tsx**
-- Aggregate card: large `total_rating` numeric + amber stars + "Based on N ratings" + Google source badge
-- Individual reviews from `reviews[]` (empty here) + `rating_comments[]` (empty here) → show "Individual reviews not available" note
-- No blended average; stars in `#F59E0B`
-
-**Footer.tsx + MobileCTA.tsx**
-- Footer social icons iterate `social_profiles[]` (non-null url only)
-- Email line from `emails[0]`
-- Mobile sticky CTA: WhatsApp + Call from `phones[0]`
-
-**SplashScreen.tsx** — already uses dynamic initials; keep, ensure ≥1.2s
-
-**Index.tsx** — section order:
-NavBar → Hero → About → ProductCatalog (new, primary) → CategoryGrid → MediaGallery → SocialPosts → ReviewsSection → ContactSidebar → Footer → MobileCTA
-
-### 4. Page structure / conditional rendering
-Every section hidden if its data is empty (per spec). For Crompton: all sections render except individual reviews list.
-
-### 5. Theme — keep current light theme
-Current palette already matches doc spec (Page bg `#FAFAFA`/white, Primary `#1A1A1A`/navy, Green `#10B981`, Star `#F59E0B`). No theme overhaul needed; only minor token tweaks if contrast issues surface.
-
-### 6. Animations & polish (already in place — extend to new components)
-- Framer Motion entry animations for ProductCatalog, ProductCard stagger pop-in (scale 0.8→1 + fade)
-- ScrollTrigger-style reveals via `whileInView`
-- Product card hover: lift + shadow + image zoom
-- Detail modal: scale+fade entrance, backdrop blur
+### 5. Hero CTA contrast fix
+With IndiaMART CTA gone, primary hero CTA becomes "Contact Seller" — use solid `Button` (dark on light or accent) for high contrast over the banner; secondary "Visit Website" stays as `glass` variant.
 
 ## Files
 
-**New**
-- `src/data/sellerData.json` (replace contents with Crompton JSON)
-- `src/components/seller/ProductCatalog.tsx`
-- `src/components/seller/CategoryFilterBar.tsx`
-- `src/components/seller/ProductCard.tsx`
-- `src/components/seller/ProductDetailModal.tsx`
-
-**Rewrite**
-- `src/lib/sellerDataExtractor.ts` (full rewrite for new JSON shape)
+**Replace**
+- `src/data/sellerData.json` (← GPX Diamonds JSON)
 
 **Edit**
-- `src/pages/Index.tsx` (add ProductCatalog section, update order)
-- `src/components/seller/NavBar.tsx` (add Products anchor)
-- `src/components/seller/HeroSection.tsx` (CTA + priority changes)
-- `src/components/seller/TrustBadges.tsx` (rebuild badge list per spec)
-- `src/components/seller/AboutSection.tsx` (social platform cards, maps embed)
-- `src/components/seller/ContactSidebar.tsx` (use `social_profiles[].url`)
-- `src/components/seller/MediaGallery.tsx` (new image/video sourcing)
-- `src/components/seller/SocialPosts.tsx` (new posts shape, profile headers)
-- `src/components/seller/ReviewsSection.tsx` (aggregate-only with "no individual reviews" note)
-- `src/components/seller/Footer.tsx` (iterate `social_profiles[]`)
-- `src/components/seller/MobileCTA.tsx` (phones[0])
+- `src/lib/sellerDataExtractor.ts` (remove `indiamartUrl`, add `totalProducts`/`showcasedItems`, update trust badges)
+- `src/components/seller/HeroSection.tsx` (Contact Seller CTA replaces IndiaMART)
+- `src/components/seller/ProductCatalog.tsx` (drop IndiaMART CTA + fallback)
+- `src/components/seller/ContactSidebar.tsx` (drop IndiaMART link)
+- `src/components/seller/ReviewsSection.tsx` (use googleLocation only)
+- `src/components/seller/TrustBadges.tsx` (new product-count badge text + tooltip)
+- `src/components/ui/button.tsx` (consistent transitions/focus)
+- `src/components/seller/ProductCard.tsx` (skeleton shimmer + cover aspect)
+- `src/index.css` (grid minmax + shimmer keyframes)
+
+**Verify only (no edits expected)**
+- `NavBar.tsx`, `SocialPosts.tsx`, `MediaGallery.tsx`, `AboutSection.tsx`, `Footer.tsx`, `MobileCTA.tsx`
 
