@@ -1,8 +1,9 @@
+import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle } from 'lucide-react';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
-export default function MobileCTA({ data }: { data: SellerData }) {
+const MobileCTA = forwardRef<HTMLDivElement, { data: SellerData }>(({ data }, ref) => {
   if (!data.primaryPhone && !data.whatsappUrl) return null;
 
   const whatsappUrl = data.whatsappUrl
@@ -10,6 +11,7 @@ export default function MobileCTA({ data }: { data: SellerData }) {
 
   return (
     <motion.div
+      ref={ref}
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ delay: 1, type: 'spring', stiffness: 200, damping: 25 }}
@@ -35,4 +37,8 @@ export default function MobileCTA({ data }: { data: SellerData }) {
       </div>
     </motion.div>
   );
-}
+});
+
+MobileCTA.displayName = 'MobileCTA';
+
+export default MobileCTA;

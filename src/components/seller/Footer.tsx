@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, ArrowUp, Instagram, Facebook, Youtube, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
 import type { SellerData, SocialPlatform } from '@/lib/sellerDataExtractor';
@@ -13,11 +14,11 @@ const PLATFORM_ICONS: Record<SocialPlatform, any> = {
   whatsapp: ExternalLink,
 };
 
-export default function Footer({ data }: { data: SellerData }) {
+const Footer = forwardRef<HTMLElement, { data: SellerData }>(({ data }, ref) => {
   const initials = data.sellerName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <footer className="relative bg-foreground text-background pt-16 pb-8 overflow-hidden">
+    <footer ref={ref} className="relative bg-foreground text-background pt-16 pb-8 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -102,4 +103,8 @@ export default function Footer({ data }: { data: SellerData }) {
       </div>
     </footer>
   );
-}
+});
+
+Footer.displayName = 'Footer';
+
+export default Footer;
