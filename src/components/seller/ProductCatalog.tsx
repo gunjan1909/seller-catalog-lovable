@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ShoppingBag, MessageCircle, ExternalLink } from 'lucide-react';
+import { ShoppingBag, MessageCircle } from 'lucide-react';
 import CategoryFilterBar from './CategoryFilterBar';
 import ProductCard from './ProductCard';
 import ProductDetailModal from './ProductDetailModal';
@@ -25,13 +25,23 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
       ? `https://wa.me/91${data.primaryPhone}?text=`
       : '';
 
+  const fallbackHref = data.email
+    ? `mailto:${data.email}?subject=Product%20Enquiry`
+    : data.primaryPhone
+      ? `tel:${data.primaryPhone}`
+      : '';
+
   const enquireAll = enquireBase
     ? `${enquireBase}${encodeURIComponent(`Hi ${data.sellerName}, I'm interested in your product range. Please share more details.`)}`
-    : data.email ? `mailto:${data.email}?subject=Product%20Enquiry` : data.indiamartUrl;
+    : fallbackHref;
 
   const enquireFor = (p: CatalogProduct) => enquireBase
     ? `${enquireBase}${encodeURIComponent(`Hi ${data.sellerName}, I would like to enquire about: ${p.name}`)}`
-    : data.email ? `mailto:${data.email}?subject=Enquiry: ${encodeURIComponent(p.name)}` : data.indiamartUrl;
+    : data.email
+      ? `mailto:${data.email}?subject=Enquiry: ${encodeURIComponent(p.name)}`
+      : data.primaryPhone
+        ? `tel:${data.primaryPhone}`
+        : '';
 
   return (
     <section id="products" ref={ref} className="py-20 sm:py-28 bg-background relative overflow-hidden">
@@ -61,22 +71,16 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <a
-              href={enquireAll}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" /> Enquire all
-            </a>
-            <a
-              href={data.indiamartUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary/40 hover:text-primary transition-all"
-            >
-              <ExternalLink className="w-4 h-4" /> View on IndiaMART
-            </a>
+            {enquireAll && (
+              <a
+                href={enquireAll}
+                target={enquireAll.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <MessageCircle className="w-4 h-4" /> Enquire About All Products
+              </a>
+            )}
           </div>
         </motion.div>
 

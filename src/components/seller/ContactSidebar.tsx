@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Phone, Mail, MapPin, MessageCircle, ExternalLink, Globe, Instagram, Facebook, Youtube, Linkedin, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Globe, Instagram, Facebook, Youtube, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { SellerData, SocialPlatform } from '@/lib/sellerDataExtractor';
 
@@ -126,15 +126,6 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
                 </div>
               )}
 
-              <motion.a
-                href={data.indiamartUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ x: 3 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-border hover:border-primary/30 hover:text-primary transition-all"
-              >
-                <ExternalLink className="w-3.5 h-3.5" /> IndiaMART Profile
-              </motion.a>
             </motion.div>
 
             {/* Map */}
