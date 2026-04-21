@@ -1,4 +1,4 @@
-import rawData from '@/data/sellerData.json';
+import defaultSellerRawData from '@/data/sellerData.json';
 
 export type SocialPlatform = 'instagram' | 'facebook' | 'youtube' | 'twitter' | 'linkedin' | 'whatsapp';
 
@@ -94,9 +94,10 @@ function normalizePost(raw: any, platform: SocialPlatform, idx: number): SocialP
   };
 }
 
-export function extractSellerData() {
-  const cp = (rawData as any).company_profile || {};
-  const sellerId = String((rawData as any).seller_id || '');
+export function extractSellerDataFromRaw(rawData: unknown) {
+  const data = (rawData ?? {}) as any;
+  const cp = data.company_profile || {};
+  const sellerId = String(data.seller_id || '');
   const sellerName = cp.name || 'Seller';
   const phones: string[] = (cp.phones || []).map((p: string) => String(p).replace(/^\+91/, '').replace(/\D/g, '')).filter(Boolean);
   const primaryPhone = phones[0] || '';
@@ -113,7 +114,7 @@ export function extractSellerData() {
 
   // Build authoritative social profile list (one per platform)
   const profilesByPlatform: Record<string, SocialProfile> = {};
-  const rawProfiles = (rawData as any).social_profiles || [];
+  const rawProfiles = data.social_profiles || [];
   for (const p of rawProfiles) {
     const platform = (p.platform || '').toLowerCase() as SocialPlatform;
     if (!PLATFORMS.includes(platform)) continue;
@@ -134,7 +135,7 @@ export function extractSellerData() {
   }
 
   // Augment with social_urls (fallback for platforms missing in social_profiles)
-  const socialUrls: string[] = [...(cp.social_urls || []), ...((rawData as any).social_urls || [])];
+  const socialUrls: string[] = [...(cp.social_urls || []), ...(data.social_urls || [])];
   for (const u of socialUrls) {
     const platform = classifyUrl(u);
     if (!platform || platform === 'whatsapp') continue;
@@ -167,7 +168,7 @@ export function extractSellerData() {
   const tagline = description || yt?.bio || ig?.bio || fb?.bio || '';
 
   // Products from catalog_items
-  const catalogItems = (rawData as any).catalog_items || [];
+  const catalogItems = data.catalog_items || [];
   const products: CatalogProduct[] = catalogItems
     .filter((c: any) => c.clean_name)
     .map((c: any, i: number) => ({
@@ -221,18 +222,18 @@ export function extractSellerData() {
     addImg(p.primaryPhoto, 'Catalog', p.name);
     p.photos.forEach(ph => addImg(ph, 'Catalog', p.name));
   });
-  ((rawData as any).media_assets || []).forEach((m: any) => addImg(m.url, 'Catalog', m.product_name));
+  (data.media_assets || []).forEach((m: any) => addImg(m.url, 'Catalog', m.product_name));
   ig?.posts.forEach(p => addImg(p.thumbnailUrl, 'Instagram', p.caption));
   yt?.posts.forEach(p => addImg(p.thumbnailUrl, 'YouTube', p.caption));
 
   // Reviews summary
-  const rs = (rawData as any).reviews_summary || {};
+  const rs = data.reviews_summary || {};
   const reviewsSummary = {
     totalRating: rs.total_rating ?? ratingValue ?? null,
     noOfRatings: rs.no_of_ratings ?? ratingCount ?? 0,
     ratingComments: rs.rating_comments || [],
   };
-  const individualReviews = ((rawData as any).reviews || []).map((r: any) => ({
+  const individualReviews = (data.reviews || []).map((r: any) => ({
     author: r.author || r.name || 'Anonymous',
     rating: r.rating || 0,
     text: r.text || r.comment || '',
@@ -240,7 +241,7 @@ export function extractSellerData() {
   }));
 
   // Product counts (showcased vs total)
-  const totalProducts = ((rawData as any).products?.length) || products.length;
+  const totalProducts = (data.products?.length) || products.length;
   const showcasedItems = products.length;
 
   // Highest follower count across platforms
@@ -323,6 +324,10 @@ export function extractSellerData() {
   };
 }
 
+export function extractSellerData(rawData: unknown = defaultSellerRawData) {
+  return extractSellerDataFromRaw(rawData);
+}
+
 export function formatCount(n: number): string {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
   if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
@@ -342,4 +347,4 @@ export function formatPrice(p: CatalogProduct): string {
   return 'Price on request';
 }
 
-export type SellerData = ReturnType<typeof extractSellerData>;
+export type SellerData = ReturnType<typeof extractSellerDataFromRaw>;
