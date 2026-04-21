@@ -21,7 +21,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
           <img
             src={data.bannerUrl}
             alt=""
-            className="w-full h-full object-cover animate-ken-burns"
+            className="w-full h-full object-contain object-center animate-ken-burns bg-background"
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
         ) : (
