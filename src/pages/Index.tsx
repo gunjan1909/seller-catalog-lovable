@@ -4,7 +4,7 @@ import NavBar from '@/components/seller/NavBar';
 import HeroSection from '@/components/seller/HeroSection';
 import AboutSection from '@/components/seller/AboutSection';
 import ProductCatalog from '@/components/seller/ProductCatalog';
-import CategoryGrid from '@/components/seller/CategoryGrid';
+// CategoryGrid removed — categories now live as filter chips in ProductCatalog
 import MediaGallery from '@/components/seller/MediaGallery';
 import SocialPosts from '@/components/seller/SocialPosts';
 import ReviewsSection from '@/components/seller/ReviewsSection';
@@ -43,7 +43,6 @@ const Index = () => {
             <HeroSection data={data} />
             <AboutSection data={data} />
             <ProductCatalog data={data} />
-            <CategoryGrid data={data} />
             <MediaGallery data={data} />
             <SocialPosts data={data} />
             <ReviewsSection data={data} />

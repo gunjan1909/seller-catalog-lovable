@@ -53,6 +53,12 @@ export default function ProductCard({ product, onOpen, enquireHref }: Props) {
         <span className="absolute top-3 right-3 rounded-full bg-card/90 backdrop-blur border border-border px-2.5 py-1 text-[11px] font-semibold text-foreground">
           {product.category}
         </span>
+        {/* Source chip — only when product has a source */}
+        {product.source && (
+          <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-background/90 backdrop-blur border border-border px-2 py-0.5 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+            via {product.source}
+          </span>
+        )}
       </div>
 
       {/* Content */}

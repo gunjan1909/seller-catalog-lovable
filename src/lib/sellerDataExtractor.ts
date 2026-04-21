@@ -53,6 +53,7 @@ export interface CatalogProduct {
   photos: string[];
   inStock: boolean;
   sourceUrl: string;
+  source: string;
   specifications: Record<string, string | number>;
 }
 
@@ -197,6 +198,7 @@ export function extractSellerData() {
       photos: (c.photo_urls || []).filter(Boolean),
       inStock: c.in_stock !== false,
       sourceUrl: c.source_url || '',
+      source: c.source || '',
       specifications: c.specifications || {},
     }));
 
