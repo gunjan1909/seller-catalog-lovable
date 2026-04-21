@@ -9,10 +9,19 @@ export default function HeroSection({ data }: { data: SellerData }) {
   const initials = data.sellerName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroDescription = data.description || data.tagline || '';
+  const maxDesktopChars = 150;
+  const isTruncatedOnDesktop = heroDescription.length > maxDesktopChars;
+  const desktopDescription = isTruncatedOnDesktop
+    ? heroDescription.slice(0, maxDesktopChars).trimEnd()
+    : heroDescription;
 
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const handleScrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
@@ -76,15 +85,35 @@ export default function HeroSection({ data }: { data: SellerData }) {
             >
               {data.sellerName}
             </motion.h1>
-            {data.tagline && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className="text-white/85 mt-3 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed line-clamp-3"
-              >
-                {data.tagline}
-              </motion.p>
+            {heroDescription && (
+              <>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-white/85 mt-3 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed md:hidden"
+                >
+                  {heroDescription}
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-white/85 mt-3 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed hidden md:block"
+                >
+                  {desktopDescription}
+                  {isTruncatedOnDesktop && (
+                    <button
+                      type="button"
+                      onClick={handleScrollToAbout}
+                      className="ml-1 inline text-white font-semibold hover:text-white/90 transition-colors"
+                      aria-label="Read full description in About section"
+                    >
+                      ...
+                    </button>
+                  )}
+                </motion.p>
+              </>
             )}
 
             {/* Rating + contact pills */}

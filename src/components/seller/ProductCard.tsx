@@ -38,8 +38,11 @@ export default function ProductCard({ product, onOpen, enquireHref }: Props) {
             />
           </>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-            <ImageIcon className="w-10 h-10" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted-foreground px-4 text-center">
+            <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center">
+              <ImageIcon className="w-6 h-6" />
+            </div>
+            <p className="text-xs font-medium text-foreground">No image available</p>
           </div>
         )}
 

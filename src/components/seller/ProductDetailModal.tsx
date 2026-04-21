@@ -11,9 +11,11 @@ interface Props {
 
 export default function ProductDetailModal({ product, onClose, enquireHref }: Props) {
   const [photoIdx, setPhotoIdx] = useState(0);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     setPhotoIdx(0);
+    setImageError(false);
     if (product) {
       document.body.style.overflow = 'hidden';
       const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -29,8 +31,15 @@ export default function ProductDetailModal({ product, onClose, enquireHref }: Pr
 
   const photos = product.photos.length > 0 ? product.photos : (product.primaryPhoto ? [product.primaryPhoto] : []);
   const currentPhoto = photos[photoIdx];
-  const next = () => setPhotoIdx((i) => (i + 1) % Math.max(photos.length, 1));
-  const prev = () => setPhotoIdx((i) => (i - 1 + photos.length) % Math.max(photos.length, 1));
+  const next = () => {
+    setImageError(false);
+    setPhotoIdx((i) => (i + 1) % Math.max(photos.length, 1));
+  };
+  const prev = () => {
+    setImageError(false);
+    setPhotoIdx((i) => (i - 1 + photos.length) % Math.max(photos.length, 1));
+  };
+  const hasImage = Boolean(currentPhoto) && !imageError;
 
   const specs = Object.entries(product.specifications || {}).filter(([, v]) => v !== null && v !== undefined && v !== '');
 
@@ -57,14 +66,24 @@ export default function ProductDetailModal({ product, onClose, enquireHref }: Pr
             <X className="w-5 h-5" />
           </button>
 
-          <div className="grid md:grid-cols-2 overflow-y-auto">
+          <div className="grid lg:grid-cols-2 overflow-y-auto lg:overflow-hidden lg:h-[90vh]">
             {/* Carousel */}
-            <div className="relative aspect-square md:aspect-auto md:min-h-[420px] bg-muted/50 flex items-center justify-center">
-              {currentPhoto ? (
-                <img src={currentPhoto} alt={product.name} className="w-full h-full object-contain p-6"
-                  onError={(e) => { (e.target as HTMLImageElement).style.opacity = '0.2'; }} />
+            <div className="relative aspect-square lg:aspect-auto lg:h-full bg-muted/50 flex items-center justify-center">
+              {hasImage ? (
+                <img
+                  src={currentPhoto}
+                  alt={product.name}
+                  className="w-full h-full object-contain p-6"
+                  onError={() => setImageError(true)}
+                />
               ) : (
-                <ImageIcon className="w-16 h-16 text-muted-foreground" />
+                <div className="h-full w-full flex flex-col items-center justify-center gap-3 text-muted-foreground px-6 text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-muted border border-border flex items-center justify-center">
+                    <ImageIcon className="w-8 h-8" />
+                  </div>
+                  <p className="text-sm font-medium text-foreground">Image not available</p>
+                  <p className="text-xs">The seller has not added a photo for this product yet.</p>
+                </div>
               )}
               {photos.length > 1 && (
                 <>
@@ -76,7 +95,14 @@ export default function ProductDetailModal({ product, onClose, enquireHref }: Pr
                   </button>
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 bg-card/80 border border-border rounded-full px-3 py-1.5 backdrop-blur">
                     {photos.map((_, i) => (
-                      <button key={i} onClick={() => setPhotoIdx(i)} className={`w-1.5 h-1.5 rounded-full transition-all ${i === photoIdx ? 'bg-primary w-6' : 'bg-muted-foreground/40'}`} />
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setImageError(false);
+                          setPhotoIdx(i);
+                        }}
+                        className={`w-1.5 h-1.5 rounded-full transition-all ${i === photoIdx ? 'bg-primary w-6' : 'bg-muted-foreground/40'}`}
+                      />
                     ))}
                   </div>
                 </>
@@ -84,7 +110,7 @@ export default function ProductDetailModal({ product, onClose, enquireHref }: Pr
             </div>
 
             {/* Details */}
-            <div className="p-6 sm:p-8 flex flex-col gap-5">
+            <div className="p-6 sm:p-8 flex flex-col gap-5 lg:overflow-y-auto">
               <div>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="rounded-full bg-primary/10 text-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider">{product.category}</span>
