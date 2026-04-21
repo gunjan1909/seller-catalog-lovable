@@ -90,6 +90,7 @@ export default function ProductDetailModal({ product, onClose, enquireHref }: Pr
                   <span className="rounded-full bg-primary/10 text-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider">{product.category}</span>
                   {product.subType && <span className="rounded-full bg-muted text-foreground px-3 py-1 text-[11px] font-semibold">{product.subType}</span>}
                   {product.brand && <span className="rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 text-[11px] font-semibold">{product.brand}</span>}
+                  {product.source && <span className="rounded-full bg-muted/60 text-muted-foreground border border-border px-3 py-1 text-[11px] font-semibold uppercase tracking-wider">via {product.source}</span>}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">{product.name}</h2>
               </div>
