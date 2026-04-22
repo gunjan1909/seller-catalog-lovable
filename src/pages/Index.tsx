@@ -79,6 +79,30 @@ const Index = () => {
     return () => window.clearTimeout(timeout);
   }, [data]);
 
+  useEffect(() => {
+    if (!data) return;
+
+    const sellerTitle = data.sellerName?.trim() || 'Seller Catalog';
+    const description = (data.description || data.tagline || '').trim();
+    const resolvedDescription = description ? description.slice(0, 160) : 'Seller product catalog';
+
+    document.title = sellerTitle;
+
+    const upsertMeta = (selector: string, attr: 'name' | 'property', value: string) => {
+      let meta = document.head.querySelector(selector) as HTMLMetaElement | null;
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attr, value);
+        document.head.appendChild(meta);
+      }
+      return meta;
+    };
+
+    upsertMeta('meta[name="description"]', 'name', 'description').setAttribute('content', resolvedDescription);
+    upsertMeta('meta[property="og:title"]', 'property', 'og:title').setAttribute('content', sellerTitle);
+    upsertMeta('meta[property="og:description"]', 'property', 'og:description').setAttribute('content', resolvedDescription);
+  }, [data]);
+
   if (isLoadingSellerData) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-6 text-center">

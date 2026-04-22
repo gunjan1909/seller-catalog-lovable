@@ -22,14 +22,14 @@ const MobileCTA = forwardRef<HTMLDivElement, { data: SellerData }>(({ data }, re
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
+          className="sticky-cta-btn flex-1 flex items-center justify-center gap-2 rounded-xl bg-secondary text-secondary-foreground shadow-md active:scale-95 hover:shadow-lg transition-all duration-200 px-5 py-4 min-h-12 text-[15px] font-semibold"
         >
           <MessageCircle className="w-5 h-5" /> WhatsApp
         </a>
         {data.primaryPhone && (
           <a
             href={`tel:${data.primaryPhone}`}
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-md active:scale-95 hover:shadow-lg transition-all duration-200"
+            className="sticky-cta-btn flex-1 flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground shadow-md active:scale-95 hover:shadow-lg transition-all duration-200 px-5 py-4 min-h-12 text-[15px] font-semibold"
           >
             <Phone className="w-5 h-5" /> Call
           </a>

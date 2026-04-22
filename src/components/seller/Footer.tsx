@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, ArrowUp, Instagram, Facebook, Youtube, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
 import type { SellerData, SocialPlatform } from '@/lib/sellerDataExtractor';
 
-const NAV_LINKS = ['Overview', 'About', 'Products', 'Gallery', 'Social', 'Reviews', 'Contact'];
+const NAV_LINKS = ['Overview', 'About', 'Products', 'Categories', 'Gallery', 'Social', 'Reviews', 'Contact'];
 
 const PLATFORM_ICONS: Record<SocialPlatform, any> = {
   instagram: Instagram,
@@ -16,6 +16,11 @@ const PLATFORM_ICONS: Record<SocialPlatform, any> = {
 
 const Footer = forwardRef<HTMLElement, { data: SellerData }>(({ data }, ref) => {
   const initials = data.sellerName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const getHref = (link: string) => {
+    if (link === 'Overview') return '#overview';
+    if (link === 'Categories') return '#products';
+    return `#${link.toLowerCase()}`;
+  };
 
   return (
     <footer ref={ref} className="relative bg-foreground text-background pt-16 pb-8 overflow-hidden">
@@ -51,7 +56,7 @@ const Footer = forwardRef<HTMLElement, { data: SellerData }>(({ data }, ref) => 
               {NAV_LINKS.map(link => (
                 <motion.a
                   key={link}
-                  href={`#${link.toLowerCase()}`}
+                  href={getHref(link)}
                   whileHover={{ x: 4 }}
                   className="block text-sm opacity-60 hover:opacity-100 transition-opacity"
                 >

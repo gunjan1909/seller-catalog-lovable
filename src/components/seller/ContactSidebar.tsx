@@ -46,14 +46,14 @@ export default function ContactSidebar({ data }: { data: SellerData }) {
               <div className="flex flex-col sm:flex-row gap-3">
                 {whatsappUrl && (
                   <Button asChild size="lg"
-                    className="flex-1 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all">
+                    className="contact-cta-btn flex-1 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all max-md:min-h-12 max-md:px-6 max-md:py-3.5 max-md:text-[15px] max-md:font-semibold">
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
                     </a>
                   </Button>
                 )}
                 {data.primaryPhone && (
-                  <Button asChild size="lg" className="flex-1 rounded-2xl h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all">
+                  <Button asChild size="lg" className="contact-cta-btn flex-1 rounded-2xl h-14 text-base font-semibold shadow-md hover:shadow-lg transition-all max-md:min-h-12 max-md:px-6 max-md:py-3.5 max-md:text-[15px] max-md:font-semibold">
                     <a href={`tel:${data.primaryPhone}`}>
                       <Phone className="w-5 h-5 mr-2" /> Call Now
                     </a>

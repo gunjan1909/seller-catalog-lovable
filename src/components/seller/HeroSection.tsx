@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, Globe, ArrowDown, Phone, Mail, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TrustBadges from './TrustBadges';
+import ParticlesBackground from './ParticlesBackground';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
 export default function HeroSection({ data }: { data: SellerData }) {
@@ -19,28 +20,31 @@ export default function HeroSection({ data }: { data: SellerData }) {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const [bannerFailed, setBannerFailed] = useState(false);
+  const hasBanner = Boolean(data.bannerUrl) && !bannerFailed;
   const handleScrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
+    <section id="overview" ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        {data.bannerUrl ? (
+        {hasBanner ? (
           <img
             src={data.bannerUrl}
             alt=""
             className="w-full h-full object-contain object-center animate-ken-burns bg-background"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            onError={() => setBannerFailed(true)}
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary via-primary/80 to-secondary" />
+          <div className="w-full h-full bg-gradient-to-br from-primary/90 via-primary/65 to-secondary/90" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/30 to-black/85" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/75 via-black/65 to-black/85 md:from-black/75 md:via-black/65 md:to-black/85 max-md:from-black/15 max-md:via-black/10 max-md:to-black/20" />
+        {!hasBanner && <ParticlesBackground variant="hero" className="z-20 opacity-90" />}
       </motion.div>
 
       <motion.div
-        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32"
+        className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32"
         style={{ y: textY, opacity }}
       >
         <div className="flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-8">

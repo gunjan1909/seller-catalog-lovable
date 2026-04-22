@@ -267,16 +267,12 @@ export function extractSellerDataFromRaw(rawData: unknown) {
     trustBadges.push({ label: businessType, icon: 'factory', scrollTo: 'about' });
   }
   if (showcasedItems > 0) {
-    const productLabel = showcasedItems < totalProducts
-      ? `Showing ${showcasedItems} of ${totalProducts} Products`
-      : `${showcasedItems} Products`;
+    const productLabel = `Showing ${showcasedItems} products`;
     trustBadges.push({
       label: productLabel,
       icon: 'package',
       scrollTo: 'products',
-      tooltip: showcasedItems < totalProducts
-        ? `Showcasing ${showcasedItems} curated items from a catalog of ${totalProducts}.`
-        : `${showcasedItems} products available in the catalog.`,
+      tooltip: `Data available for ${showcasedItems} of ${totalProducts} catalog products.`,
     });
   }
   if (topFollowers > 0 && topPlatformLabel) {

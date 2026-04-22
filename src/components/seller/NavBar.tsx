@@ -5,19 +5,19 @@ import { Button } from '@/components/ui/button';
 import type { SellerData } from '@/lib/sellerDataExtractor';
 
 const NAV_LINKS = [
-  { label: 'Overview', href: '#hero' },
+  { label: 'Overview', href: '#overview' },
   { label: 'About', href: '#about' },
-  { label: 'Products', href: '#products' },
+  { label: 'Catalog', href: '#products' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Social', href: '#social' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Ratings & Reviews', href: '#reviews' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function NavBar({ data }: { data: SellerData }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('overview');
   const initials = data.sellerName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   useEffect(() => {
@@ -47,6 +47,12 @@ export default function NavBar({ data }: { data: SellerData }) {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const id = href.slice(1);
+    if (id === 'overview') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveSection('overview');
+      setMobileOpen(false);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 72;
@@ -69,7 +75,7 @@ export default function NavBar({ data }: { data: SellerData }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center gap-2.5 shrink-0 group">
+          <a href="#overview" onClick={(e) => handleNavClick(e, '#overview')} className="flex items-center gap-2.5 shrink-0 group">
             <motion.div
               whileHover={{ rotate: 10, scale: 1.1 }}
               className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md"
@@ -84,7 +90,7 @@ export default function NavBar({ data }: { data: SellerData }) {
           <div className="hidden lg:flex items-center gap-1 bg-card/60 backdrop-blur-lg rounded-full p-1 border border-border/60 shadow-sm">
             {NAV_LINKS.map(link => (
               <a
-                key={link.href}
+                key={`${link.label}-${link.href}`}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -143,7 +149,7 @@ export default function NavBar({ data }: { data: SellerData }) {
             <div className="px-4 py-3 space-y-1">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
-                  key={link.href}
+                  key={`${link.label}-${link.href}`}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   initial={{ x: -20, opacity: 0 }}

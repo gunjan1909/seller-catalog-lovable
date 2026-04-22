@@ -5,6 +5,7 @@ import { ShoppingBag, MessageCircle } from 'lucide-react';
 import CategoryFilterBar from './CategoryFilterBar';
 import ProductCard from './ProductCard';
 import ProductDetailModal from './ProductDetailModal';
+import ParticlesBackground from './ParticlesBackground';
 import type { SellerData, CatalogProduct } from '@/lib/sellerDataExtractor';
 
 export default function ProductCatalog({ data }: { data: SellerData }) {
@@ -47,8 +48,9 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
     <section id="products" ref={ref} className="py-20 sm:py-28 bg-background relative overflow-hidden">
       {/* Decorative bg */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.04),transparent_40%),radial-gradient(circle_at_90%_80%,hsl(var(--accent)/0.05),transparent_40%)] pointer-events-none" />
+      <ParticlesBackground variant="catalog" className="z-0 opacity-90" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +69,7 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">Our Products</h2>
             <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
-              Browse {data.products.length} products across {data.categories.length} categories. Tap any product for full specifications.
+              Showing {data.showcasedItems} products across {data.categories.length} categories. Tap any product for full specifications.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -86,6 +88,7 @@ export default function ProductCatalog({ data }: { data: SellerData }) {
 
         {/* Filter */}
         <motion.div
+          id="categories"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
