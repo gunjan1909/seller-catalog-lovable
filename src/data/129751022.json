@@ -1,34 +1,14 @@
 {
   "seller_id": 129751022,
   "company_profile": {
-    "amazon": null,
-    "state": "Gujarat",
-    "reviews_api_url": null,
-    "pan_number": "AAOCA0270D",
-    "banner_url": null,
-    "website": "https://astilaceramic.com",
-    "gst_number": "24AAOCA0270D1Z4",
-    "rating_count": 23,
-    "instagram": "https://www.instagram.com/astilaceramic/",
-    "phones": [
-      "9726424001",
-      "2642024001"
-    ],
-    "indiamart": null,
-    "confidence": 0.8,
-    "gst_registration_year": "2017-07-01",
-    "flipkart": null,
-    "business_activity": "Factory / Manufacturing",
-    "address": "OP SOMNATHA PETROL PUMP, SR NO 357/P1 P2, JETPAR ROAD, RANGPAR, Morbi, Gujarat, 363642",
-    "rating_value": 4.1,
-    "photos_api_url": null,
-    "google_location": null,
-    "facebook": "https://www.facebook.com/AstilaCeramicPvtLtd/",
-    "emails": [
-      "export@astilaceramic.com"
-    ],
-    "linkedin": "https://www.linkedin.com/company/astila-ceramic/",
     "cin_number": null,
+    "pan_number": "AAOCA0270D",
+    "instagram": "https://www.instagram.com/astilaceramic/",
+    "state": "Gujarat",
+    "facebook": "https://www.facebook.com/AstilaCeramicPvtLtd/",
+    "business_type": "Tile manufacturer",
+    "name": "Astila Ceramic Pvt Ltd",
+    "logo_url": "https://astilaceramic.com/wp-content/uploads/2024/03/Astila-Logo.png",
     "social_urls": [
       "https://www.facebook.com/AstilaCeramicPvtLtd/",
       "https://www.instagram.com/astilaceramic/",
@@ -37,22 +17,137 @@
       "https://www.instagram.com/astilaceramic",
       "https://www.facebook.com/astilaceramics"
     ],
-    "twitter": null,
-    "whatsapp": null,
     "tradeindia": null,
-    "city": "Morbi",
-    "business_type": "Tile manufacturer",
-    "youtube": "https://www.youtube.com/@astilaceramic",
-    "gmb_ludocid": "15183809651019924605",
-    "logo_url": "https://astilaceramic.com/wp-content/uploads/2024/03/Astila-Logo.png",
+    "banner_url": null,
+    "whatsapp": null,
+    "gst_registration_year": "2017-07-01",
     "description": "\"With eight advanced manufacturing plants in Morbi, we have been producing exceptional tiles since January 2014. Our journey began with Asta Ceramic, our first plant, and we have expanded every year since. In 2017, Astila Ceramic was established to specialize in 30x60cm porcelain and high-depth elevation wall tiles, renowned for their superior look and finish. Product Range: • 30x60 High Depth Elevation Tiles • 30x60 Matt Porcelain Tiles (R9, R10, R11 surfaces) • 30x60 Multi mold outdoor tiles • 30x60 12mm Heavy Duty Parking Tiles We adhere to international quality standards, exporting to over 15 countries. With a focus on export sales, we offer fast customization services, including mold creation and thickness options (9-12mm).\"",
-    "posts_api_url": null,
+    "gst_number": "24AAOCA0270D1Z4",
+    "amazon": null,
+    "city": "Morbi",
+    "address": "OP SOMNATHA PETROL PUMP, SR NO 357/P1 P2, JETPAR ROAD, RANGPAR, Morbi, Gujarat, 363642",
+    "rating_count": 23,
+    "business_activity": "Factory / Manufacturing",
+    "reviews_api_url": null,
     "gps_coordinates": null,
+    "phones": [
+      "9726424001",
+      "2642024001"
+    ],
+    "flipkart": null,
+    "rating_value": 4.1,
+    "posts_api_url": null,
     "justdial": null,
-    "name": "Astila Ceramic Pvt Ltd",
-    "_raw_text": "```json\n{\n  \"amazon\": null,\n  \"state\": \"Gujarat\",\n  \"reviews_api_url\": null,\n  \"pan_number\": \"AAOCA0270D\",\n  \"banner_url\": null,\n  \"website\": \"https://astilaceramic.com\",\n  \"gst_number\": \"24AAOCA0270D1Z4\",\n  \"rating_count\": 23,\n  \"instagram\": \"https://www.instagram.com/astilaceramic/\",\n  \"phones\": [\n    \"9726424001\",\n    \"2642024001\"\n  ],\n  \"indiam"
+    "photos_api_url": null,
+    "indiamart": null,
+    "google_location": null,
+    "linkedin": "https://www.linkedin.com/company/astila-ceramic/",
+    "twitter": null,
+    "confidence": 0.8,
+    "youtube": "https://www.youtube.com/@astilaceramic",
+    "emails": [
+      "export@astilaceramic.com"
+    ],
+    "gmb_ludocid": "15183809651019924605",
+    "website": "https://astilaceramic.com",
+    "_raw_text": "```json\n{\n  \"cin_number\": null,\n  \"pan_number\": \"AAOCA0270D\",\n  \"instagram\": \"https://www.instagram.com/astilaceramic/\",\n  \"state\": \"Gujarat\",\n  \"facebook\": \"https://www.facebook.com/AstilaCeramicPvtLtd/\",\n  \"business_type\": \"Tile manufacturer\",\n  \"name\": \"Astila Ceramic Pvt Ltd\",\n  \"logo_url\": \"https://astilaceramic.com/wp-content/uploads/2024/03/Astila-Logo.png\",\n  \"social_urls\": [\n    \"https://www.facebook.com/AstilaCeramicP"
   },
   "products": [
+    {
+      "b2b_attributes": {
+        "moq_unit": null,
+        "model": null,
+        "packaging_details": null,
+        "certifications": [],
+        "brand_type": null,
+        "payment_terms": [],
+        "hsn_code": "6907",
+        "brand": "Astila Ceramic Pvt Ltd",
+        "gst_percent": 18,
+        "delivery_time": null,
+        "price_unit": null,
+        "supply_ability": null,
+        "moq": null,
+        "country_of_origin": "India"
+      },
+      "warnings": [
+        "Product name is a company slogan, not a specific product. Classification assumes the general type of product the company manufactures.",
+        "Embedding API unavailable for dedup check.",
+        "MOQ missing for industrial product.",
+        "Price unit is missing."
+      ],
+      "seo_title": "Morbi Tiles — Premium Quality from Astila Ceramic | Buy Online",
+      "indiamart_industry_group": "IM_01",
+      "alt_text": "High-quality Morbi Tiles from Astila Ceramic Pvt Ltd, a leading tile manufacturer in Morbi, India, suitable for various applications.",
+      "price_on_request": true,
+      "photo_urls": [
+        "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg"
+      ],
+      "slug": "morbi-tiles",
+      "tags": [
+        "Morbi Tiles",
+        "Ceramic Tiles",
+        "Vitrified Tiles",
+        "Floor Tiles",
+        "Wall Tiles",
+        "Building Materials",
+        "Construction Tiles",
+        "Astila Tiles",
+        "Tile Manufacturer",
+        "India Tiles",
+        "Home Renovation",
+        "Architectural Tiles"
+      ],
+      "moq_missing": true,
+      "jsonld": {
+        "offers": {
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "INR",
+          "@type": "Offer"
+        },
+        "@type": "Product",
+        "@context": "https://schema.org",
+        "description": "Discover high-quality Morbi Tiles from Astila Ceramic Pvt Ltd, a renowned tile manufacturer based in Morbi, India. These versatile tiles are available for bulk orders, with pricing provided upon request to meet specific project requirements. Ideal for procurement managers, builders, architects, and homeowners, our Morbi Tiles are perfect for various construction, renovation, and interior design applications. Astila Ceramic Pvt Ltd ensures durable and aesthetically pleasing tiles, leveraging Morbi's reputation for excellence in tile manufacturing.",
+        "name": "Morbi Tiles",
+        "brand": {
+          "name": "Astila Ceramic Pvt Ltd",
+          "@type": "Brand"
+        }
+      },
+      "price_min": null,
+      "category": "Tile",
+      "dedup_similarity": null,
+      "in_stock": true,
+      "domain_attributes": {
+        "source_url": "https://astilaceramic.com/porcelain-vitrified-tiles/",
+        "image_url": "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg"
+      },
+      "source_url": "https://astilaceramic.com/porcelain-vitrified-tiles/",
+      "clean_name": "Morbi Tiles",
+      "price_unit": null,
+      "final_confidence": 0.82,
+      "page_slot": "products.item",
+      "sub_category": "Morbi Tile",
+      "primary_photo_url": "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg",
+      "product_type": "Tile",
+      "is_price_range": false,
+      "fingerprint": "27abf3acfa44",
+      "domain_attrs_complete": 0,
+      "enrichment_fields_added": [
+        "indiamart_industry_group",
+        "slug",
+        "jsonld"
+      ],
+      "confidence_breakdown": {
+        "product_agent_confidence": 0.9,
+        "enrichment_completeness": 0.4,
+        "dedup_signal": 1
+      },
+      "currency": "INR",
+      "description": "Discover high-quality Morbi Tiles from Astila Ceramic Pvt Ltd, a renowned tile manufacturer based in Morbi, India. These versatile tiles are available for bulk orders, with pricing provided upon request to meet specific project requirements. Ideal for procurement managers, builders, architects, and homeowners, our Morbi Tiles are perfect for various construction, renovation, and interior design applications. Astila Ceramic Pvt Ltd ensures durable and aesthetically pleasing tiles, leveraging Morbi's reputation for excellence in tile manufacturing.",
+      "price_single": null,
+      "price_max": null
+    },
     {
       "raw_name": "Discover Wonders Of Natural Look Porcelain Tiles",
       "clean_name": "Natural Look Porcelain Tiles",
@@ -61,31 +156,28 @@
       "industry_segment": "Building Material",
       "product_category": "Porcelain Tile",
       "product_sub_type": "Natural Look Porcelain Tile",
-      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and aesthetically pleasing flooring or wall covering materials for residential or commercial projects.",
-      "description": "These Natural Look Porcelain Tiles offer a sophisticated and durable solution for various surfacing needs, combining the aesthetic appeal of natural materials with the superior performance of porcelain. Available for purchase, please contact Astila Ceramic Pvt Ltd for detailed pricing and order information. Ideal for construction contractors, architects, and homeowners, these tiles are perfect for enhancing both residential and commercial spaces, including flooring and wall applications. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles ensure high quality and consistency for your projects.",
-      "seo_title": "Natural Look Porcelain Tiles — Durable & Aesthetic | Buy Online",
+      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and aesthetically pleasing flooring or wall covering with a natural stone appearance.",
+      "description": "Discover premium Natural Look Porcelain Tiles, designed to emulate the timeless beauty of natural stone with superior durability. These high-quality tiles are available at competitive prices, with detailed quotes provided upon inquiry. Ideal for construction contractors, architects, and homeowners, they are perfect for creating aesthetically pleasing and long-lasting flooring or wall coverings in both residential and commercial spaces. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles ensure exceptional quality and performance.",
+      "seo_title": "Natural Look Porcelain Tiles — Durable & Premium Quality | Buy Online",
       "tags": [
         "Porcelain Tiles",
         "Natural Look Tiles",
+        "Stone Look Tiles",
         "Flooring Tiles",
         "Wall Tiles",
-        "Ceramic Tiles",
-        "Vitrified Tiles",
+        "Interior Tiles",
+        "Exterior Tiles",
+        "Durable Tiles",
+        "Tile Manufacturer",
+        "Morbi Tiles",
         "Building Materials",
-        "Construction Tiles",
-        "Home Decor",
-        "Commercial Tiles",
-        "Astila Ceramic",
-        "Morbi Tiles"
+        "Porcelain"
       ],
-      "alt_text": "Natural Look Porcelain Tiles by Astila Ceramic Pvt Ltd for durable and aesthetic flooring and wall applications.",
+      "alt_text": "Natural Look Porcelain Tiles by Astila Ceramic Pvt Ltd, ideal for durable and aesthetic flooring and wall applications.",
       "domain_attributes": {
         "source_url": "https://astilaceramic.com/our-product/",
         "Finish": "Natural Look",
-        "Material": "Porcelain",
-        "Dimensions": null,
-        "Thickness": null,
-        "Application Area": null
+        "Material Type": "Porcelain"
       },
       "specifications": {
         "category": "Porcelain Tile",
@@ -98,19 +190,16 @@
         "price_unit": null,
         "currency": "INR",
         "Finish": "Natural Look",
-        "Material": "Porcelain",
-        "Dimensions": null,
-        "Thickness": null,
-        "Application Area": null
+        "Material Type": "Porcelain"
       },
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "Square Meter",
+        "price_unit": "square meter",
         "hsn_code": "6907",
         "gst_percent": 28,
         "country_of_origin": "India",
-        "brand": "Astila Ceramic Pvt Ltd",
+        "brand": null,
         "certifications": []
       },
       "price_single": null,
@@ -139,32 +228,19 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Wall Tile",
-      "buyer_persona": "A construction contractor, architect, interior designer, or homeowner purchasing tiles for wall cladding in residential or commercial projects.",
-      "description": "High-quality Wall Tiles from Astila Ceramic Pvt Ltd offer durable and aesthetically pleasing solutions for interior and exterior wall cladding. Available in a variety of materials, dimensions, and finishes, these tiles are competitively priced in INR to suit diverse project budgets. Ideal for construction contractors, architects, interior designers, and homeowners, they are perfect for enhancing bathrooms, kitchens, living rooms, and outdoor spaces. Manufactured in Morbi, India, Astila Ceramic Pvt Ltd ensures superior quality and craftsmanship in every tile.",
-      "seo_title": "Premium Wall Tiles — Durable & Stylish Finishes | Buy Online",
+      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for decorative and functional surfacing material for interior or exterior walls.",
+      "description": "Wall Tiles is a wall tile offered by Astila Ceramic Pvt Ltd based in Morbi. Suitable for: A construction contractor, interior designer, or homeowner looking for decorative and functional surfacing material for interior or exterior walls.",
+      "seo_title": "Wall Tiles Wall Tile | Catalog Listing",
       "tags": [
-        "Wall tiles",
-        "Ceramic tiles",
-        "Vitrified tiles",
-        "Wall cladding",
-        "Interior design",
-        "Building materials",
-        "Construction",
-        "Home decor",
-        "Morbi tiles",
-        "Astila Ceramic",
-        "Tile manufacturer",
-        "Architectural finishes"
+        "Wall Tiles",
+        "Construction & Infrastructure",
+        "Building Materials",
+        "Tile",
+        "Wall Tile"
       ],
-      "alt_text": "Wall Tiles by Astila Ceramic Pvt Ltd, suitable for various wall cladding applications with durable and stylish finishes.",
+      "alt_text": "Wall Tiles from Astila Ceramic Pvt Ltd",
       "domain_attributes": {
-        "source_url": "https://astilaceramic.com",
-        "Material": null,
-        "Dimensions": null,
-        "Finish": null,
-        "Application Area": null,
-        "Thickness": null,
-        "Edge Type": null
+        "source_url": "https://astilaceramic.com"
       },
       "specifications": {
         "category": "Tile",
@@ -175,20 +251,14 @@
         "price_min": null,
         "price_max": null,
         "price_unit": null,
-        "currency": "INR",
-        "Material": null,
-        "Dimensions": null,
-        "Finish": null,
-        "Application Area": null,
-        "Thickness": null,
-        "Edge Type": null
+        "currency": "INR"
       },
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "square foot",
-        "hsn_code": "6907",
-        "gst_percent": 18,
+        "price_unit": null,
+        "hsn_code": null,
+        "gst_percent": null,
         "country_of_origin": "India",
         "brand": null,
         "certifications": []
@@ -206,7 +276,7 @@
       "in_stock": true,
       "page_slot": "products.item",
       "classification_confidence": 1,
-      "extraction_confidence": 0.75,
+      "extraction_confidence": 0.5,
       "self_healing_attempted": false,
       "retry_count": 0,
       "warnings": []
@@ -219,32 +289,33 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Decorative Tile",
-      "buyer_persona": "A homeowner, interior designer, or contractor seeking aesthetic tiling solutions for residential or commercial building projects.",
-      "description": "Astila Ceramic Pvt Ltd offers a diverse range of Decorative Tiles, meticulously designed to enhance the aesthetic appeal of any space. These premium tiles are available for bulk orders, with pricing provided upon request to accommodate various project scales. Ideal for homeowners, interior designers, and contractors, these tiles are perfect for residential and commercial building projects requiring unique and stylish tiling solutions. Manufactured in Morbi, India, by Astila Ceramic Pvt Ltd, these tiles meet high-quality standards for durability and finish.",
-      "seo_title": "Aesthetic Decorative Tiles — Premium Quality | Astila Ceramic Pvt Ltd",
+      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for aesthetic and functional tiling solutions for residential or commercial projects.",
+      "description": "Enhance any space with Astila Ceramic Pvt Ltd's premium Decorative Tiles, designed to add aesthetic appeal and functional durability to your projects. These high-quality tiles are available on request with competitive pricing, catering to diverse design and budget requirements. Ideal for construction contractors, interior designers, and homeowners, they are perfect for residential and commercial applications, including floors, walls, bathrooms, and kitchens. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles reflect superior craftsmanship and adherence to industry standards.",
+      "seo_title": "Decorative Tiles — Aesthetic & Durable | Astila Ceramic Pvt Ltd",
       "tags": [
-        "Decorative tiles",
-        "Ceramic tiles",
-        "Wall tiles",
-        "Floor tiles",
-        "Aesthetic tiles",
-        "Interior design",
-        "Building materials",
-        "Home decor",
+        "Decorative Tiles",
+        "Ceramic Tiles",
+        "Vitrified Tiles",
+        "Wall Tiles",
+        "Floor Tiles",
+        "Interior Design",
+        "Building Materials",
+        "Construction",
+        "Home Decor",
         "Astila Ceramic",
-        "Morbi tiles",
-        "Premium tiles",
-        "Construction"
+        "Morbi Tiles",
+        "Aesthetic Tiling"
       ],
-      "alt_text": "Decorative Tiles by Astila Ceramic Pvt Ltd, offering aesthetic tiling solutions for various applications.",
+      "alt_text": "Decorative Tiles by Astila Ceramic Pvt Ltd, ideal for aesthetic and functional tiling in residential and commercial projects.",
       "domain_attributes": {
         "source_url": "https://astilaceramic.com",
+        "Material Type": null,
         "Dimensions": null,
-        "Material": null,
-        "Finish": null,
+        "Thickness": null,
+        "Finish Type": null,
         "Shape": null,
-        "Application Area": null,
-        "Quantity Per Unit": null
+        "Recommended Application": null,
+        "Packaging Unit": null
       },
       "specifications": {
         "category": "Tile",
@@ -256,12 +327,13 @@
         "price_max": null,
         "price_unit": null,
         "currency": "INR",
+        "Material Type": null,
         "Dimensions": null,
-        "Material": null,
-        "Finish": null,
+        "Thickness": null,
+        "Finish Type": null,
         "Shape": null,
-        "Application Area": null,
-        "Quantity Per Unit": null
+        "Recommended Application": null,
+        "Packaging Unit": null
       },
       "b2b_attributes": {
         "moq": null,
@@ -285,7 +357,7 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 0.95,
+      "classification_confidence": 1,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
@@ -295,37 +367,34 @@
       "raw_name": "Floor Tiles",
       "clean_name": "Floor Tiles",
       "fingerprint": "8f21a6da9671",
-      "top_level_domain": "Construction & Infrastructure",
-      "industry_segment": "Building Material",
+      "top_level_domain": "Construction & Building Material",
+      "industry_segment": "Flooring & Tiling",
       "product_category": "Tile",
       "product_sub_type": "Floor Tile",
-      "buyer_persona": "A construction contractor, architect, interior designer, or homeowner looking for surfacing materials for flooring in residential or commercial projects.",
-      "description": "Discover a wide range of high-quality Floor Tiles, perfect for enhancing the aesthetics and durability of any space. These tiles are available for purchase with pricing provided upon request, ensuring competitive rates for bulk orders. Ideal for construction contractors, architects, interior designers, and homeowners, our floor tiles are suitable for various residential and commercial applications, including bathrooms, kitchens, and living areas. Manufactured by Astila Ceramic Pvt Ltd, our products meet stringent quality standards, offering reliable and long-lasting flooring solutions.",
-      "seo_title": "Premium Floor Tiles — Durable & Stylish | Buy Online",
+      "buyer_persona": "A construction contractor, homeowner, or interior designer looking for durable and aesthetically suitable flooring material for residential or commercial projects.",
+      "description": "Discover durable and aesthetically pleasing Floor Tiles from Astila Ceramic Pvt Ltd, designed to enhance any space. Pricing for these high-quality tiles is available upon request, ensuring tailored solutions for your project needs. Ideal for construction contractors, homeowners, and interior designers, these tiles are perfect for both residential and commercial applications, including bathrooms, kitchens, and living areas. Manufactured in Morbi, India, Astila Ceramic Pvt Ltd ensures superior craftsmanship and lasting performance for all its flooring solutions.",
+      "seo_title": "Durable Floor Tiles — Astila Ceramic Pvt Ltd | Buy Online",
       "tags": [
         "Floor Tiles",
-        "Tiles",
-        "Flooring Material",
         "Ceramic Tiles",
         "Vitrified Tiles",
-        "Building Materials",
-        "Construction Tiles",
+        "Flooring Material",
         "Home Flooring",
         "Commercial Flooring",
         "Tile Manufacturer",
+        "Building Materials",
+        "Construction Tiles",
+        "Interior Design",
         "Morbi Tiles",
         "Astila Ceramic"
       ],
-      "alt_text": "Floor Tiles for residential and commercial use from Astila Ceramic Pvt Ltd",
+      "alt_text": "High-quality Floor Tiles from Astila Ceramic Pvt Ltd, a leading tile manufacturer in Morbi, India, suitable for various flooring needs.",
       "domain_attributes": {
         "source_url": "https://astilaceramic.com",
-        "Material": null,
-        "Dimensions": null,
+        "Material Type": null,
         "Finish": null,
+        "Dimensions": null,
         "Thickness": null,
-        "Slip Resistance": null,
-        "Water Absorption Rate": null,
-        "Area Coverage": null,
         "Application Area": null
       },
       "specifications": {
@@ -338,19 +407,16 @@
         "price_max": null,
         "price_unit": null,
         "currency": "INR",
-        "Material": null,
-        "Dimensions": null,
+        "Material Type": null,
         "Finish": null,
+        "Dimensions": null,
         "Thickness": null,
-        "Slip Resistance": null,
-        "Water Absorption Rate": null,
-        "Area Coverage": null,
         "Application Area": null
       },
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "per square foot",
+        "price_unit": "square foot",
         "hsn_code": "6907",
         "gst_percent": 18,
         "country_of_origin": "India",
@@ -369,7 +435,7 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 1,
+      "classification_confidence": 0.95,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
@@ -383,33 +449,35 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Outdoor Tile",
-      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and weather-resistant flooring or cladding solutions for exterior spaces like patios, balconies, or pathways.",
-      "description": "Durable and weather-resistant Outdoor Tiles are specifically engineered for robust exterior applications, offering superior longevity and aesthetic appeal. Available from Astila Ceramic Pvt Ltd, these tiles are offered with pricing on request to accommodate diverse project budgets and requirements. They are ideal for construction contractors, architects, and homeowners seeking reliable flooring or cladding solutions for patios, balconies, and pathways. Manufactured in Morbi, India, these tiles ensure high quality and performance in challenging outdoor environments.",
+      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and weather-resistant flooring or surfacing material for exterior spaces like patios, balconies, or walkways.",
+      "description": "Durable and weather-resistant Outdoor Tiles are specifically designed for exterior applications, offering robust performance and aesthetic appeal. These tiles are available from Astila Ceramic Pvt Ltd, with pricing provided upon request. Ideal for construction contractors, architects, and homeowners, they are perfect for enhancing patios, balconies, walkways, and other outdoor spaces. Manufactured by a reputable tile producer in Morbi, these tiles ensure high quality and longevity for all your outdoor flooring needs.",
       "seo_title": "Durable Outdoor Tiles — Weather-Resistant Flooring | Buy Online",
       "tags": [
         "Outdoor Tiles",
-        "Exterior Flooring",
-        "Weather-Resistant Tiles",
+        "Exterior Tiles",
         "Patio Tiles",
         "Balcony Tiles",
-        "Anti-Slip Tiles",
-        "Ceramic Tiles",
-        "Vitrified Tiles",
-        "Construction Materials",
-        "Building Tiles",
-        "Morbi Tiles",
-        "Durable Tiles"
+        "Garden Tiles",
+        "Durable Tiles",
+        "Weather-Resistant Tiles",
+        "Anti-slip Tiles",
+        "Outdoor Flooring",
+        "Building Materials",
+        "Tiles for Outdoors",
+        "Morbi Tiles"
       ],
-      "alt_text": "Durable Outdoor Tiles with Anti-Slip Finish from Astila Ceramic Pvt Ltd for exterior flooring.",
+      "alt_text": "Outdoor Tiles from Astila Ceramic Pvt Ltd, ideal for durable and weather-resistant exterior flooring.",
       "domain_attributes": {
         "source_url": "https://astilaceramic.com",
         "Material Type": null,
-        "Dimensions": null,
+        "Length": null,
+        "Width": null,
         "Thickness": null,
-        "Finish": "Anti-Slip",
-        "Slip Resistance Rating": "R11",
+        "Finish": null,
+        "Slip Resistance Rating": null,
         "Water Absorption Rate": null,
-        "Frost Resistance": "Yes",
+        "Frost Resistance": null,
+        "PEI Rating": null,
         "Coverage Area Per Box": null
       },
       "specifications": {
@@ -423,12 +491,14 @@
         "price_unit": null,
         "currency": "INR",
         "Material Type": null,
-        "Dimensions": null,
+        "Length": null,
+        "Width": null,
         "Thickness": null,
-        "Finish": "Anti-Slip",
-        "Slip Resistance Rating": "R11",
+        "Finish": null,
+        "Slip Resistance Rating": null,
         "Water Absorption Rate": null,
-        "Frost Resistance": "Yes",
+        "Frost Resistance": null,
+        "PEI Rating": null,
         "Coverage Area Per Box": null
       },
       "b2b_attributes": {
@@ -436,7 +506,7 @@
         "moq_unit": null,
         "price_unit": "Square Meter",
         "hsn_code": "6907",
-        "gst_percent": 18,
+        "gst_percent": 28,
         "country_of_origin": "India",
         "brand": null,
         "certifications": []
@@ -453,7 +523,7 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 1,
+      "classification_confidence": 0.97,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
@@ -466,31 +536,31 @@
       "top_level_domain": "Construction & Infrastructure",
       "industry_segment": "Building Material",
       "product_category": "Ceramic Tile",
-      "product_sub_type": "Astila Series Ceramic Tile",
-      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for ceramic tiles for flooring or wall applications in residential or commercial projects.",
-      "description": "The Astila Ceramic Tile, part of the exclusive Astila Series, offers a versatile solution for both flooring and wall applications. Available directly from Astila Ceramic Pvt Ltd, pricing is provided upon request to accommodate diverse project requirements. Ideal for construction contractors, interior designers, and homeowners, these tiles enhance residential and commercial spaces with their quality and aesthetic appeal. Manufactured in Morbi, India, Astila Ceramic ensures durable and high-quality tiles suitable for various design needs.",
-      "seo_title": "Astila Series Ceramic Tile — Premium Quality Tiles from Morbi | Buy Online",
+      "product_sub_type": "Astila Ceramic Tile",
+      "buyer_persona": "A builder, contractor, or homeowner looking for ceramic tiles for flooring or wall applications in residential or commercial projects.",
+      "description": "Astila Ceramic Tiles offer a versatile solution for both residential and commercial flooring and wall applications. These premium tiles are available for price on request, ensuring competitive rates for bulk orders. Ideal for builders, contractors, and homeowners, they provide durable and aesthetically pleasing surfaces for various projects. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles meet high-quality standards for lasting performance.",
+      "seo_title": "Astila Ceramic Tiles — Premium Quality for Floors & Walls | Buy Online",
       "tags": [
-        "Ceramic tile",
-        "Astila Series",
-        "floor tiles",
-        "wall tiles",
+        "ceramic tile",
+        "floor tile",
+        "wall tile",
+        "Astila Ceramic",
         "Morbi tiles",
-        "Indian tiles",
         "building materials",
+        "construction",
         "home decor",
-        "commercial flooring",
         "tile manufacturer",
-        "interior design",
-        "construction supplies"
+        "Indian tiles",
+        "residential tiles",
+        "commercial tiles"
       ],
-      "alt_text": "Astila Ceramic Tile, Astila Series, for flooring and walls by Astila Ceramic Pvt Ltd, a tile manufacturer from Morbi, India.",
+      "alt_text": "Astila Ceramic Tile for flooring and walls from Astila Ceramic Pvt Ltd, a Morbi-based manufacturer.",
       "domain_attributes": {
         "source_url": "https://astilaceramic.com"
       },
       "specifications": {
         "category": "Ceramic Tile",
-        "sub_type": "Astila Series Ceramic Tile",
+        "sub_type": "Astila Ceramic Tile",
         "image_url": null,
         "source_url": "https://astilaceramic.com",
         "price_single": null,
@@ -502,7 +572,7 @@
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "Square Meter",
+        "price_unit": "square meter",
         "hsn_code": "6907",
         "gst_percent": 18,
         "country_of_origin": "India",
@@ -530,6 +600,29 @@
   ],
   "media_assets": [
     {
+      "fingerprint": "27abf3acfa44",
+      "product_name": "Morbi Tiles",
+      "url": "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg",
+      "scene_type": "product_lifestyle",
+      "media_confidence": 1,
+      "visual_features": {
+        "product_type_confirmed": "Floor and wall tiles",
+        "shape_visible": "Square/Rectangular",
+        "color_appearance": "White with gold/brown veining",
+        "clarity_appearance": null,
+        "size_impression": null,
+        "setting_or_mounting": null,
+        "metal_visible": null,
+        "certification_label_visible": false,
+        "presentation": "Lifestyle shot in a modern interior setting",
+        "additional_visual_notes": "Polished finish, large format tiles, marble-effect pattern."
+      },
+      "visual_description": "The image displays a modern interior space, likely a kitchen or dining area, showcasing white polished tiles with subtle gold and brown marble-like veining on both the floor and a prominent accent wall. The room is furnished with a dark wooden dining table, two light wooden chairs, a built-in bench with cushions, a black metal shelving unit, and a kitchen island with a stovetop, all set against a backdrop of a large black-framed window.",
+      "media_alt_text": "Modern kitchen and dining area featuring white polished tiles with gold veining on the floor and accent wall, furnished with a wooden table and kitchen island.",
+      "used_vision": true,
+      "classified_at": "2026-04-22T11:52:00.739Z"
+    },
+    {
       "fingerprint": "9708a1a13f40",
       "product_name": "Natural Look Porcelain Tiles",
       "url": null,
@@ -539,7 +632,7 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.016Z"
+      "classified_at": "2026-04-22T11:51:44.417Z"
     },
     {
       "fingerprint": "5e7293588e34",
@@ -551,7 +644,7 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.026Z"
+      "classified_at": "2026-04-22T11:51:44.421Z"
     },
     {
       "fingerprint": "a1019ac737c8",
@@ -563,7 +656,7 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.067Z"
+      "classified_at": "2026-04-22T11:51:44.422Z"
     },
     {
       "fingerprint": "8f21a6da9671",
@@ -575,7 +668,7 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.086Z"
+      "classified_at": "2026-04-22T11:51:44.423Z"
     },
     {
       "fingerprint": "52d9f9068204",
@@ -587,7 +680,7 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.098Z"
+      "classified_at": "2026-04-22T11:51:44.424Z"
     },
     {
       "fingerprint": "06fe992c0241",
@@ -599,67 +692,121 @@
       "visual_description": "",
       "media_alt_text": "",
       "used_vision": false,
-      "classified_at": "2026-04-22T07:12:27.103Z"
+      "classified_at": "2026-04-22T11:51:44.426Z"
     }
   ],
   "catalog_items": [
     {
-      "fingerprint": "ecdfb6cdd020",
-      "raw_name": "Astila Elevation Tiles E50 1992",
-      "clean_name": "Astila Elevation Tiles E50 1992",
-      "product_category": "Elevation Tile",
-      "product_sub_type": null,
-      "top_level_domain": null,
-      "industry_segment": null,
-      "description": "Astila Elevation Tiles bring depth, warmth, and refined stone character to modern spaces. Designed to elevate every wall with natural elegance and timeless appeal, these high-depth tiles are crafted for contemporary living.",
-      "seo_title": "Astila Elevation Tiles E50 1992",
-      "alt_text": "Astila Elevation Tiles E50 1992",
-      "tags": [
-        "Astila",
-        "ElevationTiles",
-        "WallDesign",
-        "ModernInteriors",
-        "StoneTexture",
-        "PremiumTiles",
-        "InteriorDesign"
-      ],
-      "price_single": null,
-      "price_text": null,
-      "currency": "INR",
-      "specifications": {
-        "Model": "E50 1992",
-        "Size": "300x600mm",
-        "Finish": "Matt Finish",
-        "Type": "High Depth Elevation Tiles"
+      "b2b_attributes": {
+        "moq_unit": null,
+        "model": null,
+        "packaging_details": null,
+        "certifications": [],
+        "brand_type": null,
+        "payment_terms": [],
+        "hsn_code": "6907",
+        "brand": "Astila Ceramic Pvt Ltd",
+        "gst_percent": 18,
+        "delivery_time": null,
+        "price_unit": null,
+        "supply_ability": null,
+        "moq": null,
+        "country_of_origin": "India"
       },
-      "b2b_attributes": {},
-      "classification_confidence": 1,
-      "extraction_confidence": 0.65,
-      "source": "instagram",
-      "primary_photo_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/669596713_1559560556179392_7685937761059007550_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Icdcyg7SPh0Q7kNvwHEhwnH&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MTk4OTI3MjkwMzU3MTQ5Ng%3D%3D.3-ccb7-5&oh=00_Af1R_2NmLFFsYKhPVC2e-RuogSfUq71FMqvx37qPcK1rNQ&oe=69EE2E52&_nc_sid=8b3546",
-      "media_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/669596713_1559560556179392_7685937761059007550_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Icdcyg7SPh0Q7kNvwHEhwnH&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MTk4OTI3MjkwMzU3MTQ5Ng%3D%3D.3-ccb7-5&oh=00_Af1R_2NmLFFsYKhPVC2e-RuogSfUq71FMqvx37qPcK1rNQ&oe=69EE2E52&_nc_sid=8b3546",
+      "warnings": [
+        "Product name is a company slogan, not a specific product. Classification assumes the general type of product the company manufactures.",
+        "Embedding API unavailable for dedup check.",
+        "MOQ missing for industrial product.",
+        "Price unit is missing."
+      ],
+      "seo_title": "Morbi Tiles — Premium Quality from Astila Ceramic | Buy Online",
+      "indiamart_industry_group": "IM_01",
+      "price_on_request": true,
+      "photo_urls": [
+        "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg"
+      ],
+      "slug": "morbi-tiles",
+      "tags": [
+        "Morbi Tiles",
+        "Ceramic Tiles",
+        "Vitrified Tiles",
+        "Floor Tiles",
+        "Wall Tiles",
+        "Building Materials",
+        "Construction Tiles",
+        "Astila Tiles",
+        "Tile Manufacturer",
+        "India Tiles",
+        "Home Renovation",
+        "Architectural Tiles"
+      ],
+      "moq_missing": true,
+      "jsonld": {
+        "offers": {
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "INR",
+          "@type": "Offer"
+        },
+        "@type": "Product",
+        "@context": "https://schema.org",
+        "description": "Discover high-quality Morbi Tiles from Astila Ceramic Pvt Ltd, a renowned tile manufacturer based in Morbi, India. These versatile tiles are available for bulk orders, with pricing provided upon request to meet specific project requirements. Ideal for procurement managers, builders, architects, and homeowners, our Morbi Tiles are perfect for various construction, renovation, and interior design applications. Astila Ceramic Pvt Ltd ensures durable and aesthetically pleasing tiles, leveraging Morbi's reputation for excellence in tile manufacturing.",
+        "name": "Morbi Tiles",
+        "brand": {
+          "name": "Astila Ceramic Pvt Ltd",
+          "@type": "Brand"
+        }
+      },
+      "price_min": null,
+      "category": "Tile",
+      "dedup_similarity": null,
+      "in_stock": true,
+      "source_url": "https://astilaceramic.com/porcelain-vitrified-tiles/",
+      "clean_name": "Morbi Tiles",
+      "price_unit": null,
+      "final_confidence": 0.82,
+      "page_slot": "products.item",
+      "sub_category": "Morbi Tile",
+      "primary_photo_url": "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg",
+      "product_type": "Tile",
+      "is_price_range": false,
+      "fingerprint": "27abf3acfa44",
+      "domain_attrs_complete": 0,
+      "enrichment_fields_added": [
+        "indiamart_industry_group",
+        "slug",
+        "jsonld"
+      ],
+      "confidence_breakdown": {
+        "product_agent_confidence": 0.9,
+        "enrichment_completeness": 0.4,
+        "dedup_signal": 1
+      },
+      "currency": "INR",
+      "price_single": null,
+      "price_max": null,
+      "description": "Discover high-quality Morbi Tiles from Astila Ceramic Pvt Ltd, a renowned tile manufacturer based in Morbi, India. These versatile tiles are available for bulk orders, with pricing provided upon request to meet specific project requirements. Ideal for procurement managers, builders, architects, and homeowners, our Morbi Tiles are perfect for various construction, renovation, and interior design applications. Astila Ceramic Pvt Ltd ensures durable and aesthetically pleasing tiles, leveraging Morbi's reputation for excellence in tile manufacturing. The image displays a modern interior space, likely a kitchen or dining area, showcasing white polished tiles with subtle gold and brown marble-like veining on both the floor and a prominent accent wall. The room is furnished with a dark wooden dining table, two light wooden chairs, a built-in bench with cushions, a black metal shelving unit, and a kitchen island with a stovetop, all set against a backdrop of a large black-framed window.",
+      "specifications": {
+        "visual_shape": "Square/Rectangular",
+        "visual_color": "White with gold/brown veining",
+        "presentation": "Lifestyle shot in a modern interior setting",
+        "visual_product_type": "Floor and wall tiles",
+        "visual_notes": "Polished finish, large format tiles, marble-effect pattern."
+      },
+      "alt_text": "Modern kitchen and dining area featuring white polished tiles with gold veining on the floor and accent wall, furnished with a wooden table and kitchen island.",
       "used_vision": true,
-      "social_source": {
-        "platform": "instagram",
-        "post_url": "https://www.instagram.com/p/DW8EcPACiqa/",
-        "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/669596713_1559560556179392_7685937761059007550_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Icdcyg7SPh0Q7kNvwHEhwnH&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MTk4OTI3MjkwMzU3MTQ5Ng%3D%3D.3-ccb7-5&oh=00_Af1R_2NmLFFsYKhPVC2e-RuogSfUq71FMqvx37qPcK1rNQ&oe=69EE2E52&_nc_sid=8b3546",
-        "caption": "Experience texture beyond visuals. ✨\nAstila Elevation Tiles bring depth, warmth and refined stone character to modern spaces.\nDesigned to elevate every wall with natural elegance and timeless appeal.\n\nE50 1992 | 300x600mm | Matt Finish\nHigh Depth Elevation Tiles crafted for contemporary living.\n\n#Astila #ElevationTiles #WallDesign #ModernInteriors #StoneTexture #PremiumTiles #InteriorDesign",
-        "posted_at": "2026-04-10T04:58:36.000Z",
-        "likes": 3,
-        "views": null
-      }
+      "media_url": "https://astilaceramic.com/wp-content/uploads/2024/04/ARCTIC-BRONCE.jpg"
     },
     {
-      "fingerprint": "c7567b47f5e4",
-      "raw_name": "Natural Stone Harmony (High Depth Elevation Series)",
-      "clean_name": "Natural Stone Harmony (High Depth Elevation Series)",
+      "fingerprint": "93f74403f8d6",
+      "raw_name": "High Depth Elevation Series - Natural Stone Harmony Tile",
+      "clean_name": "High Depth Elevation Series - Natural Stone Harmony Tile",
       "product_category": "Wall Tile",
       "product_sub_type": null,
       "top_level_domain": null,
       "industry_segment": null,
-      "description": "This tile design features soft stone textures arranged in a balanced composition, crafted to complement modern architecture with a calm and refined presence. It offers durability, natural texture appeal, and seamless application across interior and exterior walls.",
-      "seo_title": "Natural Stone Harmony (High Depth Elevation Series)",
-      "alt_text": "Natural Stone Harmony (High Depth Elevation Series)",
+      "description": "A tile design crafted to complement modern architecture with a calm and refined presence. It features soft stone textures arranged in a balanced composition, offering durability, natural texture appeal, and seamless application.",
+      "seo_title": "High Depth Elevation Series - Natural Stone Harmony Tile",
+      "alt_text": "High Depth Elevation Series - Natural Stone Harmony Tile",
       "tags": [
         "Astila",
         "NaturalStone",
@@ -674,24 +821,25 @@
       "price_text": null,
       "currency": "INR",
       "specifications": {
-        "manufacturer": "Astila Ceramic",
-        "series": "High Depth Elevation Series",
-        "tile_size": "300x600mm",
-        "finish": "matt",
-        "application": "interior and exterior walls",
-        "texture": "Natural Stone Harmony"
+        "Manufacturer": "Astila Ceramic",
+        "Series": "High Depth Elevation Series",
+        "Design": "Natural Stone Harmony",
+        "Tile Size": "300x600mm",
+        "Finish": "Matt",
+        "Application": "Interior and exterior walls",
+        "Key Features": "Durability, natural texture appeal, seamless application"
       },
       "b2b_attributes": {},
       "classification_confidence": 1,
       "extraction_confidence": 0.65,
       "source": "instagram",
-      "primary_photo_url": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=0ux_Cum_h2AQ7kNvwH1Tdqp&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af30qYPqqVMTGGT_OUntYcyTFc201Q6x56x2YL-8gMRWuA&oe=69EE56DA&_nc_sid=8b3546",
-      "media_url": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=0ux_Cum_h2AQ7kNvwH1Tdqp&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af30qYPqqVMTGGT_OUntYcyTFc201Q6x56x2YL-8gMRWuA&oe=69EE56DA&_nc_sid=8b3546",
+      "primary_photo_url": "https://instagram.flas1-1.fna.fbcdn.net/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=0ux_Cum_h2AQ7kNvwGHOo3z&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af301bOFnEwTcdlqmvVGBGoodIiSQB3osuRI7eLGiBFFVA&oe=69EE8F1A&_nc_sid=8b3546",
+      "media_url": "https://instagram.flas1-1.fna.fbcdn.net/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=0ux_Cum_h2AQ7kNvwGHOo3z&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af301bOFnEwTcdlqmvVGBGoodIiSQB3osuRI7eLGiBFFVA&oe=69EE8F1A&_nc_sid=8b3546",
       "used_vision": true,
       "social_source": {
         "platform": "instagram",
         "post_url": "https://www.instagram.com/p/DXOMmnGFguM/",
-        "thumbnail_url": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=0ux_Cum_h2AQ7kNvwH1Tdqp&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af30qYPqqVMTGGT_OUntYcyTFc201Q6x56x2YL-8gMRWuA&oe=69EE56DA&_nc_sid=8b3546",
+        "thumbnail_url": "https://instagram.flas1-1.fna.fbcdn.net/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=0ux_Cum_h2AQ7kNvwGHOo3z&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af301bOFnEwTcdlqmvVGBGoodIiSQB3osuRI7eLGiBFFVA&oe=69EE8F1A&_nc_sid=8b3546",
         "caption": "Crafted to complement modern architecture with a calm and refined presence. 😍\n\nDeveloped by Astila Ceramic, this design from the High Depth Elevation Series features tile size 300x600mm with a matt finish offering durability, natural texture appeal and seamless application across interior and exterior walls. \n\n#Astila #NaturalStone #SurfaceDesign #ArchitecturalDesign #ModernInteriors #WallCladding #LuxurySurfaces #ContemporarySpaces",
         "posted_at": "2026-04-17T05:56:15.000Z",
         "likes": 3,
@@ -699,16 +847,16 @@
       }
     },
     {
-      "fingerprint": "04eac031aa51",
-      "raw_name": "E49 1970 High-Depth Elevation Tiles",
-      "clean_name": "E49 1970 High-Depth Elevation Tiles",
+      "fingerprint": "28a07ff428d6",
+      "raw_name": "Astila E49 1970 High-Depth Elevation Tiles",
+      "clean_name": "Astila E49 1970 High-Depth Elevation Tiles",
       "product_category": "Elevation Tile",
       "product_sub_type": null,
       "top_level_domain": null,
       "industry_segment": null,
-      "description": "High-depth elevation tiles crafted with fine horizontal textures to bring soft layered elegance and a calm visual rhythm to outdoor spaces, enhancing them with subtle depth and modern warmth.",
-      "seo_title": "E49 1970 High-Depth Elevation Tiles",
-      "alt_text": "E49 1970 High-Depth Elevation Tiles",
+      "description": "High-depth elevation tiles crafted to bring soft layered elegance to outdoor spaces. These tiles feature fine horizontal textures, creating a calm visual rhythm and are designed to enhance outdoor spaces with subtle depth and modern warmth.",
+      "seo_title": "Astila E49 1970 High-Depth Elevation Tiles",
+      "alt_text": "Astila E49 1970 High-Depth Elevation Tiles",
       "tags": [
         "AstilaCeramic",
         "ElevationTiles",
@@ -725,39 +873,40 @@
       "price_text": null,
       "currency": "INR",
       "specifications": {
-        "Size": "300x600mm",
+        "Model": "E49 1970",
+        "Size": "300×600mm",
         "Finish": "Matt",
         "Type": "High-depth elevation tiles",
-        "Texture": "Fine horizontal"
+        "Application": "Outdoor spaces, Exterior, Poolside, Modern Facade"
       },
       "b2b_attributes": {},
       "classification_confidence": 1,
       "extraction_confidence": 0.65,
       "source": "instagram",
-      "primary_photo_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Vf5NA3G48nMQ7kNvwEy4PGq&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1uZea26UObgna3S1xhetz7ow2jIug0IciJFfktvHgrLQ&oe=69EE3ADD&_nc_sid=8b3546",
-      "media_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Vf5NA3G48nMQ7kNvwEy4PGq&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1uZea26UObgna3S1xhetz7ow2jIug0IciJFfktvHgrLQ&oe=69EE3ADD&_nc_sid=8b3546",
+      "primary_photo_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=Vf5NA3G48nMQ7kNvwEqsm-C&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1Bp8KXLfpHX57lK_DtcbfSDNHHld2ZXtXEpFfDEk_2fg&oe=69EE731D&_nc_sid=8b3546",
+      "media_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=Vf5NA3G48nMQ7kNvwEqsm-C&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1Bp8KXLfpHX57lK_DtcbfSDNHHld2ZXtXEpFfDEk_2fg&oe=69EE731D&_nc_sid=8b3546",
       "used_vision": true,
       "social_source": {
         "platform": "instagram",
         "post_url": "https://www.instagram.com/p/DXa6b-yinT9/",
-        "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Vf5NA3G48nMQ7kNvwEy4PGq&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1uZea26UObgna3S1xhetz7ow2jIug0IciJFfktvHgrLQ&oe=69EE3ADD&_nc_sid=8b3546",
+        "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=Vf5NA3G48nMQ7kNvwEqsm-C&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1Bp8KXLfpHX57lK_DtcbfSDNHHld2ZXtXEpFfDEk_2fg&oe=69EE731D&_nc_sid=8b3546",
         "caption": "Discover the beauty of our latest tile collection. 🏡✨ \n\nAstila presents E49 1970 high-depth elevation tiles crafted to bring soft layered elegance to outdoor spaces.\n\nSize: 300×600mm | Finish: Matt\n\n#AstilaCeramic #ElevationTiles #HighDepthTiles #ExteriorTiles #PoolsideDesign #ModernFacade #TextureDesign #MattFinishTiles #300x600Tiles #LuxuryExteriors",
         "posted_at": "2026-04-22T04:27:39.000Z",
-        "likes": 1,
+        "likes": 2,
         "views": null
       }
     },
     {
-      "fingerprint": "0c49d9262ff4",
-      "raw_name": "Stone In Motion Tile",
-      "clean_name": "Stone In Motion Tile",
+      "fingerprint": "6fe9125aad94",
+      "raw_name": "Stone In Motion Tiles",
+      "clean_name": "Stone In Motion Tiles",
       "product_category": "Tile",
       "product_sub_type": null,
       "top_level_domain": null,
       "industry_segment": null,
-      "description": "This Astila tile, named 'Stone In Motion,' features timeless stone aesthetics with a natural blend of shapes and warm earthy tones. It is crafted for depth, variation, and durability, creating a sophisticated surface that seamlessly connects nature with modern architecture.",
-      "seo_title": "Stone In Motion Tile",
-      "alt_text": "Stone In Motion Tile",
+      "description": "These Astila tiles feature a natural blend of shapes and tones, creating a flowing stone pattern that adds depth and visual movement to any surface. They offer timeless stone aesthetics with warm earthy tones and refined detail, designed for durability and a sophisticated, natural feel.",
+      "seo_title": "Stone In Motion Tiles",
+      "alt_text": "Stone In Motion Tiles",
       "tags": [
         "AstilaTiles",
         "ElevationTiles",
@@ -766,87 +915,33 @@
         "LuxuryTiles",
         "StoneFinish",
         "NaturalAesthetics",
-        "ModernArchitecture",
-        "Exter"
+        "ModernArchitecture"
       ],
       "price_single": null,
       "price_text": null,
       "currency": "INR",
       "specifications": {
-        "Design Style": "Timeless stone aesthetics, reimagined for modern living",
-        "Pattern": "Flowing stone pattern with natural blend of shapes and tones",
-        "Color Palette": "Warm earthy tones",
-        "Texture/Feel": "Natural and sophisticated",
-        "Key Characteristics": "Depth, variation, durability, unique character, visual movement",
-        "Finish": "Stone Finish",
-        "Application": "Wall Design, Elevation",
-        "Brand": "Astila"
+        "finish": "Stone Finish",
+        "aesthetics": "Timeless stone aesthetics, Natural and sophisticated, Warm earthy tones, Refined detail",
+        "pattern": "Flowing stone pattern, Depth and variation",
+        "durability": "Durable",
+        "application": "Modern living, Contemporary architecture, Every surface"
       },
       "b2b_attributes": {},
-      "classification_confidence": 0.95,
+      "classification_confidence": 0.98,
       "extraction_confidence": 0.65,
       "source": "instagram",
-      "primary_photo_url": "https://scontent-dfw6-1.cdninstagram.com/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=ucKewQz-VScQ7kNvwGkV-sc&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af01pMlklwk_FpRZtluFzSuL2TUnuCqorCTk7ZlnUw3h4g&oe=69EE53EC&_nc_sid=8b3546",
-      "media_url": "https://scontent-dfw6-1.cdninstagram.com/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=ucKewQz-VScQ7kNvwGkV-sc&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af01pMlklwk_FpRZtluFzSuL2TUnuCqorCTk7ZlnUw3h4g&oe=69EE53EC&_nc_sid=8b3546",
+      "primary_photo_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=ucKewQz-VScQ7kNvwG5YmjZ&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af384Cd7rcxdHadVuHyp3ZDou5LeHPnreyJcgeORU2EEOQ&oe=69EE8C2C&_nc_sid=8b3546",
+      "media_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=ucKewQz-VScQ7kNvwG5YmjZ&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af384Cd7rcxdHadVuHyp3ZDou5LeHPnreyJcgeORU2EEOQ&oe=69EE8C2C&_nc_sid=8b3546",
       "used_vision": true,
       "social_source": {
         "platform": "instagram",
         "post_url": "https://www.instagram.com/p/DXI_nGClqjN/",
-        "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=ucKewQz-VScQ7kNvwGkV-sc&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af01pMlklwk_FpRZtluFzSuL2TUnuCqorCTk7ZlnUw3h4g&oe=69EE53EC&_nc_sid=8b3546",
+        "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=ucKewQz-VScQ7kNvwG5YmjZ&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af384Cd7rcxdHadVuHyp3ZDou5LeHPnreyJcgeORU2EEOQ&oe=69EE8C2C&_nc_sid=8b3546",
         "caption": "Transform your space with timeless stone aesthetics, reimagined for modern living. Blending warm earthy tones with refined detail, it creates a surface that feels both natural and sophisticated.\n\nAt Astila, each design is crafted for depth, variation, and durability bringing unique character to every space while seamlessly connecting nature with contemporary architecture.\n\n#AstilaTiles #ElevationTiles #WallDesign #TileDesign #LuxuryTiles #StoneFinish #NaturalAesthetics #ModernArchitecture #ExteriorDesign #InteriorDesignIndia",
         "posted_at": "2026-04-15T05:26:31.000Z",
         "likes": 3,
         "views": null
-      }
-    },
-    {
-      "fingerprint": "bbdf51ebb6d5",
-      "raw_name": "The Elegant Collection Tiles",
-      "clean_name": "The Elegant Collection Tiles",
-      "product_category": "Tile",
-      "product_sub_type": null,
-      "top_level_domain": null,
-      "industry_segment": null,
-      "description": "Astila Ceramics presents 'The Elegant Collection' of tiles, designed to transform houses into sophisticated and comfortable homes. This collection features stunning floor tiles and captivating wall designs, crafted to elevate living spaces. The image displays a modern geometric pattern tile in shades of grey and white.",
-      "seo_title": "The Elegant Collection Tiles",
-      "alt_text": "The Elegant Collection Tiles",
-      "tags": [
-        "tiles",
-        "ceramic tiles",
-        "floor tiles",
-        "wall tiles",
-        "elegant collection",
-        "home decor",
-        "interior design",
-        "Astila Ceramics",
-        "geometric pattern"
-      ],
-      "price_single": null,
-      "price_text": null,
-      "currency": "INR",
-      "specifications": {
-        "collection_name": "The Elegant Collection",
-        "type": "Floor Tiles, Wall Tiles",
-        "material": "Ceramic",
-        "style": "Elegant, Modern",
-        "pattern": "Geometric",
-        "color_palette": "Grey, White"
-      },
-      "b2b_attributes": {},
-      "classification_confidence": 1,
-      "extraction_confidence": 0.65,
-      "source": "youtube",
-      "primary_photo_url": "https://i.ytimg.com/vi/vTcFoziI3dA/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBdKFowDw==&rs=AOn4CLA0PLl39gi04d54zS_myZJycSKO0w",
-      "media_url": "https://i.ytimg.com/vi/vTcFoziI3dA/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBdKFowDw==&rs=AOn4CLA0PLl39gi04d54zS_myZJycSKO0w",
-      "used_vision": true,
-      "social_source": {
-        "platform": "youtube",
-        "post_url": "https://www.youtube.com/shorts/vTcFoziI3dA",
-        "thumbnail_url": "https://i.ytimg.com/vi/vTcFoziI3dA/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBdKFowDw==&rs=AOn4CLA0PLl39gi04d54zS_myZJycSKO0w",
-        "caption": "Welcome to Astila Ceramics, where we believe in turning houses into homes with our exquisite range of tiles. \n\nIn this video, we're thrilled to showcase our elegant collection of tiles that will undoubtedly make your home sweet home even sweeter! From stunning floor tiles to captivating wall designs, our selection is crafted to elevate your living space to new heights of sophistication and comfort.\n\nAt Astila Ceramics, we take pride in being a leading tiles exporter in India, offering top-quality products that meet the highest standards of craftsmanship and durability. Our dedication to excellence ensures that each tile in our collection is not just a piece of decor, but a statement of style and luxury.\n\nWhether you're renovating your kitchen, bathroom, or entire home, our diverse range of tiles has something to suit every taste and preference. With our commitment to customer satisfaction, you can trust that you're getting the best value for your investment.\n\nJoin us on a journey of home transformation and discover how our elegant collection of tiles can turn your space into a haven of beauty and tranquility. Don't just make a house; make it a home with Astila Ceramics.\n\nAstila Ceramics - Your Trusted Tiles Exporter in India.\n\nDon't forget to like, share, and subscribe for more home improvement tips and inspiration!",
-        "posted_at": "2024-04-25T03:30:17.000Z",
-        "likes": 1,
-        "views": 35
       }
     },
     {
@@ -856,30 +951,30 @@
       "industry_segment": "Building Material",
       "product_category": "Porcelain Tile",
       "product_sub_type": "Natural Look Porcelain Tile",
-      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and aesthetically pleasing flooring or wall covering materials for residential or commercial projects.",
-      "seo_title": "Natural Look Porcelain Tiles — Durable & Aesthetic | Buy Online",
+      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and aesthetically pleasing flooring or wall covering with a natural stone appearance.",
+      "seo_title": "Natural Look Porcelain Tiles — Durable & Premium Quality | Buy Online",
       "tags": [
         "Porcelain Tiles",
         "Natural Look Tiles",
+        "Stone Look Tiles",
         "Flooring Tiles",
         "Wall Tiles",
-        "Ceramic Tiles",
-        "Vitrified Tiles",
+        "Interior Tiles",
+        "Exterior Tiles",
+        "Durable Tiles",
+        "Tile Manufacturer",
+        "Morbi Tiles",
         "Building Materials",
-        "Construction Tiles",
-        "Home Decor",
-        "Commercial Tiles",
-        "Astila Ceramic",
-        "Morbi Tiles"
+        "Porcelain"
       ],
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "Square Meter",
+        "price_unit": "square meter",
         "hsn_code": "6907",
         "gst_percent": 28,
         "country_of_origin": "India",
-        "brand": "Astila Ceramic Pvt Ltd",
+        "brand": null,
         "certifications": []
       },
       "price_single": null,
@@ -900,17 +995,14 @@
       "retry_count": 0,
       "warnings": [],
       "raw_name": "Discover Wonders Of Natural Look Porcelain Tiles",
-      "description": "These Natural Look Porcelain Tiles offer a sophisticated and durable solution for various surfacing needs, combining the aesthetic appeal of natural materials with the superior performance of porcelain. Available for purchase, please contact Astila Ceramic Pvt Ltd for detailed pricing and order information. Ideal for construction contractors, architects, and homeowners, these tiles are perfect for enhancing both residential and commercial spaces, including flooring and wall applications. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles ensure high quality and consistency for your projects.",
+      "description": "Discover premium Natural Look Porcelain Tiles, designed to emulate the timeless beauty of natural stone with superior durability. These high-quality tiles are available at competitive prices, with detailed quotes provided upon inquiry. Ideal for construction contractors, architects, and homeowners, they are perfect for creating aesthetically pleasing and long-lasting flooring or wall coverings in both residential and commercial spaces. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles ensure exceptional quality and performance.",
       "specifications": {
         "category": "Porcelain Tile",
         "sub_type": "Natural Look Porcelain Tile",
         "Finish": "Natural Look",
-        "Material": "Porcelain",
-        "Dimensions": null,
-        "Thickness": null,
-        "Application Area": null
+        "Material Type": "Porcelain"
       },
-      "alt_text": "Natural Look Porcelain Tiles by Astila Ceramic Pvt Ltd for durable and aesthetic flooring and wall applications.",
+      "alt_text": "Natural Look Porcelain Tiles by Astila Ceramic Pvt Ltd, ideal for durable and aesthetic flooring and wall applications.",
       "used_vision": false,
       "media_url": null
     },
@@ -921,28 +1013,21 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Wall Tile",
-      "buyer_persona": "A construction contractor, architect, interior designer, or homeowner purchasing tiles for wall cladding in residential or commercial projects.",
-      "seo_title": "Premium Wall Tiles — Durable & Stylish Finishes | Buy Online",
+      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for decorative and functional surfacing material for interior or exterior walls.",
+      "seo_title": "Wall Tiles Wall Tile | Catalog Listing",
       "tags": [
-        "Wall tiles",
-        "Ceramic tiles",
-        "Vitrified tiles",
-        "Wall cladding",
-        "Interior design",
-        "Building materials",
-        "Construction",
-        "Home decor",
-        "Morbi tiles",
-        "Astila Ceramic",
-        "Tile manufacturer",
-        "Architectural finishes"
+        "Wall Tiles",
+        "Construction & Infrastructure",
+        "Building Materials",
+        "Tile",
+        "Wall Tile"
       ],
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "square foot",
-        "hsn_code": "6907",
-        "gst_percent": 18,
+        "price_unit": null,
+        "hsn_code": null,
+        "gst_percent": null,
         "country_of_origin": "India",
         "brand": null,
         "certifications": []
@@ -960,22 +1045,16 @@
       "in_stock": true,
       "page_slot": "products.item",
       "classification_confidence": 1,
-      "extraction_confidence": 0.75,
+      "extraction_confidence": 0.5,
       "self_healing_attempted": false,
       "retry_count": 0,
       "warnings": [],
-      "description": "High-quality Wall Tiles from Astila Ceramic Pvt Ltd offer durable and aesthetically pleasing solutions for interior and exterior wall cladding. Available in a variety of materials, dimensions, and finishes, these tiles are competitively priced in INR to suit diverse project budgets. Ideal for construction contractors, architects, interior designers, and homeowners, they are perfect for enhancing bathrooms, kitchens, living rooms, and outdoor spaces. Manufactured in Morbi, India, Astila Ceramic Pvt Ltd ensures superior quality and craftsmanship in every tile.",
+      "description": "Wall Tiles is a wall tile offered by Astila Ceramic Pvt Ltd based in Morbi. Suitable for: A construction contractor, interior designer, or homeowner looking for decorative and functional surfacing material for interior or exterior walls.",
       "specifications": {
         "category": "Tile",
-        "sub_type": "Wall Tile",
-        "Material": null,
-        "Dimensions": null,
-        "Finish": null,
-        "Application Area": null,
-        "Thickness": null,
-        "Edge Type": null
+        "sub_type": "Wall Tile"
       },
-      "alt_text": "Wall Tiles by Astila Ceramic Pvt Ltd, suitable for various wall cladding applications with durable and stylish finishes.",
+      "alt_text": "Wall Tiles from Astila Ceramic Pvt Ltd",
       "used_vision": false,
       "media_url": null
     },
@@ -986,21 +1065,21 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Decorative Tile",
-      "buyer_persona": "A homeowner, interior designer, or contractor seeking aesthetic tiling solutions for residential or commercial building projects.",
-      "seo_title": "Aesthetic Decorative Tiles — Premium Quality | Astila Ceramic Pvt Ltd",
+      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for aesthetic and functional tiling solutions for residential or commercial projects.",
+      "seo_title": "Decorative Tiles — Aesthetic & Durable | Astila Ceramic Pvt Ltd",
       "tags": [
-        "Decorative tiles",
-        "Ceramic tiles",
-        "Wall tiles",
-        "Floor tiles",
-        "Aesthetic tiles",
-        "Interior design",
-        "Building materials",
-        "Home decor",
+        "Decorative Tiles",
+        "Ceramic Tiles",
+        "Vitrified Tiles",
+        "Wall Tiles",
+        "Floor Tiles",
+        "Interior Design",
+        "Building Materials",
+        "Construction",
+        "Home Decor",
         "Astila Ceramic",
-        "Morbi tiles",
-        "Premium tiles",
-        "Construction"
+        "Morbi Tiles",
+        "Aesthetic Tiling"
       ],
       "b2b_attributes": {
         "moq": null,
@@ -1024,53 +1103,54 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 0.95,
+      "classification_confidence": 1,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
       "warnings": [],
-      "description": "Astila Ceramic Pvt Ltd offers a diverse range of Decorative Tiles, meticulously designed to enhance the aesthetic appeal of any space. These premium tiles are available for bulk orders, with pricing provided upon request to accommodate various project scales. Ideal for homeowners, interior designers, and contractors, these tiles are perfect for residential and commercial building projects requiring unique and stylish tiling solutions. Manufactured in Morbi, India, by Astila Ceramic Pvt Ltd, these tiles meet high-quality standards for durability and finish.",
+      "description": "Enhance any space with Astila Ceramic Pvt Ltd's premium Decorative Tiles, designed to add aesthetic appeal and functional durability to your projects. These high-quality tiles are available on request with competitive pricing, catering to diverse design and budget requirements. Ideal for construction contractors, interior designers, and homeowners, they are perfect for residential and commercial applications, including floors, walls, bathrooms, and kitchens. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles reflect superior craftsmanship and adherence to industry standards.",
       "specifications": {
         "category": "Tile",
         "sub_type": "Decorative Tile",
+        "Material Type": null,
         "Dimensions": null,
-        "Material": null,
-        "Finish": null,
+        "Thickness": null,
+        "Finish Type": null,
         "Shape": null,
-        "Application Area": null,
-        "Quantity Per Unit": null
+        "Recommended Application": null,
+        "Packaging Unit": null
       },
-      "alt_text": "Decorative Tiles by Astila Ceramic Pvt Ltd, offering aesthetic tiling solutions for various applications.",
+      "alt_text": "Decorative Tiles by Astila Ceramic Pvt Ltd, ideal for aesthetic and functional tiling in residential and commercial projects.",
       "used_vision": false,
       "media_url": null
     },
     {
       "clean_name": "Floor Tiles",
       "fingerprint": "8f21a6da9671",
-      "top_level_domain": "Construction & Infrastructure",
-      "industry_segment": "Building Material",
+      "top_level_domain": "Construction & Building Material",
+      "industry_segment": "Flooring & Tiling",
       "product_category": "Tile",
       "product_sub_type": "Floor Tile",
-      "buyer_persona": "A construction contractor, architect, interior designer, or homeowner looking for surfacing materials for flooring in residential or commercial projects.",
-      "seo_title": "Premium Floor Tiles — Durable & Stylish | Buy Online",
+      "buyer_persona": "A construction contractor, homeowner, or interior designer looking for durable and aesthetically suitable flooring material for residential or commercial projects.",
+      "seo_title": "Durable Floor Tiles — Astila Ceramic Pvt Ltd | Buy Online",
       "tags": [
         "Floor Tiles",
-        "Tiles",
-        "Flooring Material",
         "Ceramic Tiles",
         "Vitrified Tiles",
-        "Building Materials",
-        "Construction Tiles",
+        "Flooring Material",
         "Home Flooring",
         "Commercial Flooring",
         "Tile Manufacturer",
+        "Building Materials",
+        "Construction Tiles",
+        "Interior Design",
         "Morbi Tiles",
         "Astila Ceramic"
       ],
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "per square foot",
+        "price_unit": "square foot",
         "hsn_code": "6907",
         "gst_percent": 18,
         "country_of_origin": "India",
@@ -1089,25 +1169,22 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 1,
+      "classification_confidence": 0.95,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
       "warnings": [],
-      "description": "Discover a wide range of high-quality Floor Tiles, perfect for enhancing the aesthetics and durability of any space. These tiles are available for purchase with pricing provided upon request, ensuring competitive rates for bulk orders. Ideal for construction contractors, architects, interior designers, and homeowners, our floor tiles are suitable for various residential and commercial applications, including bathrooms, kitchens, and living areas. Manufactured by Astila Ceramic Pvt Ltd, our products meet stringent quality standards, offering reliable and long-lasting flooring solutions.",
+      "description": "Discover durable and aesthetically pleasing Floor Tiles from Astila Ceramic Pvt Ltd, designed to enhance any space. Pricing for these high-quality tiles is available upon request, ensuring tailored solutions for your project needs. Ideal for construction contractors, homeowners, and interior designers, these tiles are perfect for both residential and commercial applications, including bathrooms, kitchens, and living areas. Manufactured in Morbi, India, Astila Ceramic Pvt Ltd ensures superior craftsmanship and lasting performance for all its flooring solutions.",
       "specifications": {
         "category": "Tile",
         "sub_type": "Floor Tile",
-        "Material": null,
-        "Dimensions": null,
+        "Material Type": null,
         "Finish": null,
+        "Dimensions": null,
         "Thickness": null,
-        "Slip Resistance": null,
-        "Water Absorption Rate": null,
-        "Area Coverage": null,
         "Application Area": null
       },
-      "alt_text": "Floor Tiles for residential and commercial use from Astila Ceramic Pvt Ltd",
+      "alt_text": "High-quality Floor Tiles from Astila Ceramic Pvt Ltd, a leading tile manufacturer in Morbi, India, suitable for various flooring needs.",
       "used_vision": false,
       "media_url": null
     },
@@ -1118,28 +1195,28 @@
       "industry_segment": "Building Material",
       "product_category": "Tile",
       "product_sub_type": "Outdoor Tile",
-      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and weather-resistant flooring or cladding solutions for exterior spaces like patios, balconies, or pathways.",
+      "buyer_persona": "A construction contractor, architect, or homeowner looking for durable and weather-resistant flooring or surfacing material for exterior spaces like patios, balconies, or walkways.",
       "seo_title": "Durable Outdoor Tiles — Weather-Resistant Flooring | Buy Online",
       "tags": [
         "Outdoor Tiles",
-        "Exterior Flooring",
-        "Weather-Resistant Tiles",
+        "Exterior Tiles",
         "Patio Tiles",
         "Balcony Tiles",
-        "Anti-Slip Tiles",
-        "Ceramic Tiles",
-        "Vitrified Tiles",
-        "Construction Materials",
-        "Building Tiles",
-        "Morbi Tiles",
-        "Durable Tiles"
+        "Garden Tiles",
+        "Durable Tiles",
+        "Weather-Resistant Tiles",
+        "Anti-slip Tiles",
+        "Outdoor Flooring",
+        "Building Materials",
+        "Tiles for Outdoors",
+        "Morbi Tiles"
       ],
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
         "price_unit": "Square Meter",
         "hsn_code": "6907",
-        "gst_percent": 18,
+        "gst_percent": 28,
         "country_of_origin": "India",
         "brand": null,
         "certifications": []
@@ -1156,25 +1233,27 @@
       "source_url": "https://astilaceramic.com",
       "in_stock": true,
       "page_slot": "products.item",
-      "classification_confidence": 1,
+      "classification_confidence": 0.97,
       "extraction_confidence": 0.75,
       "self_healing_attempted": false,
       "retry_count": 0,
       "warnings": [],
-      "description": "Durable and weather-resistant Outdoor Tiles are specifically engineered for robust exterior applications, offering superior longevity and aesthetic appeal. Available from Astila Ceramic Pvt Ltd, these tiles are offered with pricing on request to accommodate diverse project budgets and requirements. They are ideal for construction contractors, architects, and homeowners seeking reliable flooring or cladding solutions for patios, balconies, and pathways. Manufactured in Morbi, India, these tiles ensure high quality and performance in challenging outdoor environments.",
+      "description": "Durable and weather-resistant Outdoor Tiles are specifically designed for exterior applications, offering robust performance and aesthetic appeal. These tiles are available from Astila Ceramic Pvt Ltd, with pricing provided upon request. Ideal for construction contractors, architects, and homeowners, they are perfect for enhancing patios, balconies, walkways, and other outdoor spaces. Manufactured by a reputable tile producer in Morbi, these tiles ensure high quality and longevity for all your outdoor flooring needs.",
       "specifications": {
         "category": "Tile",
         "sub_type": "Outdoor Tile",
         "Material Type": null,
-        "Dimensions": null,
+        "Length": null,
+        "Width": null,
         "Thickness": null,
-        "Finish": "Anti-Slip",
-        "Slip Resistance Rating": "R11",
+        "Finish": null,
+        "Slip Resistance Rating": null,
         "Water Absorption Rate": null,
-        "Frost Resistance": "Yes",
+        "Frost Resistance": null,
+        "PEI Rating": null,
         "Coverage Area Per Box": null
       },
-      "alt_text": "Durable Outdoor Tiles with Anti-Slip Finish from Astila Ceramic Pvt Ltd for exterior flooring.",
+      "alt_text": "Outdoor Tiles from Astila Ceramic Pvt Ltd, ideal for durable and weather-resistant exterior flooring.",
       "used_vision": false,
       "media_url": null
     },
@@ -1184,27 +1263,27 @@
       "top_level_domain": "Construction & Infrastructure",
       "industry_segment": "Building Material",
       "product_category": "Ceramic Tile",
-      "product_sub_type": "Astila Series Ceramic Tile",
-      "buyer_persona": "A construction contractor, interior designer, or homeowner looking for ceramic tiles for flooring or wall applications in residential or commercial projects.",
-      "seo_title": "Astila Series Ceramic Tile — Premium Quality Tiles from Morbi | Buy Online",
+      "product_sub_type": "Astila Ceramic Tile",
+      "buyer_persona": "A builder, contractor, or homeowner looking for ceramic tiles for flooring or wall applications in residential or commercial projects.",
+      "seo_title": "Astila Ceramic Tiles — Premium Quality for Floors & Walls | Buy Online",
       "tags": [
-        "Ceramic tile",
-        "Astila Series",
-        "floor tiles",
-        "wall tiles",
+        "ceramic tile",
+        "floor tile",
+        "wall tile",
+        "Astila Ceramic",
         "Morbi tiles",
-        "Indian tiles",
         "building materials",
+        "construction",
         "home decor",
-        "commercial flooring",
         "tile manufacturer",
-        "interior design",
-        "construction supplies"
+        "Indian tiles",
+        "residential tiles",
+        "commercial tiles"
       ],
       "b2b_attributes": {
         "moq": null,
         "moq_unit": null,
-        "price_unit": "Square Meter",
+        "price_unit": "square meter",
         "hsn_code": "6907",
         "gst_percent": 18,
         "country_of_origin": "India",
@@ -1229,40 +1308,34 @@
       "retry_count": 0,
       "warnings": [],
       "raw_name": "Astila Ceramic",
-      "description": "The Astila Ceramic Tile, part of the exclusive Astila Series, offers a versatile solution for both flooring and wall applications. Available directly from Astila Ceramic Pvt Ltd, pricing is provided upon request to accommodate diverse project requirements. Ideal for construction contractors, interior designers, and homeowners, these tiles enhance residential and commercial spaces with their quality and aesthetic appeal. Manufactured in Morbi, India, Astila Ceramic ensures durable and high-quality tiles suitable for various design needs.",
+      "description": "Astila Ceramic Tiles offer a versatile solution for both residential and commercial flooring and wall applications. These premium tiles are available for price on request, ensuring competitive rates for bulk orders. Ideal for builders, contractors, and homeowners, they provide durable and aesthetically pleasing surfaces for various projects. Manufactured by Astila Ceramic Pvt Ltd in Morbi, India, these tiles meet high-quality standards for lasting performance.",
       "specifications": {
         "category": "Ceramic Tile",
-        "sub_type": "Astila Series Ceramic Tile"
+        "sub_type": "Astila Ceramic Tile"
       },
-      "alt_text": "Astila Ceramic Tile, Astila Series, for flooring and walls by Astila Ceramic Pvt Ltd, a tile manufacturer from Morbi, India.",
+      "alt_text": "Astila Ceramic Tile for flooring and walls from Astila Ceramic Pvt Ltd, a Morbi-based manufacturer.",
       "used_vision": false,
       "media_url": null
     }
   ],
   "rejected_items": [
     {
-      "product_name": "Ceramic Tile",
+      "product_name": "Ceramic Tiles",
       "rejection_rule": "vague_ui_item",
       "rejection_reason": "Name or category indicates website UI chrome, not a real product (cat=Unclassified, conf=0.3)",
-      "rejected_at": "2026-04-22T07:13:15.587Z"
-    },
-    {
-      "product_name": "Ceramic & Porcelain Tiles",
-      "rejection_rule": "vague_ui_item",
-      "rejection_reason": "Name or category indicates website UI chrome, not a real product (cat=Unclassified, conf=0.3)",
-      "rejected_at": "2026-04-22T07:13:15.587Z"
+      "rejected_at": "2026-04-22T11:53:51.661Z"
     },
     {
       "product_name": "Ceramic Tiles",
       "rejection_rule": "vague_ui_item",
-      "rejection_reason": "Name or category indicates website UI chrome, not a real product (cat=Tile, conf=0.95)",
-      "rejected_at": "2026-04-22T07:13:15.587Z"
+      "rejection_reason": "Name or category indicates website UI chrome, not a real product (cat=Tile, conf=0.7)",
+      "rejected_at": "2026-04-22T11:53:51.661Z"
     },
     {
       "product_name": "Our Experties",
       "rejection_rule": "vague_ui_item",
       "rejection_reason": "Name or category indicates website UI chrome, not a real product (cat=Unclassified, conf=0.3)",
-      "rejected_at": "2026-04-22T07:13:15.587Z"
+      "rejected_at": "2026-04-22T11:53:51.661Z"
     }
   ],
   "reviews": [
@@ -1521,7 +1594,7 @@
     "https://www.instagram.com/astilaceramic",
     "https://www.facebook.com/astilaceramics"
   ],
-  "overall_confidence": 0.822,
+  "overall_confidence": 0.84,
   "social_profiles": [
     {
       "platform": "facebook",
@@ -1535,7 +1608,7 @@
     {
       "platform": "instagram",
       "url": "https://www.instagram.com/astilaceramic/",
-      "profile_pic_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.2885-19/434570648_1829241114164474_54336943963633141_n.jpg?stp=dst-jpg_e0_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuYzIifQ&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=XeaKpv9dB5MQ7kNvwEO7zVn&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af0R_IfMtRe6091CyRsTSfYEMU0VLjAb87qkhg-ZSq5C9w&oe=69EE5D30&_nc_sid=8b3546",
+      "profile_pic_url": "https://instagram.flas1-1.fna.fbcdn.net/v/t51.2885-19/434570648_1829241114164474_54336943963633141_n.jpg?stp=dst-jpg_e0_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuYzIifQ&_nc_ht=instagram.flas1-1.fna.fbcdn.net&_nc_cat=102&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=XeaKpv9dB5MQ7kNvwFgxp0Y&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af1HHDineSIVQQS9xdUk_Gmz6zBJ6S72KSdlooSg0ZL6Hg&oe=69EE9570&_nc_sid=8b3546",
       "banner_url": null,
       "bio": "🔝 Manufacturer and\n🌍 Exporter of Porcelain Tiles\n🤩 Explore our exquisite collection\n#AstilaCeramic\n#porcelaintile #tilesmanufacturers #tilesexporter",
       "followers_count": 934,
@@ -1545,9 +1618,9 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DXa6b-yinT9/",
-          "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Vf5NA3G48nMQ7kNvwEy4PGq&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1uZea26UObgna3S1xhetz7ow2jIug0IciJFfktvHgrLQ&oe=69EE3ADD&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/674715010_1570290688439712_1276345844169351415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=Vf5NA3G48nMQ7kNvwEqsm-C&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg4MDY3MDk5ODI4Njc1MjMwOA%3D%3D.3-ccb7-5&oh=00_Af1Bp8KXLfpHX57lK_DtcbfSDNHHld2ZXtXEpFfDEk_2fg&oe=69EE731D&_nc_sid=8b3546",
           "caption": "Discover the beauty of our latest tile collection. 🏡✨ \n\nAstila presents E49 1970 high-depth elevation tiles crafted to bring soft layered elegance to outdoor spaces.\n\nSize: 300×600mm | Finish: Matt\n\n#AstilaCeramic #ElevationTiles #HighDepthTiles #ExteriorTiles #PoolsideDesign #ModernFacade #TextureDesign #MattFinishTiles #300x600Tiles #LuxuryExteriors",
-          "likes": 1,
+          "likes": 2,
           "comments": 0,
           "views": null,
           "posted_at": "2026-04-22T04:27:39.000Z"
@@ -1555,7 +1628,7 @@
         {
           "type": "video",
           "post_url": "https://www.instagram.com/p/DXV8HF9FbBj/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/670409346_18421248862193401_8329545115287332339_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=fi8mnBMpJ1gQ7kNvwGIg0oW&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af3iHa-i4aW1r2JVOnjtVIfdARaAlTRB1XbaJG6_ohL61g&oe=69EE3CC3&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.82787-15/670409346_18421248862193401_8329545115287332339_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=fi8mnBMpJ1gQ7kNvwFJ6Jop&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af3ipQArNbkPc75hh_XdzCUn6Zmu01P1kr7X07-PecLugw&oe=69EE7503&_nc_sid=8b3546",
           "caption": "Crafted for spaces that demand elegance without excess bringing harmony through clean design and soft visual flow. \n\nDesign 2052 by Astila transforms interiors into a modern expression of elegance where simplicity feels rich and intentional. \n\n#Astila #Design2052 #AstilaSurfaces #LuxuryTiles #HighEndInteriors #ModernLuxuryLiving #SurfaceAesthetics #InteriorElegance #ArchitecturalSurfaces #MinimalDesignLanguage",
           "likes": 3,
           "comments": 0,
@@ -1565,7 +1638,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DXOMmnGFguM/",
-          "thumbnail_url": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=0ux_Cum_h2AQ7kNvwH1Tdqp&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af30qYPqqVMTGGT_OUntYcyTFc201Q6x56x2YL-8gMRWuA&oe=69EE56DA&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-1.fna.fbcdn.net/v/t39.30808-6/672668957_1565923185543129_7030449241201074102_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=0ux_Cum_h2AQ7kNvwGHOo3z&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NzA5MTczOTk5NjQwODQyNg%3D%3D.3-ccb7-5&oh=00_Af301bOFnEwTcdlqmvVGBGoodIiSQB3osuRI7eLGiBFFVA&oe=69EE8F1A&_nc_sid=8b3546",
           "caption": "Crafted to complement modern architecture with a calm and refined presence. 😍\n\nDeveloped by Astila Ceramic, this design from the High Depth Elevation Series features tile size 300x600mm with a matt finish offering durability, natural texture appeal and seamless application across interior and exterior walls. \n\n#Astila #NaturalStone #SurfaceDesign #ArchitecturalDesign #ModernInteriors #WallCladding #LuxurySurfaces #ContemporarySpaces",
           "likes": 3,
           "comments": 0,
@@ -1575,7 +1648,7 @@
         {
           "type": "video",
           "post_url": "https://www.instagram.com/p/DXGpBOTDlNZ/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/670149659_18420419512193401_6490636933407327432_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=_kDCYiiVU5AQ7kNvwHmVV8N&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af1C-TFXzv-NEocSX_LkroFM1olZWpPt1wpeugzilkJtIg&oe=69EE571F&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.82787-15/670149659_18420419512193401_6490636933407327432_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=_kDCYiiVU5AQ7kNvwF7EEu5&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af1o75J_n3RqTUX5mPoej4lWIBIArU2DQ77in8TXGVjhJw&oe=69EE8F5F&_nc_sid=8b3546",
           "caption": "Where raw strength meets modern elegance. ✨ Transform your walls with the timeless texture of Astila Ceramic’s E50-1988. Perfect for feature walls that make a statement. #InteriorDesign #AstilaCeramic #ModernHome#InteriorDesign #HomeDecor #Architecture #InteriorInspo #ModernElegance #WallDesign #LuxuryInteriors",
           "likes": 8,
           "comments": 0,
@@ -1585,7 +1658,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DXI_nGClqjN/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=ucKewQz-VScQ7kNvwGkV-sc&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af01pMlklwk_FpRZtluFzSuL2TUnuCqorCTk7ZlnUw3h4g&oe=69EE53EC&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/672054632_1564016815733766_8153389561012447627_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=ucKewQz-VScQ7kNvwG5YmjZ&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3NTYyNzIzMDU0NzAyNjA3Nw%3D%3D.3-ccb7-5&oh=00_Af384Cd7rcxdHadVuHyp3ZDou5LeHPnreyJcgeORU2EEOQ&oe=69EE8C2C&_nc_sid=8b3546",
           "caption": "Transform your space with timeless stone aesthetics, reimagined for modern living. Blending warm earthy tones with refined detail, it creates a surface that feels both natural and sophisticated.\n\nAt Astila, each design is crafted for depth, variation, and durability bringing unique character to every space while seamlessly connecting nature with contemporary architecture.\n\n#AstilaTiles #ElevationTiles #WallDesign #TileDesign #LuxuryTiles #StoneFinish #NaturalAesthetics #ModernArchitecture #ExteriorDesign #InteriorDesignIndia",
           "likes": 3,
           "comments": 0,
@@ -1595,7 +1668,7 @@
         {
           "type": "video",
           "post_url": "https://www.instagram.com/p/DW0lMbbFPL9/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/659595690_18419247853193401_7306109504856954157_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=ctBPqfPuTd8Q7kNvwGt8KT8&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af2JjDyeF6EvDAJQ2ORCOih_M9NLUSzHd2MUcI2QOJ9RQw&oe=69EE335F&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.82787-15/659595690_18419247853193401_7306109504856954157_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=ctBPqfPuTd8Q7kNvwGZJ5SQ&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af1sPYZsd8IVF69HZulYn32JYKt7rspWjW6_lcU2VQkv6w&oe=69EEA3DF&_nc_sid=8b3546",
           "caption": "Transform your home with Astila tiles that reflect creativity, elegance, and a perfect balance of luxury and durability beautifully crafted. \n\nCrafted for Timeless Living✨ \n\n#Astila #TileDesign #CeramicTiles #LuxuryTiles #ModernInteriors #InteriorDesign #TileInspiration #PremiumTiles #HomeDecor",
           "likes": 4,
           "comments": 0,
@@ -1605,7 +1678,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DW8EcPACiqa/",
-          "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/669596713_1559560556179392_7685937761059007550_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=Icdcyg7SPh0Q7kNvwHEhwnH&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MTk4OTI3MjkwMzU3MTQ5Ng%3D%3D.3-ccb7-5&oh=00_Af1R_2NmLFFsYKhPVC2e-RuogSfUq71FMqvx37qPcK1rNQ&oe=69EE2E52&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/669596713_1559560556179392_7685937761059007550_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=Icdcyg7SPh0Q7kNvwEkIKYt&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MTk4OTI3MjkwMzU3MTQ5Ng%3D%3D.3-ccb7-5&oh=00_Af2eDpUngqUcy3D_cQJk6MnKLX_ot9dEJwmyWtNhdxRUyA&oe=69EE9ED2&_nc_sid=8b3546",
           "caption": "Experience texture beyond visuals. ✨\nAstila Elevation Tiles bring depth, warmth and refined stone character to modern spaces.\nDesigned to elevate every wall with natural elegance and timeless appeal.\n\nE50 1992 | 300x600mm | Matt Finish\nHigh Depth Elevation Tiles crafted for contemporary living.\n\n#Astila #ElevationTiles #WallDesign #ModernInteriors #StoneTexture #PremiumTiles #InteriorDesign",
           "likes": 3,
           "comments": 0,
@@ -1615,7 +1688,7 @@
         {
           "type": "video",
           "post_url": "https://www.instagram.com/p/DWx7J0wkUro/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/660426049_18419127232193401_6239686577559544239_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=-Fvqo8_NQBYQ7kNvwEShI8V&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af3HJTSiNW8y0LIbBmUkUcjXVhpFfQdfmyahuFEyyQ-YyA&oe=69EE60D3&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.82787-15/660426049_18419127232193401_6239686577559544239_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=-Fvqo8_NQBYQ7kNvwHqmu0s&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af13J_cORhx3VZQDYyad6UKcCHfjp7gfMabB1m0A29Kt9A&oe=69EE9913&_nc_sid=8b3546",
           "caption": "From raw beginnings to flawless finishes ASTILA CERAMIC defines superior quality delivering premium tiles trusted across borders worldwide.\n\nPremium quality that travels beyond borders with trust ✨\n\n#AstilaCeramic #TileManufacturer #TileExporter #PremiumTiles #LuxuryTiles #MadeInIndiaTiles",
           "likes": 4,
           "comments": 0,
@@ -1625,7 +1698,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DW3ItW9Cvkf/",
-          "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/667480233_1557856409683140_5588438823282376434_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=gEI5uqJHrQMQ7kNvwFLoOrb&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MDYwMDY2OTk2MzEyODM3NQ%3D%3D.3-ccb7-5&oh=00_Af08LF8pqTSTViRVhMNZgvdGtY9ASjx8zgHlAplzh61rvQ&oe=69EE4E3B&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/667480233_1557856409683140_5588438823282376434_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=hYdnDIojs4sQ7kNvwH2PVNy&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg3MDYwMDY2OTk2MzEyODM3NQ%3D%3D.3-ccb7-5&oh=00_Af2YQWy6EEvIm9WsEXy9ANPlac4XWtAkztikVb5622NYoQ&oe=69EE867B&_nc_sid=8b3546",
           "caption": "Crafted layered stone textures with refined depth ASTILA E50 1986 elevation tiles deliver modern elegance for premium architectural wall designs.\n\nSize 300x600mm with matt finish and random pattern, delivering high-depth elevation aesthetics for sophisticated contemporary wall applications.\n\n#AstilaCeramic #ElevationTiles #WallTiles #TileDesign #ModernWalls #TextureTiles #StoneLookTiles #ArchitecturalDesign #InteriorDesign #ExteriorDesign",
           "likes": 6,
           "comments": 0,
@@ -1635,7 +1708,7 @@
         {
           "type": "video",
           "post_url": "https://www.instagram.com/p/DWQWY7SCbgj/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/655640268_18417040849193401_5262455318583813766_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=D-0RIEbsRQMQ7kNvwHrAyTs&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af07f97kAa2FVwCaI56kGceX0ZunCIVYwKKbSdCY-axUuw&oe=69EE35E7&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.82787-15/655640268_18417040849193401_5262455318583813766_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=D-0RIEbsRQMQ7kNvwGjkkOK&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af2MRn7Nrj4DLdkImRKyNMNoa6wm1Z0M1lHUkqFB-iHBmA&oe=69EE6E27&_nc_sid=8b3546",
           "caption": "Elevate your living spaces with the perfect blend of strength and style. ✨ At Astila Ceramic, our premium tile collections are designed to bring modern elegance and unmatched durability to your home or commercial projects. From sleek floors to stunning accent walls, discover surfaces that make a lasting impression. 🏡🏢\n\nSave this post for your next renovation inspiration, and DM us for the latest catalog and dealer inquiries! 📩\n#AstilaCeramic #CeramicTiles #MorbiTiles #VitrifiedTiles #FloorTiles #WallTiles #InteriorDesignIndia #IndianArchitects #HomeRenovationIndia #ModernInteriors #TileManufacturer #GujaratBusiness #SpaceTransformation\n1w",
           "likes": 4,
           "comments": 0,
@@ -1645,7 +1718,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DWqQdZpCtIl/",
-          "thumbnail_url": "https://scontent-dfw6-1.cdninstagram.com/v/t39.30808-6/659135145_1553533460115435_3219063779919510984_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=tWXaiEgF41EQ7kNvwFsFBnR&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg2Njk3NTU4MzAxMjA0ODM5MA%3D%3D.3-ccb7-5&oh=00_Af3kwQQZ3VsgHXY3Cwx2sIyGP_xycVSsKKlmYEM8oCfnZg&oe=69EE4612&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/659135145_1553533460115435_3219063779919510984_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=tWXaiEgF41EQ7kNvwGGlFgS&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg2Njk3NTU4MzAxMjA0ODM5MA%3D%3D.3-ccb7-5&oh=00_Af0JYYoXlQbzehTUsrzqk4yZ6A-Hfn02bXpP9ga9isC1VQ&oe=69EE7E52&_nc_sid=8b3546",
           "caption": "Calm meets texture.\nElevate your spaces with the natural beauty of high-depth elevation tiles.\n\nE50 1993 by Astila Ceramic blends layered stone textures with modern architecture, creating a soothing yet premium outdoor and indoor statement.\n\nPerfect for elevations, outdoor walls, and feature spaces that demand elegance with durability.\n\nE50 1993\nSize: 300x600mm\nFinish: Matt\nRandom: 04\n\nAstila Ceramic — Where texture meets tranquility.\n\n#AstilaCeramic #ElevationTiles #HighDepthTiles #ExteriorTiles #WallElevation",
           "likes": 3,
           "comments": 0,
@@ -1655,7 +1728,7 @@
         {
           "type": "post",
           "post_url": "https://www.instagram.com/p/DWYG5r5CgVo/",
-          "thumbnail_url": "https://scontent-dfw5-2.cdninstagram.com/v/t39.30808-6/657338643_1547165077418940_3142077888059898971_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFIZGr56W5TZPIbUE8nr2H47NhpJxG2PEo63RAZOjED3WAWs5MMiEFkjEmHekXi_Kg&_nc_ohc=AKcL4AU11ZcQ7kNvwFTxkA0&_nc_gid=n3tjWUAmlVnHBym8Cq5hcQ&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg2MTg2NzAzMjg4NzI5NzM4NA%3D%3D.3-ccb7-5&oh=00_Af0374JPkFdv5eRw1y5CwZXWoLHTbG-VnqW9-gdtwBDrlw&oe=69EE3365&_nc_sid=8b3546",
+          "thumbnail_url": "https://instagram.flas1-2.fna.fbcdn.net/v/t39.30808-6/657338643_1547165077418940_3142077888059898971_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gEqnw5oi4QdbBVhPIHnMw4WIcL0Bx_QzgZtZ7FbGoTEtMsfF7DtTDOswdO8hjc7kmI&_nc_ohc=AKcL4AU11ZcQ7kNvwFew6a0&_nc_gid=ewMU84T9REH2IAOjJ8N6Hw&edm=AOQ1c0wAAAAA&ccb=7-5&ig_cache_key=Mzg2MTg2NzAzMjg4NzI5NzM4NA%3D%3D.3-ccb7-5&oh=00_Af0MQf314w3tS18K1eNOkX93_1VrrurU0HGrfUt5lg_yWQ&oe=69EEA3E5&_nc_sid=8b3546",
           "caption": "Ghar ka front look upgrade karna hai?\nPhir choice bhi powerful honi chahiye.\n\nAstila Ceramic —\nStrong elevation, premium look, lasting impression.\n\nJab front elevation ho Astila ka…\nToh ghar khud bolta hai — Style alag hai.\n\n#AstilaCeramic #FrontElevation #ElevationTiles #ExteriorDesign #HomeFrontDesign #ModernElevation #ExteriorTiles #HouseFrontDesign\n#ElevationDesign #TileDesign #ExteriorInspiration #ModernHomeDesign",
           "likes": 4,
           "comments": 0,
@@ -1667,11 +1740,41 @@
     {
       "platform": "youtube",
       "url": "https://www.youtube.com/@astilaceramic",
-      "profile_pic_url": "https://yt3.googleusercontent.com/mP-SgdsPTedF47KBtYEjUGpnBuGtlgaWeolKkgZu2y20tB4gphEWUG3Nvb1xJb-9SmKqb0sbsg=s68-c-k-c0x00ffffff-no-rj",
+      "profile_pic_url": "https://yt3.googleusercontent.com/mP-SgdsPTedF47KBtYEjUGpnBuGtlgaWeolKkgZu2y20tB4gphEWUG3Nvb1xJb-9SmKqb0sbsg=s160-c-k-c0x00ffffff-no-rj",
       "banner_url": null,
       "bio": "Greetings,\n\nLet me introduce our vibrant venture to you. We're the creators behind exquisite Ceramic and Vitrified/Porcelain Wall, Floor, and Parking tiles. Together, we operate six state-of-the-art manufacturing plants, each a hub of innovation and quality craftsmanship. With over a decade of expertise under our belt, we've spread our artistic creations to more than 60 countries, earning accolades for our exceptional before and after-sales support.\n\nMeet our company:\nPicture a consortium of cutting-edge factories churning out porcelain & ceramic tiles at a remarkable pace of 10,000 square meters per day. In Morbi, our export prowess and tile quality rank among the top 10, a testament to our unwavering commitment to excellence.\n\nGuiding principle:\nOur compass always points towards fostering enduring partnerships. We're not just in it for a single transaction; our mantra revolves around delivering the finest quality, the most competitive prices, and unparalleled service.",
       "followers_count": 38,
       "posts": [
+        {
+          "type": "video",
+          "post_url": "https://www.youtube.com/shorts/36d_PAL-lJI",
+          "thumbnail_url": "https://i.ytimg.com/vi/36d_PAL-lJI/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLCzeK-r3AKRPVGmcqny-vGvL-E4uQ",
+          "caption": "Step into the world of Astila Ceramics, where quality meets craftsmanship to transform your space into a haven of elegance and style. As a distinguished Tiles Manufacturer in Morbi, we're dedicated to delivering excellence in every tile we produce.\n\nExplore with us as we unveil a stunning array of ceramic and porcelain tiles, meticulously designed to redefine your concept of flooring. From timeless classics to contemporary marvels, Astila Ceramics offers a diverse range to suit every aesthetic preference.\n\nJoin us on this journey as we showcase our passion for innovation and design excellence. Elevate your space and inspire creativity with Astila Ceramics, your ultimate destination for exceptional tiles and unparalleled service.\n\nLike, share, and subscribe to our channel for the latest updates on our premium tile collections and design inspirations. Thank you for choosing Astila Ceramics as your partner in creating extraordinary spaces.",
+          "likes": 3,
+          "comments": 0,
+          "views": 51,
+          "posted_at": "2024-04-24T03:30:02.000Z"
+        },
+        {
+          "type": "video",
+          "post_url": "https://www.youtube.com/shorts/VOAfgwMm3y4",
+          "thumbnail_url": "https://i.ytimg.com/vi/VOAfgwMm3y4/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYXCBcKFwwDw==&rs=AOn4CLDDbhJVMrBklZ_b6RHCRILjVqJwrA",
+          "caption": "Welcome to Astila Ceramics! \n\nDiscover the perfect blend of style and elegance with our Wall Tiles of the month! Elevate your space with our latest collection, meticulously crafted to bring sophistication to every corner of your home or office.\n\nAt Astila Ceramics, we take pride in being your go-to Tiles Manufacturer in Morbi, offering top-quality products designed to meet your aesthetic and functional needs. Whether you're renovating your kitchen, bathroom, or any other area, our wall tiles are the perfect choice to enhance your interiors.\n\nDon't miss out on the opportunity to redefine elegance in your living spaces. Subscribe now and stay tuned for more inspiring designs from Astila Ceramics!",
+          "likes": 3,
+          "comments": 0,
+          "views": 41,
+          "posted_at": "2024-04-23T03:30:10.000Z"
+        },
+        {
+          "type": "video",
+          "post_url": "https://www.youtube.com/shorts/RngoH41gAB4",
+          "thumbnail_url": "https://i.ytimg.com/vi/RngoH41gAB4/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAK4CIoCDAgAEAEYWSBZKFkwDw==&rs=AOn4CLDtzva5kTKr01UMzUsqlpsFz7KnPQ",
+          "caption": "Discover the perfect tiles that stand the test of time with Astila Ceramics! Whether you're renovating your home or working on a new project, our high-quality, long-lasting tiles are designed to meet all your needs. Don't settle for less—explore our stunning range today and find the ideal tiles for your space.",
+          "likes": 3,
+          "comments": 0,
+          "views": 472,
+          "posted_at": "2024-05-17T10:30:15.000Z"
+        },
         {
           "type": "video",
           "post_url": "https://www.youtube.com/shorts/vTcFoziI3dA",
@@ -1701,36 +1804,6 @@
           "comments": 0,
           "views": 83,
           "posted_at": "2024-04-26T03:30:10.000Z"
-        },
-        {
-          "type": "video",
-          "post_url": "https://www.youtube.com/shorts/VOAfgwMm3y4",
-          "thumbnail_url": "https://i.ytimg.com/vi/VOAfgwMm3y4/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYXCBcKFwwDw==&rs=AOn4CLDDbhJVMrBklZ_b6RHCRILjVqJwrA",
-          "caption": "Welcome to Astila Ceramics! \n\nDiscover the perfect blend of style and elegance with our Wall Tiles of the month! Elevate your space with our latest collection, meticulously crafted to bring sophistication to every corner of your home or office.\n\nAt Astila Ceramics, we take pride in being your go-to Tiles Manufacturer in Morbi, offering top-quality products designed to meet your aesthetic and functional needs. Whether you're renovating your kitchen, bathroom, or any other area, our wall tiles are the perfect choice to enhance your interiors.\n\nDon't miss out on the opportunity to redefine elegance in your living spaces. Subscribe now and stay tuned for more inspiring designs from Astila Ceramics!",
-          "likes": 3,
-          "comments": 0,
-          "views": 41,
-          "posted_at": "2024-04-23T03:30:10.000Z"
-        },
-        {
-          "type": "video",
-          "post_url": "https://www.youtube.com/shorts/RngoH41gAB4",
-          "thumbnail_url": "https://i.ytimg.com/vi/RngoH41gAB4/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAK4CIoCDAgAEAEYWSBZKFkwDw==&rs=AOn4CLDtzva5kTKr01UMzUsqlpsFz7KnPQ",
-          "caption": "Discover the perfect tiles that stand the test of time with Astila Ceramics! Whether you're renovating your home or working on a new project, our high-quality, long-lasting tiles are designed to meet all your needs. Don't settle for less—explore our stunning range today and find the ideal tiles for your space.",
-          "likes": 3,
-          "comments": 0,
-          "views": 472,
-          "posted_at": "2024-05-17T10:30:15.000Z"
-        },
-        {
-          "type": "video",
-          "post_url": "https://www.youtube.com/shorts/36d_PAL-lJI",
-          "thumbnail_url": "https://i.ytimg.com/vi/36d_PAL-lJI/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLCzeK-r3AKRPVGmcqny-vGvL-E4uQ",
-          "caption": "Step into the world of Astila Ceramics, where quality meets craftsmanship to transform your space into a haven of elegance and style. As a distinguished Tiles Manufacturer in Morbi, we're dedicated to delivering excellence in every tile we produce.\n\nExplore with us as we unveil a stunning array of ceramic and porcelain tiles, meticulously designed to redefine your concept of flooring. From timeless classics to contemporary marvels, Astila Ceramics offers a diverse range to suit every aesthetic preference.\n\nJoin us on this journey as we showcase our passion for innovation and design excellence. Elevate your space and inspire creativity with Astila Ceramics, your ultimate destination for exceptional tiles and unparalleled service.\n\nLike, share, and subscribe to our channel for the latest updates on our premium tile collections and design inspirations. Thank you for choosing Astila Ceramics as your partner in creating extraordinary spaces.",
-          "likes": 3,
-          "comments": 0,
-          "views": 51,
-          "posted_at": "2024-04-24T03:30:02.000Z"
         }
       ]
     },
@@ -1746,8 +1819,8 @@
     }
   ],
   "pipeline_summary": {
-    "run_started_at": "2026-04-22T07:11:10.635Z",
-    "duration_seconds": 125,
+    "run_started_at": "2026-04-22T11:50:21.948Z",
+    "duration_seconds": 210,
     "agents_in_order": [
       "CompanyEnricher",
       "Agent03/Product",
@@ -1757,7 +1830,7 @@
       "Agent02/Orchestrator": 1,
       "Agent03/Product": 1,
       "Agent03a/Category": 10,
-      "Agent04/Media": 6,
+      "Agent04/Media": 7,
       "Agent05/EnrichDedup": 1,
       "Agent07/Social": 1,
       "CompanyEnricher": 1,
@@ -1775,20 +1848,20 @@
           "reviews"
         ],
         "quality_target": 0.85,
-        "reasoning": "Seller record is rich with company and product data. Reviews API is not present, so skipping reviews agent. Aiming for high quality due to comprehensive input."
+        "reasoning": "Company profile is rich, and there are many products to process. Reviews API is not present, so skipping reviews agent. Media classification will be handled by the product agent."
       },
       "evaluate_product_output": {
         "decision": "proceed",
-        "avg_confidence": 0.77,
+        "avg_confidence": 0.8,
         "retry_triggered": false
       }
     },
     "products": {
       "raw_input": 10,
       "enriched": 10,
-      "catalog_items": 11,
-      "rejected": 4,
-      "with_vision": 0,
+      "catalog_items": 10,
+      "rejected": 3,
+      "with_vision": 1,
       "vision_skipped": 6
     },
     "social": {
@@ -1800,9 +1873,9 @@
         "linkedin"
       ],
       "posts_collected": 18,
-      "social_products_extracted": 6
+      "social_products_extracted": 5
     },
-    "overall_confidence": 0.822
+    "overall_confidence": 0.84
   },
-  "_saved_at": "2026-04-22T07:13:15.596Z"
+  "_saved_at": "2026-04-22T11:53:51.665Z"
 }
