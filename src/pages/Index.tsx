@@ -1,20 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Link, useParams } from 'react-router-dom';
-import NavBar from '@/components/seller/NavBar';
-import HeroSection from '@/components/seller/HeroSection';
-import AboutSection from '@/components/seller/AboutSection';
-import ProductCatalog from '@/components/seller/ProductCatalog';
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link, useParams } from "react-router-dom";
+import NavBar from "@/components/seller/NavBar";
+import HeroSection from "@/components/seller/HeroSection";
+import AboutSection from "@/components/seller/AboutSection";
+import ProductCatalog from "@/components/seller/ProductCatalog";
 // CategoryGrid removed — categories now live as filter chips in ProductCatalog
-import MediaGallery from '@/components/seller/MediaGallery';
-import SocialPosts from '@/components/seller/SocialPosts';
-import ReviewsSection from '@/components/seller/ReviewsSection';
-import ContactSidebar from '@/components/seller/ContactSidebar';
-import Footer from '@/components/seller/Footer';
-import MobileCTA from '@/components/seller/MobileCTA';
-import SplashScreen from '@/components/seller/SplashScreen';
-import { extractSellerData, extractSellerDataFromRaw } from '@/lib/sellerDataExtractor';
-import { loadSellerRawDataByGlid } from '@/lib/sellerDataLoader';
+import MediaGallery from "@/components/seller/MediaGallery";
+import SocialPosts from "@/components/seller/SocialPosts";
+import ReviewsSection from "@/components/seller/ReviewsSection";
+import ContactSidebar from "@/components/seller/ContactSidebar";
+import Footer from "@/components/seller/Footer";
+import MobileCTA from "@/components/seller/MobileCTA";
+import SplashScreen from "@/components/seller/SplashScreen";
+import ScrollToTopButton from "@/components/seller/ScrollToTopButton";
+import CursorFollower from "@/components/seller/CursorFollower";
+import {
+  extractSellerData,
+  extractSellerDataFromRaw,
+} from "@/lib/sellerDataExtractor";
+import { loadSellerRawDataByGlid } from "@/lib/sellerDataLoader";
 
 const Index = () => {
   const { glid } = useParams();
@@ -73,40 +78,66 @@ const Index = () => {
 
   useEffect(() => {
     if (!data) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     setShowSplash(true);
-    const timeout = window.setTimeout(() => setShowSplash(false), reduced ? 600 : 1500);
+    const timeout = window.setTimeout(
+      () => setShowSplash(false),
+      reduced ? 600 : 1500,
+    );
     return () => window.clearTimeout(timeout);
   }, [data]);
 
   useEffect(() => {
     if (!data) return;
 
-    const sellerTitle = data.sellerName?.trim() || 'Seller Catalog';
-    const description = (data.description || data.tagline || '').trim();
-    const resolvedDescription = description ? description.slice(0, 160) : 'Seller product catalog';
+    const sellerTitle = data.sellerName?.trim() || "Seller Catalog";
+    const description = (data.description || data.tagline || "").trim();
+    const resolvedDescription = description
+      ? description.slice(0, 160)
+      : "Seller product catalog";
 
     document.title = sellerTitle;
 
-    const upsertMeta = (selector: string, attr: 'name' | 'property', value: string) => {
-      let meta = document.head.querySelector(selector) as HTMLMetaElement | null;
+    const upsertMeta = (
+      selector: string,
+      attr: "name" | "property",
+      value: string,
+    ) => {
+      let meta = document.head.querySelector(
+        selector,
+      ) as HTMLMetaElement | null;
       if (!meta) {
-        meta = document.createElement('meta');
+        meta = document.createElement("meta");
         meta.setAttribute(attr, value);
         document.head.appendChild(meta);
       }
       return meta;
     };
 
-    upsertMeta('meta[name="description"]', 'name', 'description').setAttribute('content', resolvedDescription);
-    upsertMeta('meta[property="og:title"]', 'property', 'og:title').setAttribute('content', sellerTitle);
-    upsertMeta('meta[property="og:description"]', 'property', 'og:description').setAttribute('content', resolvedDescription);
+    upsertMeta('meta[name="description"]', "name", "description").setAttribute(
+      "content",
+      resolvedDescription,
+    );
+    upsertMeta(
+      'meta[property="og:title"]',
+      "property",
+      "og:title",
+    ).setAttribute("content", sellerTitle);
+    upsertMeta(
+      'meta[property="og:description"]',
+      "property",
+      "og:description",
+    ).setAttribute("content", resolvedDescription);
   }, [data]);
 
   if (isLoadingSellerData) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-6 text-center">
-        <p className="text-lg text-muted-foreground">Loading seller catalog...</p>
+        <p className="text-lg text-muted-foreground">
+          Loading seller catalog...
+        </p>
       </div>
     );
   }
@@ -119,7 +150,10 @@ const Index = () => {
           <p className="mt-2 text-muted-foreground">
             No catalog data found for this GLID.
           </p>
-          <Link to="/" className="mt-4 inline-block text-primary underline hover:text-primary/90">
+          <Link
+            to="/"
+            className="mt-4 inline-block text-primary underline hover:text-primary/90"
+          >
             Return to Home
           </Link>
         </div>
@@ -129,8 +163,12 @@ const Index = () => {
 
   return (
     <div className="page-shell relative min-h-screen bg-background">
+      <CursorFollower />
+
       <AnimatePresence mode="wait">
-        {showSplash && <SplashScreen sellerName={data.sellerName} key="splash" />}
+        {showSplash && (
+          <SplashScreen sellerName={data.sellerName} key="splash" />
+        )}
       </AnimatePresence>
 
       <AnimatePresence>
@@ -156,6 +194,8 @@ const Index = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -1,15 +1,21 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ImageIcon, MessageCircle, CheckCircle2 } from 'lucide-react';
-import { type CatalogProduct, formatPrice } from '@/lib/sellerDataExtractor';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ImageIcon, MessageCircle, CheckCircle2 } from "lucide-react";
+import { type CatalogProduct, formatPrice } from "@/lib/sellerDataExtractor";
 
 interface Props {
   product: CatalogProduct;
   onOpen: () => void;
   enquireHref: string;
+  hideImageSection?: boolean;
 }
 
-export default function ProductCard({ product, onOpen, enquireHref }: Props) {
+export default function ProductCard({
+  product,
+  onOpen,
+  enquireHref,
+  hideImageSection = false,
+}: Props) {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -17,68 +23,85 @@ export default function ProductCard({ product, onOpen, enquireHref }: Props) {
     <motion.article
       initial={{ opacity: 0, y: 24, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6 }}
       onClick={onOpen}
       className="group cursor-pointer rounded-2xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col h-full"
     >
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-muted/40">
-        {product.primaryPhoto && !imgError ? (
-          <>
-            {!imgLoaded && <div className="absolute inset-0 shimmer" />}
-            <img
-              src={product.primaryPhoto}
-              alt={product.name}
-              loading="lazy"
-              onLoad={() => setImgLoaded(true)}
-              onError={() => setImgError(true)}
-              className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imgLoaded ? 'img-fade-in opacity-100' : 'opacity-0'}`}
-            />
-          </>
-        ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted-foreground px-4 text-center">
-            <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center">
-              <ImageIcon className="w-6 h-6" />
+      {!hideImageSection && (
+        <div className="relative aspect-[4/3] overflow-hidden bg-muted/40">
+          {product.primaryPhoto && !imgError ? (
+            <>
+              {!imgLoaded && <div className="absolute inset-0 shimmer" />}
+              <img
+                src={product.primaryPhoto}
+                alt={product.name}
+                loading="lazy"
+                onLoad={() => setImgLoaded(true)}
+                onError={() => setImgError(true)}
+                className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imgLoaded ? "img-fade-in opacity-100" : "opacity-0"}`}
+              />
+            </>
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted-foreground px-4 text-center">
+              <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center">
+                <ImageIcon className="w-6 h-6" />
+              </div>
+              <p className="text-xs font-medium text-foreground">
+                No image available
+              </p>
             </div>
-            <p className="text-xs font-medium text-foreground">No image available</p>
-          </div>
-        )}
+          )}
 
-        {/* Stock badge */}
-        {product.inStock && (
-          <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 px-2.5 py-1 text-[11px] font-semibold backdrop-blur-sm">
-            <CheckCircle2 className="w-3 h-3" /> In stock
+          {product.inStock && (
+            <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 px-2.5 py-1 text-[11px] font-semibold backdrop-blur-sm">
+              <CheckCircle2 className="w-3 h-3" /> In stock
+            </span>
+          )}
+          <span className="absolute top-3 right-3 rounded-full bg-card/90 backdrop-blur border border-border px-2.5 py-1 text-[11px] font-semibold text-foreground">
+            {product.category}
           </span>
-        )}
-        {/* Category chip */}
-        <span className="absolute top-3 right-3 rounded-full bg-card/90 backdrop-blur border border-border px-2.5 py-1 text-[11px] font-semibold text-foreground">
-          {product.category}
-        </span>
-        {/* Source chip — only when product has a source */}
-        {product.source && (
-          <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-background/90 backdrop-blur border border-border px-2 py-0.5 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-            via {product.source}
-          </span>
-        )}
-      </div>
+          {product.source && (
+            <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-background/90 backdrop-blur border border-border px-2 py-0.5 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+              via {product.source}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-1 gap-3">
-        <h3 className="font-bold text-foreground leading-snug line-clamp-2 min-h-[2.6em]">{product.name}</h3>
+        {hideImageSection && (
+          <div className="flex items-center justify-between gap-2">
+            <span className="rounded-full border border-border bg-muted px-2.5 py-1 text-[11px] font-semibold text-foreground">
+              {product.category}
+            </span>
+            <span className="rounded-full border border-dashed border-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              No image
+            </span>
+          </div>
+        )}
+        <h3 className="font-bold text-foreground leading-snug line-clamp-2 min-h-[2.6em]">
+          {product.name}
+        </h3>
 
         {product.description && (
           <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-            {product.description.length > 110 ? product.description.slice(0, 110) + '…' : product.description}
+            {product.description.length > 110
+              ? product.description.slice(0, 110) + "…"
+              : product.description}
           </p>
         )}
 
         {/* Tags */}
         {product.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
-            {product.tags.slice(0, 3).map(tag => (
-              <span key={tag} className="text-[10px] uppercase tracking-wider rounded-md bg-muted px-2 py-0.5 text-muted-foreground font-semibold">
+            {product.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="text-[10px] uppercase tracking-wider rounded-md bg-muted px-2 py-0.5 text-muted-foreground font-semibold"
+              >
                 {tag}
               </span>
             ))}
@@ -88,8 +111,12 @@ export default function ProductCard({ product, onOpen, enquireHref }: Props) {
         {/* Price + CTA */}
         <div className="mt-auto pt-3 border-t border-border flex items-center justify-between gap-3">
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Price</p>
-            <p className="font-bold text-foreground text-sm leading-tight">{formatPrice(product)}</p>
+            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+              Price
+            </p>
+            <p className="font-bold text-foreground text-sm leading-tight">
+              {formatPrice(product)}
+            </p>
           </div>
           <a
             href={enquireHref}

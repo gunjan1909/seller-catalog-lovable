@@ -1,11 +1,17 @@
-import { useMemo, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Star, StarHalf, ExternalLink, Info } from 'lucide-react';
-import type { SellerData } from '@/lib/sellerDataExtractor';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Star, StarHalf, ExternalLink, Info } from "lucide-react";
+import type { SellerData } from "@/lib/sellerDataExtractor";
 
-function StarRating({ rating, size = 'md' }: { rating: number; size?: 'sm' | 'md' | 'lg' }) {
-  const sizes = { sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-7 h-7' };
+function StarRating({
+  rating,
+  size = "md",
+}: {
+  rating: number;
+  size?: "sm" | "md" | "lg";
+}) {
+  const sizes = { sm: "w-4 h-4", md: "w-5 h-5", lg: "w-7 h-7" };
   const full = Math.floor(rating);
   const half = rating - full >= 0.3;
   const empty = 5 - full - (half ? 1 : 0);
@@ -13,9 +19,14 @@ function StarRating({ rating, size = 'md' }: { rating: number; size?: 'sm' | 'md
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: full }).map((_, i) => (
-        <Star key={`f${i}`} className={`${sizes[size]} fill-amber-400 text-amber-400`} />
+        <Star
+          key={`f${i}`}
+          className={`${sizes[size]} fill-amber-400 text-amber-400`}
+        />
       ))}
-      {half && <StarHalf className={`${sizes[size]} fill-amber-400 text-amber-400`} />}
+      {half && (
+        <StarHalf className={`${sizes[size]} fill-amber-400 text-amber-400`} />
+      )}
       {Array.from({ length: empty }).map((_, i) => (
         <Star key={`e${i}`} className={`${sizes[size]} text-border`} />
       ))}
@@ -26,7 +37,10 @@ function StarRating({ rating, size = 'md' }: { rating: number; size?: 'sm' | 'md
 export default function ReviewsSection({ data }: { data: SellerData }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const sectionRef = useRef<HTMLElement>(null);
-  const [selectedStars, setSelectedStars] = useState<number | 'all'>('all');
+  const voicesScrollRef = useRef<HTMLDivElement>(null);
+  const autoDirectionRef = useRef<1 | -1>(1);
+  const [selectedStars, setSelectedStars] = useState<number | "all">("all");
+  const [allowAutoScroll, setAllowAutoScroll] = useState(true);
 
   const rating = data.reviewsSummary.totalRating;
   const count = data.reviewsSummary.noOfRatings;
@@ -34,11 +48,14 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
   const reviews = data.individualReviews || [];
   const hasIndividual = reviews.length > 0 || comments.length > 0;
   const filteredReviews = useMemo(() => {
-    if (selectedStars === 'all') return reviews;
-    return reviews.filter((review) => Math.round(review.rating) === selectedStars);
+    if (selectedStars === "all") return reviews;
+    return reviews.filter(
+      (review) => Math.round(review.rating) === selectedStars,
+    );
   }, [reviews, selectedStars]);
-  const visibleComments = selectedStars === 'all' ? comments : [];
-  const hasFilteredResults = filteredReviews.length > 0 || visibleComments.length > 0;
+  const visibleComments = selectedStars === "all" ? comments : [];
+  const hasFilteredResults =
+    filteredReviews.length > 0 || visibleComments.length > 0;
   const starCounts = useMemo(() => {
     const counts: Record<number, number> = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     for (const review of reviews) {
@@ -48,11 +65,67 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
     return counts;
   }, [reviews]);
 
+  useEffect(() => {
+    const container = voicesScrollRef.current;
+    if (!container || !inView || !hasIndividual || !hasFilteredResults) return;
+
+    let rafId = 0;
+    let lastTimestamp = 0;
+    const speedPxPerSecond = 14;
+
+    const step = (timestamp: number) => {
+      const scrollEl = voicesScrollRef.current;
+      if (!scrollEl) return;
+
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaSeconds = (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      const maxScrollTop = Math.max(
+        scrollEl.scrollHeight - scrollEl.clientHeight,
+        0,
+      );
+      if (allowAutoScroll && maxScrollTop > 0) {
+        let nextScrollTop =
+          scrollEl.scrollTop +
+          autoDirectionRef.current * speedPxPerSecond * deltaSeconds;
+
+        if (nextScrollTop >= maxScrollTop) {
+          nextScrollTop = maxScrollTop;
+          autoDirectionRef.current = -1;
+        } else if (nextScrollTop <= 0) {
+          nextScrollTop = 0;
+          autoDirectionRef.current = 1;
+        }
+
+        scrollEl.scrollTop = nextScrollTop;
+      }
+
+      rafId = window.requestAnimationFrame(step);
+    };
+
+    rafId = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(rafId);
+  }, [
+    allowAutoScroll,
+    hasFilteredResults,
+    hasIndividual,
+    inView,
+    selectedStars,
+  ]);
+
   if (!rating && !count && !hasIndividual) return null;
 
   return (
-    <section id="reviews" ref={sectionRef} className="py-20 sm:py-28 bg-background relative overflow-hidden">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section
+      id="reviews"
+      ref={sectionRef}
+      className="py-20 sm:py-28 bg-background relative overflow-hidden"
+    >
+      <div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"
+      >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -63,10 +136,16 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100">
                 <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
               </div>
-              <span className="rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">Trust signals</span>
+              <span className="rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Trust signals
+              </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Ratings & Reviews</h2>
-            <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">Public ratings sourced from the seller listing.</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+              Ratings & Reviews
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
+              Public ratings sourced from the seller listing.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:items-stretch">
@@ -88,37 +167,62 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                         <span className="font-bold text-sm">G</span>
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-foreground">Public Rating</p>
-                        <p className="text-xs text-muted-foreground">From verified buyers</p>
+                        <p className="text-sm font-bold text-foreground">
+                          Public Rating
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          From verified buyers
+                        </p>
                       </div>
                     </div>
                     {data.googleLocation && (
-                      <a href={data.googleLocation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                      <a
+                        href={data.googleLocation}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary/40 hover:text-primary transition-colors"
+                      >
                         View on Google <ExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
                   </div>
 
                   <div className="flex flex-wrap items-end gap-4">
-                    <span className="text-7xl sm:text-8xl font-black tracking-tight text-foreground leading-none">{rating.toFixed(1)}</span>
+                    <span className="text-7xl sm:text-8xl font-black tracking-tight text-foreground leading-none">
+                      {rating.toFixed(1)}
+                    </span>
                     <div className="pb-2">
                       <StarRating rating={rating} size="lg" />
-                      <p className="mt-1 text-sm text-muted-foreground">out of 5.0 • {count} ratings</p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        out of 5.0 • {count} ratings
+                      </p>
                     </div>
                   </div>
 
                   <div className="mt-6 grid grid-cols-3 gap-3 pt-6 border-t border-border">
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">Verified</p>
-                      <p className="mt-1 text-sm font-bold text-foreground">Yes</p>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                        Verified
+                      </p>
+                      <p className="mt-1 text-sm font-bold text-foreground">
+                        Yes
+                      </p>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">Total ratings</p>
-                      <p className="mt-1 text-sm font-bold text-foreground">{count}</p>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                        Total ratings
+                      </p>
+                      <p className="mt-1 text-sm font-bold text-foreground">
+                        {count}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">Source</p>
-                      <p className="mt-1 text-sm font-bold text-foreground">Google</p>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                        Source
+                      </p>
+                      <p className="mt-1 text-sm font-bold text-foreground">
+                        Google
+                      </p>
                     </div>
                   </div>
                   {hasIndividual && (
@@ -129,11 +233,11 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                       <div className="flex flex-wrap gap-2">
                         <button
                           type="button"
-                          onClick={() => setSelectedStars('all')}
+                          onClick={() => setSelectedStars("all")}
                           className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
-                            selectedStars === 'all'
-                              ? 'bg-primary text-primary-foreground border-primary'
-                              : 'bg-background text-foreground border-border hover:border-primary/40'
+                            selectedStars === "all"
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-background text-foreground border-border hover:border-primary/40"
                           }`}
                         >
                           All ({reviews.length + comments.length})
@@ -145,11 +249,12 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                             onClick={() => setSelectedStars(star)}
                             className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors inline-flex items-center gap-1 ${
                               selectedStars === star
-                                ? 'bg-primary text-primary-foreground border-primary'
-                                : 'bg-background text-foreground border-border hover:border-primary/40'
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-background text-foreground border-border hover:border-primary/40"
                             }`}
                           >
-                            {star} <Star className="w-3.5 h-3.5 fill-current" /> ({starCounts[star]})
+                            {star} <Star className="w-3.5 h-3.5 fill-current" />{" "}
+                            ({starCounts[star]})
                           </button>
                         ))}
                       </div>
@@ -166,29 +271,62 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
               transition={{ delay: 0.2, duration: 0.65 }}
               className="rounded-[2rem] p-6 sm:p-7 bg-card border border-border shadow-sm flex flex-col h-[440px]"
             >
-              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground font-bold mb-4">Customer voices</p>
+              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground font-bold mb-4">
+                Customer voices
+              </p>
 
               {hasIndividual ? (
-                <div className="space-y-4 overflow-y-auto flex-1 min-h-0 pr-1">
+                <div
+                  ref={voicesScrollRef}
+                  className="space-y-4 overflow-y-auto flex-1 min-h-0 pr-1"
+                  onPointerDown={() => setAllowAutoScroll(false)}
+                  onWheel={() => setAllowAutoScroll(false)}
+                  onTouchStart={() => setAllowAutoScroll(false)}
+                >
                   {filteredReviews.map((r, i) => (
-                    <div key={i} className="rounded-xl border border-border p-4 bg-muted/30">
+                    <div
+                      key={i}
+                      className="rounded-xl border border-border p-4 bg-muted/30"
+                    >
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <p className="font-semibold text-foreground text-sm">{r.author}</p>
-                        {r.rating > 0 && <StarRating rating={r.rating} size="sm" />}
+                        <p className="font-semibold text-foreground text-sm">
+                          {r.author}
+                        </p>
+                        {r.rating > 0 && (
+                          <StarRating rating={r.rating} size="sm" />
+                        )}
                       </div>
-                      {r.text && <p className="text-sm text-muted-foreground leading-relaxed">{r.text}</p>}
-                      {r.date && <p className="text-[11px] text-muted-foreground mt-2">{r.date}</p>}
+                      {r.text && (
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {r.text}
+                        </p>
+                      )}
+                      {r.date && (
+                        <p className="text-[11px] text-muted-foreground mt-2">
+                          {r.date}
+                        </p>
+                      )}
                     </div>
                   ))}
                   {visibleComments.map((c: any, i: number) => (
-                    <div key={`c${i}`} className="rounded-xl border border-border p-4 bg-muted/30">
-                      <p className="text-sm text-muted-foreground leading-relaxed">{typeof c === 'string' ? c : (c.text || c.comment || '')}</p>
+                    <div
+                      key={`c${i}`}
+                      className="rounded-xl border border-border p-4 bg-muted/30"
+                    >
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {typeof c === "string" ? c : c.text || c.comment || ""}
+                      </p>
                     </div>
                   ))}
                   {!hasFilteredResults && (
                     <div className="rounded-xl border border-dashed border-border p-6 text-center bg-muted/20">
-                      <p className="font-semibold text-foreground text-sm">No {selectedStars}-star reviews found</p>
-                      <p className="text-xs text-muted-foreground mt-1">Try another star filter to view available customer voices.</p>
+                      <p className="font-semibold text-foreground text-sm">
+                        No {selectedStars}-star reviews found
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Try another star filter to view available customer
+                        voices.
+                      </p>
                     </div>
                   )}
                 </div>
@@ -197,10 +335,20 @@ export default function ReviewsSection({ data }: { data: SellerData }) {
                   <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center mb-4">
                     <Info className="w-6 h-6 text-muted-foreground" />
                   </div>
-                  <p className="font-semibold text-foreground">Individual reviews not available</p>
-                  <p className="text-sm text-muted-foreground mt-2 max-w-xs">Only the aggregate rating has been shared publicly. Visit the source page to read reviews.</p>
+                  <p className="font-semibold text-foreground">
+                    Individual reviews not available
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2 max-w-xs">
+                    Only the aggregate rating has been shared publicly. Visit
+                    the source page to read reviews.
+                  </p>
                   {data.googleLocation && (
-                    <a href={data.googleLocation} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200">
+                    <a
+                      href={data.googleLocation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200"
+                    >
                       Read on Google <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
