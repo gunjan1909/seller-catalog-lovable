@@ -39,7 +39,7 @@ export default function HeroSection({ data }: { data: SellerData }) {
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/90 via-primary/65 to-secondary/90" />
         )}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/75 via-black/65 to-black/85 md:from-black/75 md:via-black/65 md:to-black/85 max-md:from-black/15 max-md:via-black/10 max-md:to-black/20" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/75 via-black/65 to-black/85" />
         {!hasBanner && <ParticlesBackground variant="hero" className="z-20 opacity-90" />}
       </motion.div>
 
