@@ -15,6 +15,7 @@ import MobileCTA from "@/components/seller/MobileCTA";
 import SplashScreen from "@/components/seller/SplashScreen";
 import ScrollToTopButton from "@/components/seller/ScrollToTopButton";
 import CursorFollower from "@/components/seller/CursorFollower";
+import SplashCursor from "@/components/seller/SplashCursor";
 import {
   extractSellerData,
   extractSellerDataFromRaw,
@@ -163,6 +164,24 @@ const Index = () => {
 
   return (
     <div className="page-shell relative min-h-screen bg-background">
+      <SplashCursor
+        SIM_RESOLUTION={128}
+        DYE_RESOLUTION={1440}
+        CAPTURE_RESOLUTION={512}
+        DENSITY_DISSIPATION={17}
+        VELOCITY_DISSIPATION={2.6}
+        PRESSURE={0.1}
+        PRESSURE_ITERATIONS={20}
+        CURL={3}
+        SPLAT_RADIUS={0.04}
+        SPLAT_FORCE={1200}
+        SHADING={false}
+        COLOR_UPDATE_SPEED={27}
+        TRANSPARENT
+        RAINBOW_MODE={true}
+        COLOR="#ffffff"
+        BACK_COLOR={{ r: 0, g: 0, b: 0 }}
+      />
       <CursorFollower />
 
       <AnimatePresence mode="wait">
